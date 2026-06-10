@@ -167,7 +167,7 @@ export default function CharmDesigner() {
                     <ImageUploader
                       onImageSelect={handleImageSelect}
                       currentImage={imageData}
-                      className="h-48"
+                      className="h-36"
                     />
                   </div>
 

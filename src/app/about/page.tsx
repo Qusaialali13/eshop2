@@ -263,11 +263,11 @@ export default function About() {
                 >
                   {/* Circle with icon */}
                   <div className="relative mx-auto w-16 h-16 mb-4">
-                    <div className="absolute inset-0 rounded-full flex items-center justify-center" style={{ backgroundColor: 'rgba(164, 131, 85, 0.2)' }}>
-                      <item.icon className="w-8 h-8" style={{ color: '#a48355' }} strokeWidth={1.5} />
+                    <div className="absolute inset-0 rounded-full flex items-center justify-center" style={{ backgroundColor: '#a48355' }}>
+                      <item.icon className="w-8 h-8" style={{ color: '#FFFFFF' }} strokeWidth={1.5} />
                     </div>
                     {/* Step number badge */}
-                    <div className="absolute -top-1 -right-1 w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold" style={{ backgroundColor: '#a48355', color: '#FFFFFF' }}>
+                    <div className="absolute -top-1 -right-1 w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold" style={{ backgroundColor: '#e8d0b4', color: '#0e0a0e' }}>
                       {item.step}
                     </div>
                   </div>
