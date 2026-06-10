@@ -8,7 +8,6 @@ import MobileNavbar from '@/components/MobileNavbar';
 import Footer from '@/components/Footer';
 import CharmPreview from '@/components/CharmPreview';
 import ImageUploader from '@/components/ImageUploader';
-import ImageEditor from '@/components/ImageEditor';
 import MaterialSelector from '@/components/MaterialSelector';
 import SizeSelector from '@/components/SizeSelector';
 import QuantitySelector from '@/components/QuantitySelector';
@@ -121,7 +120,7 @@ export default function CharmDesigner() {
               className="text-base md:text-lg"
               style={{ color: '#5f5f5f' }}
             >
-              Design your perfect charm in 4 simple steps
+              Design your perfect charm in 3 simple steps
             </motion.p>
           </div>
 
@@ -173,35 +172,11 @@ export default function CharmDesigner() {
               </div>
             </div>
 
-            {/* Step 2: Adjust Photo */}
-            {imageData && (
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.4 }}
-                className="rounded-2xl p-6 shadow-sm" style={{ backgroundColor: '#FFFFFF', border: '1px solid #e8d0b4' }}
-              >
-                <div className="flex items-start space-x-4">
-                  <div className="flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center font-bold" style={{ backgroundColor: '#a48355', color: '#FFFFFF' }}>
-                    2
-                  </div>
-                  <div className="flex-1 space-y-3">
-                    <h3 className="font-serif text-xl font-semibold" style={{ color: '#0e0a0e' }}>Adjust Your Photo</h3>
-                    <ImageEditor
-                      imageData={imageData}
-                      settings={imageSettings}
-                      onChange={setImageSettings}
-                    />
-                  </div>
-                </div>
-              </motion.div>
-            )}
-
-            {/* Step 3: Choose Material */}
+            {/* Step 2: Choose Material */}
             <div className="rounded-2xl p-6 shadow-sm" style={{ backgroundColor: '#FFFFFF', border: '1px solid #e8d0b4' }}>
               <div className="flex items-start space-x-4">
                 <div className="flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center font-bold" style={{ backgroundColor: '#a48355', color: '#FFFFFF' }}>
-                  3
+                  2
                 </div>
                 <div className="flex-1">
                   <h3 className="font-serif text-xl font-semibold mb-4" style={{ color: '#0e0a0e' }}>Select Material</h3>
@@ -210,11 +185,11 @@ export default function CharmDesigner() {
               </div>
             </div>
 
-            {/* Step 4: Quantity & Price */}
+            {/* Step 3: Quantity & Price */}
             <div className="rounded-2xl p-6 shadow-sm" style={{ backgroundColor: '#FFFFFF', border: '1px solid #e8d0b4' }}>
               <div className="flex items-start space-x-4">
                 <div className="flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center font-bold" style={{ backgroundColor: '#a48355', color: '#FFFFFF' }}>
-                  4
+                  3
                 </div>
                 <div className="flex-1 space-y-4">
                   <h3 className="font-serif text-xl font-semibold" style={{ color: '#0e0a0e' }}>Quantity & Price</h3>
