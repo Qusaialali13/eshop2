@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { Instagram, Facebook, Pinterest, Mail, Phone, MapPin } from 'lucide-react';
+import { Instagram, Facebook, Twitter, Mail, Phone, MapPin } from 'lucide-react';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -47,13 +47,13 @@ const Footer = () => {
                 <Facebook className="w-5 h-5" />
               </a>
               <a
-                href="https://pinterest.com"
+                href="https://twitter.com"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-600 hover:text-amber-700 transition-colors"
-                aria-label="Pinterest"
+                aria-label="Twitter"
               >
-                <Pinterest className="w-5 h-5" />
+                <Twitter className="w-5 h-5" />
               </a>
             </div>
           </motion.div>
