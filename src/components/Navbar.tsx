@@ -32,27 +32,32 @@ const Navbar = () => {
     <motion.nav
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? 'bg-white/80 backdrop-blur-md shadow-sm' : 'bg-transparent'
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+        scrolled ? 'bg-white/95 backdrop-blur-xl shadow-lg' : 'bg-white/90 backdrop-blur-md'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <Link href="/" className="flex items-center space-x-2">
-            <div className="w-10 h-10 rounded-full flex items-center justify-center" style={{ background: 'linear-gradient(135deg, #e8d0b4 0%, #a48355 100%)' }}>
-              <span className="text-white font-serif text-xl font-bold">L</span>
-            </div>
-            <span className="font-serif text-2xl font-medium" style={{ color: '#0e0a0e' }}>LuxCharms</span>
+          <Link href="/" className="flex items-center space-x-3 group">
+            <motion.div 
+              className="w-12 h-12 rounded-2xl flex items-center justify-center"
+              style={{ background: 'linear-gradient(135deg, #a48355 0%, #0e0a0e 100%)' }}
+              whileHover={{ scale: 1.05, rotate: 5 }}
+              transition={{ duration: 0.3 }}
+            >
+              <span className="text-white font-bold text-xl">L</span>
+            </motion.div>
+            <span className="font-bold text-xl tracking-tight" style={{ color: '#0e0a0e' }}>LuxCharms</span>
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex items-center space-x-1">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className="transition-colors duration-200 font-medium hover:text-[#a48355]"
+                className="relative px-4 py-2 text-sm font-medium transition-colors duration-300 hover:text-[#a48355]"
                 style={{ color: '#0e0a0e' }}
               >
                 {link.label}
@@ -61,38 +66,76 @@ const Navbar = () => {
           </div>
 
           {/* Desktop Icons */}
-          <div className="hidden md:flex items-center space-x-4">
+          <div className="hidden md:flex items-center space-x-2">
             <Link href="/favorites">
-              <Button variant="ghost" size="icon" style={{ color: '#0e0a0e' }} className="hover:text-[#a48355]">
-                <Heart className="w-5 h-5" />
+              <Button 
+                variant="ghost" 
+                size="icon" 
+                className="w-10 h-10 transition-all duration-300 hover:bg-[#f4f1e2]"
+                style={{ color: '#0e0a0e' }}
+              >
+                <Heart className="w-5 h-5" strokeWidth={1.5} />
               </Button>
             </Link>
             <Link href="/cart">
-              <Button variant="ghost" size="icon" style={{ color: '#0e0a0e' }} className="hover:text-[#a48355] relative">
-                <ShoppingBag className="w-5 h-5" />
+              <Button 
+                variant="ghost" 
+                size="icon" 
+                className="w-10 h-10 transition-all duration-300 hover:bg-[#f4f1e2] relative"
+                style={{ color: '#0e0a0e' }}
+              >
+                <ShoppingBag className="w-5 h-5" strokeWidth={1.5} />
                 {cartCount > 0 && (
-                  <span className="absolute -top-1 -right-1 w-5 h-5 rounded-full flex items-center justify-center text-xs" style={{ backgroundColor: '#a48355', color: '#FFFFFF' }}>
+                  <span className="absolute -top-1 -right-1 w-5 h-5 rounded-full flex items-center justify-center text-xs font-bold" style={{ backgroundColor: '#a48355', color: '#FFFFFF' }}>
                     {cartCount}
                   </span>
                 )}
               </Button>
             </Link>
             <Link href="/profile">
-              <Button variant="ghost" size="icon" style={{ color: '#0e0a0e' }} className="hover:text-[#a48355]">
-                <User className="w-5 h-5" />
+              <Button 
+                variant="ghost" 
+                size="icon" 
+                className="w-10 h-10 transition-all duration-300 hover:bg-[#f4f1e2]"
+                style={{ color: '#0e0a0e' }}
+              >
+                <User className="w-5 h-5" strokeWidth={1.5} />
               </Button>
             </Link>
           </div>
 
           {/* Mobile Menu Button */}
-          <button
+          <motion.button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             style={{ color: '#0e0a0e' }}
-            className="md:hidden hover:text-[#a48355]"
+            className="md:hidden w-10 h-10 rounded-xl flex items-center justify-center transition-all duration-300 hover:bg-[#f4f1e2]"
             aria-label="Toggle menu"
+            whileTap={{ scale: 0.95 }}
           >
-            {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-          </button>
+            <AnimatePresence mode="wait">
+              {mobileMenuOpen ? (
+                <motion.div
+                  key="close"
+                  initial={{ rotate: -90, opacity: 0 }}
+                  animate={{ rotate: 0, opacity: 1 }}
+                  exit={{ rotate: 90, opacity: 0 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <X className="w-6 h-6" strokeWidth={1.5} />
+                </motion.div>
+              ) : (
+                <motion.div
+                  key="open"
+                  initial={{ rotate: 90, opacity: 0 }}
+                  animate={{ rotate: 0, opacity: 1 }}
+                  exit={{ rotate: -90, opacity: 0 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <Menu className="w-6 h-6" strokeWidth={1.5} />
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </motion.button>
         </div>
       </div>
 
@@ -103,42 +146,56 @@ const Navbar = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:bg-white border-t"
+            transition={{ duration: 0.3 }}
+            className="md:hidden bg-white/95 backdrop-blur-xl border-t shadow-lg"
+            style={{ borderColor: '#e8d0b4' }}
           >
-            <div className="px-4 py-6 space-y-4">
-              {navLinks.map((link) => (
-                <Link
+            <div className="px-4 py-6 space-y-2">
+              {navLinks.map((link, index) => (
+                <motion.div
                   key={link.href}
-                  href={link.href}
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="block py-2 transition-colors duration-200 font-medium hover:text-[#a48355]"
-                  style={{ color: '#0e0a0e' }}
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: index * 0.05 }}
                 >
-                  {link.label}
-                </Link>
+                  <Link
+                    href={link.href}
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="block px-4 py-3 text-lg font-medium rounded-xl transition-all duration-300 hover:bg-[#f4f1e2] hover:text-[#a48355]"
+                    style={{ color: '#0e0a0e' }}
+                  >
+                    {link.label}
+                  </Link>
+                </motion.div>
               ))}
-              <div className="pt-4 border-t flex space-x-4" style={{ borderColor: '#e8d0b4' }}>
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2 }}
+                className="pt-6 border-t flex justify-center space-x-4"
+                style={{ borderColor: '#e8d0b4' }}
+              >
                 <Link href="/favorites" onClick={() => setMobileMenuOpen(false)}>
-                  <Button variant="ghost" size="icon">
-                    <Heart className="w-5 h-5" />
+                  <Button variant="ghost" size="icon" className="w-12 h-12">
+                    <Heart className="w-6 h-6" strokeWidth={1.5} />
                   </Button>
                 </Link>
                 <Link href="/cart" onClick={() => setMobileMenuOpen(false)}>
-                  <Button variant="ghost" size="icon" relative>
-                    <ShoppingBag className="w-5 h-5" />
+                  <Button variant="ghost" size="icon" className="w-12 h-12 relative">
+                    <ShoppingBag className="w-6 h-6" strokeWidth={1.5} />
                     {cartCount > 0 && (
-                      <span className="absolute -top-1 -right-1 w-5 h-5 rounded-full flex items-center justify-center text-xs" style={{ backgroundColor: '#a48355', color: '#FFFFFF' }}>
+                      <span className="absolute -top-1 -right-1 w-6 h-6 rounded-full flex items-center justify-center text-sm font-bold" style={{ backgroundColor: '#a48355', color: '#FFFFFF' }}>
                         {cartCount}
                       </span>
                     )}
                   </Button>
                 </Link>
                 <Link href="/profile" onClick={() => setMobileMenuOpen(false)}>
-                  <Button variant="ghost" size="icon">
-                    <User className="w-5 h-5" />
+                  <Button variant="ghost" size="icon" className="w-12 h-12">
+                    <User className="w-6 h-6" strokeWidth={1.5} />
                   </Button>
                 </Link>
-              </div>
+              </motion.div>
             </div>
           </motion.div>
         )}

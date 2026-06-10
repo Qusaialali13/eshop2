@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 @theme {
-  --font-serif: "Playfair Display", serif;
-  --font-sans: "Inter", system-ui, sans-serif;
+  --font-serif: "Montserrat", serif;
+  --font-sans: "Montserrat", system-ui, sans-serif;
   
   --color-black: #0e0a0e;
   --color-grey: #f4f1e2;
@@ -86,10 +86,14 @@
   body {
     background-color: theme(colors.background);
     color: theme(colors.foreground);
+    font-family: var(--font-montserrat), "Montserrat", sans-serif;
+    font-weight: 400;
   }
   
   h1, h2, h3, h4, h5, h6 {
-    font-family: theme(fontFamily.serif);
+    font-family: var(--font-montserrat), "Montserrat", sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.02em;
   }
 }
 

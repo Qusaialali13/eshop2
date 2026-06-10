@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Playfair_Display, Inter } from "next/font/google";
+import { Montserrat } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "@/components/ui/toaster";
 import { CartProvider } from "@/contexts/CartContext";
@@ -7,16 +7,11 @@ import { FavoritesProvider } from "@/contexts/FavoritesContext";
 import { ThemeProvider } from "@/contexts/ThemeContext";
 import { ProfileProvider } from "@/contexts/ProfileContext";
 
-const playfair = Playfair_Display({
-  variable: "--font-playfair",
+const montserrat = Montserrat({
+  variable: "--font-montserrat",
   subsets: ["latin"],
   display: 'swap',
-});
-
-const inter = Inter({
-  variable: "--font-inter",
-  subsets: ["latin"],
-  display: 'swap',
+  weight: ['300', '400', '500', '600', '700', '800'],
 });
 
 export const metadata: Metadata = {
@@ -46,7 +41,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${playfair.variable} ${inter.variable} antialiased bg-white text-gray-900`}
+        className={`${montserrat.variable} font-sans antialiased bg-white`}
       >
         <ThemeProvider>
           <CartProvider>
