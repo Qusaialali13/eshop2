@@ -90,6 +90,9 @@ export default function Charms() {
         </div>
       </section>
 
+      {/* Separator before Footer */}
+      <div className="h-8" style={{ backgroundColor: '#0e0a0e' }} />
+
       <Footer />
       <MobileNavbar />
     </div>

@@ -158,7 +158,7 @@ export default function CharmDesigner() {
                   <TabsTrigger value="material">Material</TabsTrigger>
                 </TabsList>
 
-                {/* Customize Tab - No shape selector, PNG only */}
+                {/* Customize Tab - No shape selector, PNG only, no size selector */}
                 <TabsContent value="customize" className="space-y-6 mt-6">
                   {/* Image Upload - PNG only */}
                   <div className="space-y-3">
@@ -182,9 +182,6 @@ export default function CharmDesigner() {
                       />
                     </div>
                   )}
-
-                  {/* Size Selector */}
-                  <SizeSelector selected={size} onChange={setSize} />
                 </TabsContent>
 
                 {/* Material Tab */}

@@ -253,8 +253,8 @@ export default function About() {
         </div>
       </section>
 
-      {/* How Charms Are Made - Equal size boxes */}
-      <section className="py-20" style={{ backgroundColor: '#f4f1e2' }}>
+      {/* How Charms Are Made - Redesigned equal size boxes */}
+      <section className="py-20" style={{ backgroundColor: '#0e0a0e' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -262,7 +262,7 @@ export default function About() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="font-serif text-4xl md:text-5xl font-bold mb-4" style={{ color: '#0e0a0e' }}>
+            <h2 className="font-serif text-4xl md:text-5xl font-bold mb-4" style={{ color: '#f4f1e2' }}>
               How Your Charm Is Made
             </h2>
             <p className="text-xl" style={{ color: '#5f5f5f' }} max-w-2xl mx-auto>
@@ -270,12 +270,12 @@ export default function About() {
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-4 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
-              { step: '01', title: 'Upload Photo', desc: 'You upload your favorite photo in high resolution' },
-              { step: '02', title: 'Customize', desc: 'Choose shape, material, and perfect the positioning' },
-              { step: '03', title: 'Craft', desc: 'Our artisans craft your charm with precision and care' },
-              { step: '04', title: 'Deliver', desc: 'Your custom charm arrives beautifully packaged' },
+              { step: '01', title: 'Upload Photo', desc: 'You upload your favorite photo in high resolution', icon: '📷' },
+              { step: '02', title: 'Customize', desc: 'Choose shape, material, and perfect the positioning', icon: '✨' },
+              { step: '03', title: 'Craft', desc: 'Our artisans craft your charm with precision and care', icon: '🔨' },
+              { step: '04', title: 'Deliver', desc: 'Your custom charm arrives beautifully packaged', icon: '🎁' },
             ].map((item, index) => (
               <motion.div
                 key={index}
@@ -283,19 +283,22 @@ export default function About() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className="relative rounded-2xl p-6"
-                style={{ backgroundColor: '#FFFFFF', minHeight: '280px' }}
+                className="relative rounded-2xl p-6 flex flex-col"
+                style={{ backgroundColor: 'rgba(244, 241, 226, 0.03)', border: '1px solid rgba(232, 208, 180, 0.1)', minHeight: '320px' }}
               >
-                <div className="absolute top-4 left-4 text-8xl font-serif font-bold opacity-10" style={{ color: '#a48355' }}>
+                <div className="absolute top-4 right-4 text-6xl font-serif font-bold opacity-10" style={{ color: '#a48355' }}>
                   {item.step}
                 </div>
-                <div className="relative z-10 h-full flex flex-col justify-between">
-                  <div>
-                    <h3 className="font-serif text-2xl font-semibold mb-4" style={{ color: '#0e0a0e' }}>
-                      {item.title}
-                    </h3>
-                    <p style={{ color: '#5f5f5f' }}>{item.desc}</p>
+                <div className="relative z-10 flex-1 flex flex-col">
+                  <div className="w-14 h-14 rounded-full flex items-center justify-center mb-6 text-2xl" style={{ backgroundColor: 'rgba(164, 131, 85, 0.2)' }}>
+                    {item.icon}
                   </div>
+                  <h3 className="font-serif text-xl font-semibold mb-3" style={{ color: '#e8d0b4' }}>
+                    {item.title}
+                  </h3>
+                  <p style={{ color: '#5f5f5f', lineHeight: '1.6' }} className="flex-1">
+                    {item.desc}
+                  </p>
                 </div>
               </motion.div>
             ))}

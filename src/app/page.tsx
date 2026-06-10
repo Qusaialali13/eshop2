@@ -20,9 +20,16 @@ export default function Home() {
     <div className="min-h-screen flex flex-col bg-white">
       <Navbar />
 
-      {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center" style={{ background: 'linear-gradient(135deg, #f4f1e2 0%, #e8d0b4 50%, #FFFFFF 100%)' }}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
+      {/* Hero Section - Redesigned */}
+      <section className="relative min-h-screen flex items-center overflow-hidden" style={{ background: 'linear-gradient(180deg, #0e0a0e 0%, #1a1518 50%, #251f24 100%)' }}>
+        {/* Background decorative elements */}
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute top-20 right-10 w-64 h-64 rounded-full blur-3xl opacity-20" style={{ backgroundColor: '#a48355' }} />
+          <div className="absolute bottom-20 left-10 w-80 h-80 rounded-full blur-3xl opacity-15" style={{ backgroundColor: '#e8d0b4' }} />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 rounded-full blur-3xl opacity-10" style={{ backgroundColor: '#f4f1e2' }} />
+        </div>
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 relative z-10">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <motion.div
               initial={{ opacity: 0, x: -50 }}
@@ -35,20 +42,22 @@ export default function Home() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
                 className="inline-flex items-center space-x-2 px-4 py-2 rounded-full text-sm font-medium"
-                style={{ backgroundColor: '#a48355', color: '#FFFFFF' }}
+                style={{ backgroundColor: 'rgba(164, 131, 85, 0.2)', color: '#e8d0b4', border: '1px solid rgba(164, 131, 85, 0.3)' }}
               >
                 <Sparkles className="w-4 h-4" />
-                <span>Craft Your Perfect Memory</span>
+                <span>Handcrafted Luxury</span>
               </motion.div>
               
-              <h1 className="font-serif text-5xl md:text-7xl font-bold" style={{ color: '#0e0a0e' }} leading-tight>
-                Turn Your Favorite{' '}
-                <span style={{ color: '#a48355' }}>Memories</span>
-                <br />Into Beautiful Charms
+              <h1 className="font-serif text-5xl md:text-7xl font-bold leading-tight" style={{ color: '#f4f1e2' }}>
+                Capture Your
+                <br />
+                <span style={{ color: '#a48355' }}>Precious Moments</span>
+                <br />
+                Forever
               </h1>
               
               <p className="text-xl leading-relaxed max-w-lg" style={{ color: '#5f5f5f' }}>
-                Design custom jewelry using your own photos. Create timeless pieces that tell your unique story.
+                Transform your most cherished memories into exquisite custom jewelry pieces crafted with precision and love.
               </p>
               
               <motion.div
@@ -61,9 +70,9 @@ export default function Home() {
                   <Button 
                     size="lg" 
                     className="px-10 py-6 text-lg transition-all duration-300 hover:scale-105"
-                    style={{ backgroundColor: '#0e0a0e', color: '#f4f1e2' }}
+                    style={{ backgroundColor: '#a48355', color: '#FFFFFF' }}
                   >
-                    Start Designing
+                    Create Your Charm
                     <ArrowRight className="ml-2 w-5 h-5" />
                   </Button>
                 </Link>
@@ -72,30 +81,34 @@ export default function Home() {
                     size="lg" 
                     variant="outline" 
                     className="px-10 py-6 text-lg border-2 transition-all duration-300 hover:scale-105"
-                    style={{ borderColor: '#a48355', color: '#a48355' }}
+                    style={{ borderColor: '#e8d0b4', color: '#e8d0b4', backgroundColor: 'transparent' }}
                   >
-                    Explore Shapes
+                    View Collection
                   </Button>
                 </Link>
               </motion.div>
 
+              {/* Stats container - redesigned */}
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.8, delay: 0.6 }}
-                className="flex items-center space-x-8 pt-4"
+                className="rounded-2xl p-6 backdrop-blur-sm"
+                style={{ backgroundColor: 'rgba(244, 241, 226, 0.05)', border: '1px solid rgba(232, 208, 180, 0.2)' }}
               >
-                <div className="text-center">
-                  <p className="text-3xl font-serif font-bold" style={{ color: '#0e0a0e' }}>50K+</p>
-                  <p className="text-sm" style={{ color: '#5f5f5f' }}>Happy Customers</p>
-                </div>
-                <div className="text-center">
-                  <p className="text-3xl font-serif font-bold" style={{ color: '#0e0a0e' }}>4.9</p>
-                  <p className="text-sm" style={{ color: '#5f5f5f' }}>Average Rating</p>
-                </div>
-                <div className="text-center">
-                  <p className="text-3xl font-serif font-bold" style={{ color: '#0e0a0e' }}>100K+</p>
-                  <p className="text-sm" style={{ color: '#5f5f5f' }}>Charms Created</p>
+                <div className="grid grid-cols-3 gap-6">
+                  <div className="text-center">
+                    <p className="text-3xl font-serif font-bold mb-1" style={{ color: '#a48355' }}>50K+</p>
+                    <p className="text-sm" style={{ color: '#5f5f5f' }}>Happy Customers</p>
+                  </div>
+                  <div className="text-center border-l" style={{ borderColor: 'rgba(232, 208, 180, 0.2)' }}>
+                    <p className="text-3xl font-serif font-bold mb-1" style={{ color: '#a48355' }}>4.9</p>
+                    <p className="text-sm" style={{ color: '#5f5f5f' }}>Average Rating</p>
+                  </div>
+                  <div className="text-center border-l" style={{ borderColor: 'rgba(232, 208, 180, 0.2)' }}>
+                    <p className="text-3xl font-serif font-bold mb-1" style={{ color: '#a48355' }}>100K+</p>
+                    <p className="text-sm" style={{ color: '#5f5f5f' }}>Charms Created</p>
+                  </div>
                 </div>
               </motion.div>
             </motion.div>
@@ -106,17 +119,17 @@ export default function Home() {
               transition={{ duration: 0.8, delay: 0.3 }}
               className="relative"
             >
-              <div className="relative rounded-3xl p-12 shadow-2xl" style={{ backgroundColor: '#FFFFFF' }}>
+              <div className="relative rounded-3xl p-12 backdrop-blur-sm" style={{ backgroundColor: 'rgba(244, 241, 226, 0.03)', border: '1px solid rgba(232, 208, 180, 0.1)' }}>
                 <div className="flex items-center justify-center space-x-6">
                   <motion.div
-                    animate={{ y: [0, -10, 0] }}
-                    transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
+                    animate={{ y: [0, -15, 0] }}
+                    transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
                   >
                     <ShapeSVG shape="heart" material="gold" size={180} />
                   </motion.div>
                   <motion.div
-                    animate={{ y: [0, 10, 0] }}
-                    transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut', delay: 0.5 }}
+                    animate={{ y: [0, 15, 0] }}
+                    transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut', delay: 0.5 }}
                   >
                     <ShapeSVG shape="circle" material="silver" size={160} />
                   </motion.div>
@@ -271,42 +284,73 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Newsletter */}
-      <section className="py-20" style={{ backgroundColor: '#e8d0b4' }}>
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Newsletter - Redesigned CTA Section */}
+      <section className="py-20" style={{ backgroundColor: '#0e0a0e' }}>
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="rounded-3xl p-8 md:p-12 text-center"
-            style={{ backgroundColor: '#FFFFFF' }}
+            className="rounded-3xl overflow-hidden"
+            style={{ background: 'linear-gradient(135deg, #1a1518 0%, #251f24 100%)', border: '1px solid rgba(232, 208, 180, 0.1)' }}
           >
-            <div className="w-16 h-16 mx-auto mb-6 rounded-full flex items-center justify-center" style={{ backgroundColor: '#a48355' }}>
-              <Heart className="w-8 h-8" style={{ color: '#FFFFFF' }} />
+            <div className="grid md:grid-cols-2 gap-8 p-8 md:p-12">
+              <div className="flex flex-col justify-center">
+                <div className="w-16 h-16 rounded-full flex items-center justify-center mb-6" style={{ backgroundColor: 'rgba(164, 131, 85, 0.2)' }}>
+                  <Heart className="w-8 h-8" style={{ color: '#a48355' }} />
+                </div>
+                <h2 className="font-serif text-3xl md:text-4xl font-bold mb-4" style={{ color: '#f4f1e2' }}>
+                  Join Our Community
+                </h2>
+                <p className="text-lg mb-6" style={{ color: '#5f5f5f' }}>
+                  Get exclusive offers, early access to new collections, and jewelry inspiration delivered to your inbox.
+                </p>
+                <div className="space-y-4">
+                  <div className="flex items-center space-x-3">
+                    <div className="w-2 h-2 rounded-full" style={{ backgroundColor: '#a48355' }} />
+                    <p style={{ color: '#5f5f5f' }}>15% off your first order</p>
+                  </div>
+                  <div className="flex items-center space-x-3">
+                    <div className="w-2 h-2 rounded-full" style={{ backgroundColor: '#a48355' }} />
+                    <p style={{ color: '#5f5f5f' }}>New collection previews</p>
+                  </div>
+                  <div className="flex items-center space-x-3">
+                    <div className="w-2 h-2 rounded-full" style={{ backgroundColor: '#a48355' }} />
+                    <p style={{ color: '#5f5f5f' }}>Exclusive member discounts</p>
+                  </div>
+                </div>
+              </div>
+              <div className="flex flex-col justify-center">
+                <div className="rounded-2xl p-6 backdrop-blur-sm" style={{ backgroundColor: 'rgba(244, 241, 226, 0.05)', border: '1px solid rgba(232, 208, 180, 0.15)' }}>
+                  <h3 className="font-serif text-xl font-semibold mb-4" style={{ color: '#e8d0b4' }}>
+                    Subscribe Now
+                  </h3>
+                  <div className="space-y-4">
+                    <Input
+                      type="email"
+                      placeholder="Enter your email"
+                      className="flex-1 h-12 text-base"
+                      style={{ backgroundColor: 'rgba(14, 10, 14, 0.5)', borderColor: 'rgba(232, 208, 180, 0.2)', color: '#f4f1e2' }}
+                    />
+                    <Input
+                      type="text"
+                      placeholder="Your name"
+                      className="flex-1 h-12 text-base"
+                      style={{ backgroundColor: 'rgba(14, 10, 14, 0.5)', borderColor: 'rgba(232, 208, 180, 0.2)', color: '#f4f1e2' }}
+                    />
+                    <Button 
+                      className="w-full h-12 transition-all duration-300 hover:scale-105"
+                      style={{ backgroundColor: '#a48355', color: '#FFFFFF' }}
+                    >
+                      Subscribe Now
+                    </Button>
+                  </div>
+                  <p className="text-xs mt-4" style={{ color: '#5f5f5f' }}>
+                    By subscribing, you agree to our Privacy Policy. Unsubscribe anytime.
+                  </p>
+                </div>
+              </div>
             </div>
-            <h2 className="font-serif text-3xl md:text-4xl font-bold mb-4" style={{ color: '#0e0a0e' }}>
-              Stay Connected
-            </h2>
-            <p className="text-lg mb-8 max-w-xl mx-auto" style={{ color: '#5f5f5f' }}>
-              Subscribe to our newsletter for exclusive offers, new arrivals, and jewelry inspiration.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
-              <Input
-                type="email"
-                placeholder="Enter your email"
-                className="flex-1 h-12 text-base"
-                style={{ backgroundColor: '#f4f1e2', borderColor: '#e8d0b4' }}
-              />
-              <Button 
-                className="h-12 px-8 transition-all duration-300 hover:scale-105"
-                style={{ backgroundColor: '#0e0a0e', color: '#f4f1e2' }}
-              >
-                Subscribe
-              </Button>
-            </div>
-            <p className="text-sm mt-4" style={{ color: '#5f5f5f' }}>
-              By subscribing, you agree to our Privacy Policy. Unsubscribe anytime.
-            </p>
           </motion.div>
         </div>
       </section>
