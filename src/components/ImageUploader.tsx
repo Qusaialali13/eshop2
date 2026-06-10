@@ -108,11 +108,14 @@ const ImageUploader: React.FC<ImageUploaderProps> = ({ onImageSelect, currentIma
                 <p className="font-medium text-gray-900 mb-1">
                   Drop your PNG image here
                 </p>
-                <p className="text-sm text-gray-500 mb-3">
+                <p className="text-sm text-gray-500 mb-2">
                   or click to browse
                 </p>
                 <p className="text-xs text-gray-400">
-                  PNG format with transparent background only
+                  PNG format with transparent background
+                </p>
+                <p className="text-xs text-gray-400 mt-1">
+                  Image size: 1cm × 1cm
                 </p>
               </div>
               <input

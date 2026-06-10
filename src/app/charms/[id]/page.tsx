@@ -195,7 +195,7 @@ export default function CharmDesigner() {
                 <div className="flex items-center justify-between">
                   <div>
                     <p className="font-medium" style={{ color: '#0e0a0e' }}>Quantity</p>
-                    <p className="text-sm" style={{ color: '#5f5f5f' }}>Max 10 per order</p>
+                    <p className="text-sm" style={{ color: '#5f5f5f' }}>Select pack size</p>
                   </div>
                   <QuantitySelector value={quantity} onChange={setQuantity} />
                 </div>
