@@ -7,12 +7,10 @@ import Navbar from '@/components/Navbar';
 import MobileNavbar from '@/components/MobileNavbar';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
-import { ShoppingBag, Check, ArrowLeft, Heart } from 'lucide-react';
+import { ShoppingBag, Check, ArrowLeft, Heart, Minus, Plus } from 'lucide-react';
 import { useCart } from '@/contexts/CartContext';
 import { useFavorites } from '@/contexts/FavoritesContext';
 import FavoriteButton from '@/components/FavoriteButton';
-import QuantitySelector from '@/components/QuantitySelector';
-import PriceCalculator from '@/components/PriceCalculator';
 
 type BraceletColor = 'silver' | 'gold' | 'rose-gold';
 
@@ -225,24 +223,40 @@ export default function BraceletCustomizer() {
                 </div>
                 <div className="flex-1">
                   <h3 className="font-serif text-xl font-semibold mb-4" style={{ color: '#0e0a0e' }}>Select Color</h3>
-                  <div className="flex gap-3">
+                  <div className="flex flex-wrap gap-8">
                     {colors.map((color) => (
                       <motion.button
                         key={color.value}
                         onClick={() => setSelectedColor(color.value)}
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
-                        className={`flex-1 py-3 rounded-xl font-semibold transition-all duration-300 ${
-                          selectedColor === color.value ? 'scale-105' : ''
-                        }`}
-                        style={{
-                          backgroundColor: selectedColor === color.value ? color.colorCode : '#f4f1e2',
-                          color: selectedColor === color.value ? '#FFFFFF' : '#0e0a0e',
-                          border: selectedColor === color.value ? 'none' : '2px solid #e8d0b4',
-                        }}
+                        className="relative flex flex-col items-center gap-2 pb-2 group"
                       >
-                        {color.icon}
-                        <div className="text-sm mt-1">{color.name}</div>
+                        {/* Color Circle */}
+                        <motion.div
+                          className="w-12 h-12 rounded-full shadow-md ring-2 ring-offset-2 transition-transform group-hover:scale-110"
+                          style={{
+                            backgroundColor: color.colorCode,
+                            ringColor: selectedColor === color.value ? '#a48355' : 'transparent',
+                          }}
+                          animate={{
+                            ringWidth: selectedColor === color.value ? '2px' : '0px',
+                          }}
+                        >
+                          <span className="flex items-center justify-center h-full text-2xl">
+                            {color.icon}
+                          </span>
+                        </motion.div>
+                        <span className="text-sm font-medium" style={{ color: '#0e0a0e' }}>{color.name}</span>
+                        {selectedColor === color.value && (
+                          <motion.div
+                            layoutId="color-underline"
+                            className="absolute bottom-0 left-0 right-0 h-0.5"
+                            style={{ backgroundColor: '#a48355' }}
+                            initial={false}
+                            transition={{ type: 'spring', stiffness: 500, damping: 30 }}
+                          />
+                        )}
                       </motion.button>
                     ))}
                   </div>
@@ -288,9 +302,47 @@ export default function BraceletCustomizer() {
                 </div>
                 <div className="flex-1 space-y-4">
                   <h3 className="font-serif text-xl font-semibold" style={{ color: '#0e0a0e' }}>Quantity & Price</h3>
-                  <div>
-                    <p className="text-sm mb-3" style={{ color: '#5f5f5f' }}>Select quantity:</p>
-                    <QuantitySelector value={quantity} onChange={setQuantity} />
+                  <div className="flex items-center gap-4">
+                    <label className="text-sm" style={{ color: '#5f5f5f' }}>Quantity:</label>
+                    <div className="flex items-center gap-2">
+                      <button
+                        type="button"
+                        onClick={() => setQuantity(Math.max(1, quantity - 1))}
+                        disabled={quantity <= 1}
+                        className="w-10 h-10 rounded-lg flex items-center justify-center transition-all disabled:opacity-30 disabled:cursor-not-allowed hover:scale-105"
+                        style={{ backgroundColor: '#f4f1e2', border: '2px solid #e8d0b4' }}
+                      >
+                        <Minus className="w-4 h-4" style={{ color: '#0e0a0e' }} />
+                      </button>
+                      <input
+                        type="number"
+                        min="1"
+                        max="99"
+                        value={quantity}
+                        onChange={(e) => {
+                          const value = parseInt(e.target.value) || 1;
+                          if (value >= 1 && value <= 99) {
+                            setQuantity(value);
+                          }
+                        }}
+                        className="w-20 h-10 text-center font-semibold rounded-lg border-2 focus:outline-none focus:ring-2 transition-all"
+                        style={{
+                          color: '#0e0a0e',
+                          backgroundColor: '#FFFFFF',
+                          borderColor: '#e8d0b4',
+                          ringColor: '#a48355',
+                        }}
+                      />
+                      <button
+                        type="button"
+                        onClick={() => setQuantity(Math.min(99, quantity + 1))}
+                        disabled={quantity >= 99}
+                        className="w-10 h-10 rounded-lg flex items-center justify-center transition-all disabled:opacity-30 disabled:cursor-not-allowed hover:scale-105"
+                        style={{ backgroundColor: '#f4f1e2', border: '2px solid #e8d0b4' }}
+                      >
+                        <Plus className="w-4 h-4" style={{ color: '#0e0a0e' }} />
+                      </button>
+                    </div>
                   </div>
                   <div className="pt-4 border-t" style={{ borderColor: '#e8d0b4' }}>
                     <div className="flex justify-between items-center mb-2">
