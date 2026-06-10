@@ -91,31 +91,27 @@ const ImageUploader: React.FC<ImageUploaderProps> = ({ onImageSelect, currentIma
             onDragOver={handleDragOver}
             onDragLeave={handleDragLeave}
             onDrop={handleDrop}
-            className={`relative border-2 border-dashed rounded-lg p-8 flex flex-col items-center justify-center transition-all duration-300 ${
+            className={`relative border border-dashed rounded-xl flex flex-col items-center justify-center transition-all duration-300 cursor-pointer ${
               isDragging
-                ? 'border-amber-500 bg-amber-50'
-                : 'border-gray-300 hover:border-amber-400 hover:bg-stone-50'
+                ? 'border-amber-600 bg-amber-50'
+                : 'border-amber-400 hover:border-amber-500 hover:bg-amber-50/50'
             }`}
+            style={{ borderColor: isDragging ? '#a48355' : 'rgba(164, 131, 85, 0.5)', borderWidth: '1px' }}
           >
-            <div className="flex flex-col items-center space-y-4 text-center">
+            <div className="flex flex-col items-center space-y-3 text-center p-4">
               <motion.div
-                whileHover={{ scale: 1.1 }}
-                className="w-16 h-16 rounded-full bg-amber-100 flex items-center justify-center"
+                whileHover={{ scale: 1.05 }}
+                className="w-12 h-12 rounded-full flex items-center justify-center"
+                style={{ backgroundColor: 'rgba(164, 131, 85, 0.15)' }}
               >
-                <Upload className="w-8 h-8 text-amber-700" />
+                <Upload className="w-6 h-6" style={{ color: '#a48355' }} />
               </motion.div>
               <div>
-                <p className="font-medium text-gray-900 mb-1">
-                  Drop your PNG image here
+                <p className="font-semibold text-sm mb-1" style={{ color: '#0e0a0e' }}>
+                  Drop PNG image here
                 </p>
-                <p className="text-sm text-gray-500 mb-2">
+                <p className="text-xs" style={{ color: '#5f5f5f' }}>
                   or click to browse
-                </p>
-                <p className="text-xs text-gray-400">
-                  PNG format with transparent background
-                </p>
-                <p className="text-xs text-gray-400 mt-1">
-                  Image size: 1cm × 1cm
                 </p>
               </div>
               <input

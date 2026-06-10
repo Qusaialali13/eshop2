@@ -19,7 +19,6 @@ import { getShapeDisplayName, generateId, calculateCharmPrice } from '@/lib/char
 import { useCart } from '@/contexts/CartContext';
 import { useFavorites } from '@/contexts/FavoritesContext';
 import { Button } from '@/components/ui/button';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { ArrowLeft, Check, ShoppingBag } from 'lucide-react';
 
 export default function CharmDesigner() {
@@ -139,41 +138,51 @@ export default function CharmDesigner() {
               initial={{ opacity: 0, x: 30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6 }}
-              className="order-1 lg:order-2 space-y-5"
+              className="order-1 lg:order-2 space-y-6"
             >
               {/* Title */}
-              <div>
-                <h1 className="font-serif text-3xl md:text-4xl font-bold mb-2" style={{ color: '#0e0a0e' }}>
+              <div className="space-y-2">
+                <h1 className="font-serif text-3xl md:text-4xl font-bold" style={{ color: '#0e0a0e' }}>
                   {getShapeDisplayName(shape)}
                 </h1>
-                <p style={{ color: '#5f5f5f' }}>
-                  Customize your perfect charm with your favorite photo
+                <p className="text-base" style={{ color: '#5f5f5f' }}>
+                  Create your unique charm with these simple steps
                 </p>
               </div>
 
-              {/* Tabs - Only two tabs: Customize & Material */}
-              <Tabs defaultValue="customize" className="w-full">
-                <TabsList className="grid w-full grid-cols-2">
-                  <TabsTrigger value="customize">Customize</TabsTrigger>
-                  <TabsTrigger value="material">Material</TabsTrigger>
-                </TabsList>
-
-                {/* Customize Tab - No shape selector, PNG only, no size selector */}
-                <TabsContent value="customize" className="space-y-4 mt-4">
-                  {/* Image Upload - PNG only */}
-                  <div className="space-y-3">
-                    <h3 className="font-serif text-lg font-semibold" style={{ color: '#0e0a0e' }}>Your Photo</h3>
-                    <p className="text-sm" style={{ color: '#5f5f5f' }}>Please upload a PNG image with transparent background</p>
+              {/* Step 1: Upload Photo */}
+              <div className="rounded-2xl p-5" style={{ backgroundColor: '#f4f1e2' }}>
+                <div className="flex items-start space-x-3">
+                  <div className="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm" style={{ backgroundColor: '#a48355', color: '#FFFFFF' }}>
+                    1
+                  </div>
+                  <div className="flex-1 space-y-2">
+                    <h3 className="font-serif text-lg font-semibold" style={{ color: '#0e0a0e' }}>Upload Your Photo</h3>
+                    <p className="text-sm" style={{ color: '#5f5f5f' }}>
+                      PNG format with transparent background • 1cm × 1cm size
+                    </p>
                     <ImageUploader
                       onImageSelect={handleImageSelect}
                       currentImage={imageData}
-                      className="h-36"
+                      className="h-32"
                     />
                   </div>
+                </div>
+              </div>
 
-                  {/* Image Editor */}
-                  {imageData && (
-                    <div className="space-y-3">
+              {/* Step 2: Adjust Photo */}
+              {imageData && (
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.4 }}
+                  className="rounded-2xl p-5" style={{ backgroundColor: '#f4f1e2' }}
+                >
+                  <div className="flex items-start space-x-3">
+                    <div className="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm" style={{ backgroundColor: '#a48355', color: '#FFFFFF' }}>
+                      2
+                    </div>
+                    <div className="flex-1 space-y-3">
                       <h3 className="font-serif text-lg font-semibold" style={{ color: '#0e0a0e' }}>Adjust Your Photo</h3>
                       <ImageEditor
                         imageData={imageData}
@@ -181,37 +190,52 @@ export default function CharmDesigner() {
                         onChange={setImageSettings}
                       />
                     </div>
-                  )}
-                </TabsContent>
+                  </div>
+                </motion.div>
+              )}
 
-                {/* Material Tab */}
-                <TabsContent value="material" className="mt-4">
-                  <MaterialSelector selected={material} onChange={setMaterial} />
-                </TabsContent>
-              </Tabs>
-
-              {/* Quantity & Price */}
-              <div className="space-y-4 pt-4 border-t" style={{ borderColor: '#e8d0b4' }}>
-                <div>
-                  <p className="font-medium mb-3" style={{ color: '#0e0a0e' }}>Quantity</p>
-                  <QuantitySelector value={quantity} onChange={setQuantity} />
+              {/* Step 3: Choose Material */}
+              <div className="rounded-2xl p-5" style={{ backgroundColor: '#f4f1e2' }}>
+                <div className="flex items-start space-x-3">
+                  <div className="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm" style={{ backgroundColor: '#a48355', color: '#FFFFFF' }}>
+                    3
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="font-serif text-lg font-semibold mb-3" style={{ color: '#0e0a0e' }}>Select Material</h3>
+                    <MaterialSelector selected={material} onChange={setMaterial} />
+                  </div>
                 </div>
+              </div>
 
-                <PriceCalculator
-                  shape={shape}
-                  material={material}
-                  size={size}
-                  quantity={quantity}
-                />
+              {/* Step 4: Quantity & Price */}
+              <div className="rounded-2xl p-5" style={{ backgroundColor: '#f4f1e2' }}>
+                <div className="flex items-start space-x-3">
+                  <div className="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm" style={{ backgroundColor: '#a48355', color: '#FFFFFF' }}>
+                    4
+                  </div>
+                  <div className="flex-1 space-y-4">
+                    <h3 className="font-serif text-lg font-semibold" style={{ color: '#0e0a0e' }}>Quantity & Price</h3>
+                    <div>
+                      <p className="text-sm mb-2" style={{ color: '#5f5f5f' }}>Select quantity:</p>
+                      <QuantitySelector value={quantity} onChange={setQuantity} />
+                    </div>
+                    <PriceCalculator
+                      shape={shape}
+                      material={material}
+                      size={size}
+                      quantity={quantity}
+                    />
+                  </div>
+                </div>
               </div>
 
               {/* Actions */}
-              <div className="space-y-3 pt-4 border-t" style={{ borderColor: '#e8d0b4' }}>
+              <div className="space-y-3 pt-2">
                 <Button
                   onClick={handleAddToCart}
                   disabled={!imageData}
-                  className="w-full h-11 text-base transition-all duration-300 hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
-                  style={{ backgroundColor: '#0e0a0e', color: '#f4f1e2' }}
+                  className="w-full h-12 text-base transition-all duration-300 hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
+                  style={{ backgroundColor: '#a48355', color: '#FFFFFF' }}
                 >
                   <ShoppingBag className="w-4 h-4 mr-2" />
                   Add to Cart
