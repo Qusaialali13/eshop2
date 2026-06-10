@@ -241,44 +241,49 @@ export default function About() {
             </p>
           </motion.div>
 
-          <div className="space-y-8">
-            {[
-              { step: '01', title: 'Upload Photo', desc: 'You upload your favorite photo in high resolution', icon: Upload },
-              { step: '02', title: 'Customize', desc: 'Choose shape, material, and perfect the positioning', icon: Wand2 },
-              { step: '03', title: 'Craft', desc: 'Our artisans craft your charm with precision and care', icon: Hammer },
-              { step: '04', title: 'Deliver', desc: 'Your custom charm arrives beautifully packaged', icon: Package },
-            ].map((item, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, x: -30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.15 }}
-                className="flex items-start gap-6"
-              >
-                <div className="flex-shrink-0">
-                  <div className="w-16 h-16 rounded-2xl flex items-center justify-center" style={{ backgroundColor: 'rgba(164, 131, 85, 0.2)' }}>
-                    <item.icon className="w-8 h-8" style={{ color: '#a48355' }} strokeWidth={1.5} />
+          {/* Horizontal Stepper */}
+          <div className="relative">
+            {/* Progress Line */}
+            <div className="hidden md:block absolute top-8 left-0 right-0 h-0.5" style={{ backgroundColor: 'rgba(164, 131, 85, 0.3)' }} />
+
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+              {[
+                { step: '01', title: 'Upload Photo', desc: 'You upload your favorite photo in high resolution', icon: Upload },
+                { step: '02', title: 'Customize', desc: 'Choose shape, material, and perfect the positioning', icon: Wand2 },
+                { step: '03', title: 'Craft', desc: 'Our artisans craft your charm with precision and care', icon: Hammer },
+                { step: '04', title: 'Deliver', desc: 'Your custom charm arrives beautifully packaged', icon: Package },
+              ].map((item, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.15 }}
+                  className="relative text-center"
+                >
+                  {/* Circle with icon */}
+                  <div className="relative mx-auto w-16 h-16 mb-4">
+                    <div className="absolute inset-0 rounded-full flex items-center justify-center" style={{ backgroundColor: 'rgba(164, 131, 85, 0.2)' }}>
+                      <item.icon className="w-8 h-8" style={{ color: '#a48355' }} strokeWidth={1.5} />
+                    </div>
+                    {/* Step number badge */}
+                    <div className="absolute -top-1 -right-1 w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold" style={{ backgroundColor: '#a48355', color: '#FFFFFF' }}>
+                      {item.step}
+                    </div>
                   </div>
-                </div>
-                <div className="flex-1 pt-2">
-                  <div className="flex items-center gap-3 mb-2">
-                    <span className="text-sm font-semibold" style={{ color: '#a48355' }}>{item.step}</span>
-                    <h3 className="font-serif text-2xl font-semibold" style={{ color: '#e8d0b4' }}>
-                      {item.title}
-                    </h3>
-                  </div>
-                  <p style={{ color: '#5f5f5f', lineHeight: '1.7' }}>
+
+                  {/* Title */}
+                  <h3 className="font-serif text-xl font-semibold mb-2" style={{ color: '#e8d0b4' }}>
+                    {item.title}
+                  </h3>
+
+                  {/* Description */}
+                  <p style={{ color: '#5f5f5f', fontSize: '0.875rem', lineHeight: '1.5' }}>
                     {item.desc}
                   </p>
-                </div>
-                {index < 3 && (
-                  <div className="flex-shrink-0 pt-8" style={{ color: 'rgba(164, 131, 85, 0.3)' }}>
-                    <ChevronRight className="w-6 h-6" strokeWidth={1.5} />
-                  </div>
-                )}
-              </motion.div>
-            ))}
+                </motion.div>
+              ))}
+            </div>
           </div>
         </div>
       </section>

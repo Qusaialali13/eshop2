@@ -17,25 +17,32 @@ const QuantitySelector: React.FC<QuantitySelectorProps> = ({
   className = '',
 }) => {
   return (
-    <div className={`flex flex-wrap gap-2 ${className}`}>
+    <div className={`flex flex-wrap gap-4 ${className}`}>
       {QUANTITIES.map((qty) => (
         <motion.button
           key={qty}
           onClick={() => onChange(qty)}
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
-          className={`px-4 py-3 rounded-xl font-bold transition-all duration-300 ${
+          className={`px-2 py-2 font-semibold text-lg transition-all duration-300 relative ${
             value === qty
-              ? 'scale-105 shadow-lg'
-              : 'hover:scale-102'
+              ? 'scale-105'
+              : 'hover:scale-105'
           }`}
           style={{
-            backgroundColor: value === qty ? '#a48355' : '#f4f1e2',
-            color: value === qty ? '#FFFFFF' : '#0e0a0e',
-            border: value === qty ? 'none' : '2px solid #e8d0b4',
+            color: value === qty ? '#a48355' : '#0e0a0e',
           }}
         >
           {qty}
+          {value === qty && (
+            <motion.div
+              layoutId="underline"
+              className="absolute bottom-0 left-0 right-0 h-0.5"
+              style={{ backgroundColor: '#a48355' }}
+              initial={false}
+              transition={{ type: 'spring', stiffness: 500, damping: 30 }}
+            />
+          )}
         </motion.button>
       ))}
     </div>

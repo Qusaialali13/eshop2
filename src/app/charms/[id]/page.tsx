@@ -139,7 +139,7 @@ export default function CharmDesigner() {
               initial={{ opacity: 0, x: 30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6 }}
-              className="order-1 lg:order-2 space-y-8"
+              className="order-1 lg:order-2 space-y-5"
             >
               {/* Title */}
               <div>
@@ -159,7 +159,7 @@ export default function CharmDesigner() {
                 </TabsList>
 
                 {/* Customize Tab - No shape selector, PNG only, no size selector */}
-                <TabsContent value="customize" className="space-y-6 mt-6">
+                <TabsContent value="customize" className="space-y-4 mt-4">
                   {/* Image Upload - PNG only */}
                   <div className="space-y-3">
                     <h3 className="font-serif text-lg font-semibold" style={{ color: '#0e0a0e' }}>Your Photo</h3>
@@ -185,15 +185,15 @@ export default function CharmDesigner() {
                 </TabsContent>
 
                 {/* Material Tab */}
-                <TabsContent value="material" className="mt-6">
+                <TabsContent value="material" className="mt-4">
                   <MaterialSelector selected={material} onChange={setMaterial} />
                 </TabsContent>
               </Tabs>
 
               {/* Quantity & Price */}
-              <div className="space-y-6 pt-6 border-t" style={{ borderColor: '#e8d0b4' }}>
+              <div className="space-y-4 pt-4 border-t" style={{ borderColor: '#e8d0b4' }}>
                 <div>
-                  <p className="font-medium mb-4" style={{ color: '#0e0a0e' }}>Quantity</p>
+                  <p className="font-medium mb-3" style={{ color: '#0e0a0e' }}>Quantity</p>
                   <QuantitySelector value={quantity} onChange={setQuantity} />
                 </div>
 
@@ -206,14 +206,14 @@ export default function CharmDesigner() {
               </div>
 
               {/* Actions */}
-              <div className="space-y-4 pt-6 border-t" style={{ borderColor: '#e8d0b4' }}>
+              <div className="space-y-3 pt-4 border-t" style={{ borderColor: '#e8d0b4' }}>
                 <Button
                   onClick={handleAddToCart}
                   disabled={!imageData}
-                  className="w-full h-14 text-lg transition-all duration-300 hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
+                  className="w-full h-11 text-base transition-all duration-300 hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
                   style={{ backgroundColor: '#0e0a0e', color: '#f4f1e2' }}
                 >
-                  <ShoppingBag className="w-5 h-5 mr-2" />
+                  <ShoppingBag className="w-4 h-4 mr-2" />
                   Add to Cart
                 </Button>
 
