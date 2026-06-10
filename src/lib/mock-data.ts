@@ -1,0 +1,140 @@
+import { Testimonial, SampleDesign, MockOrder, CharmShape, CharmMaterial, CharmSize } from '@/types';
+
+export const testimonials: Testimonial[] = [
+  {
+    id: '1',
+    name: 'Sarah Mitchell',
+    location: 'New York, USA',
+    rating: 5,
+    text: 'Absolutely stunning! The photo charm I created looks even better than I imagined. The quality is exceptional and it\'s become my most treasured piece of jewelry.',
+    date: '2024-01-15',
+  },
+  {
+    id: '2',
+    name: 'Emma Laurent',
+    location: 'Paris, France',
+    rating: 5,
+    text: 'I\'ve purchased many charms over the years, but nothing compares to these. The attention to detail and the way my photo was captured is simply perfection.',
+    date: '2024-02-03',
+  },
+  {
+    id: '3',
+    name: 'Victoria Chen',
+    location: 'London, UK',
+    rating: 5,
+    text: 'The customization process was so easy and the result exceeded all expectations. I\'ve already ordered three more as gifts for my family.',
+    date: '2024-02-20',
+  },
+  {
+    id: '4',
+    name: 'Isabella Romano',
+    location: 'Milan, Italy',
+    rating: 5,
+    text: 'Luxury quality at its finest. The rose gold charm with my daughter\'s photo is breathtaking. Every detail is perfect.',
+    date: '2024-03-01',
+  },
+];
+
+export const sampleDesigns: SampleDesign[] = [
+  {
+    id: '1',
+    image: '/sample-charms/heart-family.jpg',
+    shape: 'heart',
+    material: 'gold',
+    caption: 'Family moments forever close to your heart',
+  },
+  {
+    id: '2',
+    image: '/sample-charms/circle-travel.jpg',
+    shape: 'circle',
+    material: 'silver',
+    caption: 'Capture your travel memories in style',
+  },
+  {
+    id: '3',
+    image: '/sample-charms/butterfriend-wedding.jpg',
+    shape: 'butterfly',
+    material: 'rose-gold',
+    caption: 'Your special day, beautifully preserved',
+  },
+  {
+    id: '4',
+    image: '/sample-charms/star-pet.jpg',
+    shape: 'star',
+    material: 'gold',
+    caption: 'Your beloved pet, shining bright',
+  },
+  {
+    id: '5',
+    image: '/sample-charms/flower-baby.jpg',
+    shape: 'flower',
+    material: 'silver',
+    caption: 'Blossoming memories of little ones',
+  },
+  {
+    id: '6',
+    image: '/sample-charms/oval-graduation.jpg',
+    shape: 'oval',
+    material: 'gold',
+    caption: 'Celebrate achievements with pride',
+  },
+];
+
+export const mockOrders: MockOrder[] = [
+  {
+    id: 'order-1',
+    orderNumber: 'LC-2024-001234',
+    date: '2024-03-15',
+    status: 'completed',
+    items: [
+      {
+        id: 'design-1',
+        shape: 'heart',
+        material: 'gold',
+        size: 'medium',
+        imageData: '/sample-charms/heart-family.jpg',
+        imageSettings: { scale: 1, rotation: 0, x: 0, y: 0 },
+        quantity: 1,
+        totalPrice: 40.8,
+        createdAt: Date.now() - 86400000 * 20,
+        updatedAt: Date.now() - 86400000 * 20,
+      },
+      {
+        id: 'design-2',
+        shape: 'circle',
+        material: 'silver',
+        size: 'small',
+        imageData: '/sample-charms/circle-travel.jpg',
+        imageSettings: { scale: 1, rotation: 0, x: 0, y: 0 },
+        quantity: 2,
+        totalPrice: 58,
+        createdAt: Date.now() - 86400000 * 20,
+        updatedAt: Date.now() - 86400000 * 20,
+      },
+    ],
+    total: 98.8,
+    shipping: 0,
+  },
+  {
+    id: 'order-2',
+    orderNumber: 'LC-2024-000987',
+    date: '2024-02-28',
+    status: 'completed',
+    items: [
+      {
+        id: 'design-3',
+        shape: 'butterfly',
+        material: 'rose-gold',
+        size: 'large',
+        imageData: '/sample-charms/butterfly-wedding.jpg',
+        imageSettings: { scale: 1, rotation: 0, x: 0, y: 0 },
+        quantity: 1,
+        totalPrice: 53.76,
+        createdAt: Date.now() - 86400000 * 35,
+        updatedAt: Date.now() - 86400000 * 35,
+      },
+    ],
+    total: 53.76,
+    shipping: 0,
+  },
+];
