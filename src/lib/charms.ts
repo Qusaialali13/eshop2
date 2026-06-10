@@ -3,12 +3,8 @@ import { CharmShape, CharmMaterial, CharmSize, CharmPrice } from '@/types';
 // Base prices for each shape
 const SHAPE_BASE_PRICES: Record<CharmShape, number> = {
   circle: 29,
-  heart: 34,
-  oval: 32,
   square: 30,
-  star: 36,
-  flower: 38,
-  butterfly: 35,
+  couple: 45,
 };
 
 // Material multipliers
@@ -63,12 +59,8 @@ export const getSizeDisplayName = (size: CharmSize): string => {
 export const getShapeDisplayName = (shape: CharmShape): string => {
   const names: Record<CharmShape, string> = {
     circle: 'Circle Charm',
-    heart: 'Heart Charm',
-    oval: 'Oval Charm',
     square: 'Square Charm',
-    star: 'Star Charm',
-    flower: 'Flower Charm',
-    butterfly: 'Butterfly Charm',
+    couple: 'Couple Charm',
   };
   return names[shape];
 };
@@ -107,7 +99,7 @@ export const calculateOrderTotal = (subtotal: number): number => {
 
 // Get charm shapes list
 export const getAllShapes = (): CharmShape[] => {
-  return ['circle', 'heart', 'oval', 'square', 'star', 'flower', 'butterfly'];
+  return ['circle', 'square', 'couple'];
 };
 
 // Get materials list

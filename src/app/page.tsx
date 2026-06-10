@@ -88,27 +88,26 @@ export default function Home() {
                 </Link>
               </motion.div>
 
-              {/* Stats container - redesigned */}
+              {/* Stats container - redesigned with better layout */}
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.8, delay: 0.6 }}
-                className="rounded-2xl p-6 backdrop-blur-sm"
-                style={{ backgroundColor: 'rgba(244, 241, 226, 0.05)', border: '1px solid rgba(232, 208, 180, 0.2)' }}
+                className="flex flex-wrap gap-8"
               >
-                <div className="grid grid-cols-3 gap-6">
-                  <div className="text-center">
-                    <p className="text-3xl font-serif font-bold mb-1" style={{ color: '#a48355' }}>50K+</p>
-                    <p className="text-sm" style={{ color: '#5f5f5f' }}>Happy Customers</p>
-                  </div>
-                  <div className="text-center border-l" style={{ borderColor: 'rgba(232, 208, 180, 0.2)' }}>
-                    <p className="text-3xl font-serif font-bold mb-1" style={{ color: '#a48355' }}>4.9</p>
-                    <p className="text-sm" style={{ color: '#5f5f5f' }}>Average Rating</p>
-                  </div>
-                  <div className="text-center border-l" style={{ borderColor: 'rgba(232, 208, 180, 0.2)' }}>
-                    <p className="text-3xl font-serif font-bold mb-1" style={{ color: '#a48355' }}>100K+</p>
-                    <p className="text-sm" style={{ color: '#5f5f5f' }}>Charms Created</p>
-                  </div>
+                <div className="flex items-baseline space-x-2">
+                  <p className="text-4xl font-bold" style={{ color: '#a48355' }}>50K+</p>
+                  <p className="text-sm" style={{ color: '#5f5f5f' }}>Happy Customers</p>
+                </div>
+                <div className="w-1 h-6" style={{ backgroundColor: 'rgba(232, 208, 180, 0.3)' }} />
+                <div className="flex items-baseline space-x-2">
+                  <p className="text-4xl font-bold" style={{ color: '#a48355' }}>4.9</p>
+                  <p className="text-sm" style={{ color: '#5f5f5f' }}>Average Rating</p>
+                </div>
+                <div className="w-1 h-6" style={{ backgroundColor: 'rgba(232, 208, 180, 0.3)' }} />
+                <div className="flex items-baseline space-x-2">
+                  <p className="text-4xl font-bold" style={{ color: '#a48355' }}>100K+</p>
+                  <p className="text-sm" style={{ color: '#5f5f5f' }}>Charms Created</p>
                 </div>
               </motion.div>
             </motion.div>
@@ -205,8 +204,8 @@ export default function Home() {
             </p>
           </motion.div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            {shapes.slice(0, 6).map((shape, index) => (
+          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            {['circle', 'square'].map((shape, index) => (
               <motion.div
                 key={shape}
                 initial={{ opacity: 0, y: 20 }}
@@ -320,7 +319,7 @@ export default function Home() {
                   </div>
                 </div>
               </div>
-              <div className="flex flex-col justify-center">
+              <div className="flex flex-col justify-center pt-6 pb-6">
                 <div className="rounded-2xl p-6 backdrop-blur-sm" style={{ backgroundColor: 'rgba(244, 241, 226, 0.05)', border: '1px solid rgba(232, 208, 180, 0.15)' }}>
                   <h3 className="font-serif text-xl font-semibold mb-4" style={{ color: '#e8d0b4' }}>
                     Subscribe Now

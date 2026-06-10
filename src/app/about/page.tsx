@@ -7,7 +7,7 @@ import Navbar from '@/components/Navbar';
 import MobileNavbar from '@/components/MobileNavbar';
 import Footer from '@/components/Footer';
 import ShapeSVG from '@/components/ShapeSVG';
-import { Gem, Award, Heart, Users, Sparkles } from 'lucide-react';
+import { Gem, Award, Heart, Users, Sparkles, Upload, Wand2, Hammer, Package, ChevronRight } from 'lucide-react';
 
 export default function About() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
@@ -103,20 +103,6 @@ export default function About() {
               <p className="text-lg leading-relaxed" style={{ color: '#5f5f5f' }}>
                 Each charm we create is more than just jewelry—it's a story, a moment frozen in time, a connection to what matters most. From family portraits to pet photos, wedding memories to milestone celebrations, we help you preserve life's beautiful moments in exquisite detail.
               </p>
-              <div className="flex items-center space-x-6 pt-4">
-                <div className="text-center">
-                  <p className="text-3xl font-serif font-bold" style={{ color: '#a48355' }}>9+</p>
-                  <p className="text-sm" style={{ color: '#5f5f5f' }}>Years of Excellence</p>
-                </div>
-                <div className="text-center">
-                  <p className="text-3xl font-serif font-bold" style={{ color: '#a48355' }}>50K+</p>
-                  <p className="text-sm" style={{ color: '#5f5f5f' }}>Happy Customers</p>
-                </div>
-                <div className="text-center">
-                  <p className="text-3xl font-serif font-bold" style={{ color: '#a48355' }}>100K+</p>
-                  <p className="text-sm" style={{ color: '#5f5f5f' }}>Charms Crafted</p>
-                </div>
-              </div>
             </motion.div>
           </div>
         </div>
@@ -193,33 +179,18 @@ export default function About() {
               <h2 className="font-serif text-4xl font-bold" style={{ color: '#0e0a0e' }}>
                 Premium Materials
               </h2>
-              <div className="space-y-6">
-                <div className="flex items-start space-x-4">
-                  <div className="w-12 h-12 rounded-full flex-shrink-0 flex items-center justify-center" style={{ backgroundColor: '#e8d0b4' }}>
-                    <div className="w-8 h-8 rounded-full" style={{ background: 'linear-gradient(135deg, #a48355 0%, #0e0a0e 100%)' }} />
-                  </div>
-                  <div>
-                    <h3 className="font-serif text-xl font-semibold mb-2" style={{ color: '#0e0a0e' }}>Sterling Silver</h3>
-                    <p style={{ color: '#5f5f5f' }}>925 sterling silver, renowned for its durability and brilliant shine. Hypoallergenic and perfect for everyday wear.</p>
-                  </div>
+              <div className="space-y-8">
+                <div className="space-y-3">
+                  <h3 className="font-serif text-2xl font-semibold" style={{ color: '#C0C0C0' }}>Sterling Silver</h3>
+                  <p style={{ color: '#5f5f5f' }}>925 sterling silver, renowned for its durability and brilliant shine. Hypoallergenic and perfect for everyday wear.</p>
                 </div>
-                <div className="flex items-start space-x-4">
-                  <div className="w-12 h-12 rounded-full flex-shrink-0 flex items-center justify-center" style={{ backgroundColor: '#e8d0b4' }}>
-                    <div className="w-8 h-8 rounded-full" style={{ background: 'linear-gradient(135deg, #a48355 0%, #0e0a0e 100%)' }} />
-                  </div>
-                  <div>
-                    <h3 className="font-serif text-xl font-semibold mb-2" style={{ color: '#0e0a0e' }}>18K Gold</h3>
-                    <p style={{ color: '#5f5f5f' }}>Luxurious 18K gold plating over premium silver base. Rich, warm tone that develops a beautiful patina over time.</p>
-                  </div>
+                <div className="space-y-3">
+                  <h3 className="font-serif text-2xl font-semibold" style={{ color: '#FFD700' }}>18K Gold</h3>
+                  <p style={{ color: '#5f5f5f' }}>Luxurious 18K gold plating over premium silver base. Rich, warm tone that develops a beautiful patina over time.</p>
                 </div>
-                <div className="flex items-start space-x-4">
-                  <div className="w-12 h-12 rounded-full flex-shrink-0 flex items-center justify-center" style={{ backgroundColor: '#e8d0b4' }}>
-                    <div className="w-8 h-8 rounded-full" style={{ background: 'linear-gradient(135deg, #a48355 0%, #0e0a0e 100%)' }} />
-                  </div>
-                  <div>
-                    <h3 className="font-serif text-xl font-semibold mb-2" style={{ color: '#0e0a0e' }}>18K Rose Gold</h3>
-                    <p style={{ color: '#5f5f5f' }}>Romantic rose gold finish with copper alloy. Blends classic elegance with modern sophistication.</p>
-                  </div>
+                <div className="space-y-3">
+                  <h3 className="font-serif text-2xl font-semibold" style={{ color: '#B76E79' }}>18K Rose Gold</h3>
+                  <p style={{ color: '#5f5f5f' }}>Romantic rose gold finish with copper alloy. Blends classic elegance with modern sophistication.</p>
                 </div>
               </div>
             </motion.div>
@@ -253,9 +224,9 @@ export default function About() {
         </div>
       </section>
 
-      {/* How Charms Are Made - Redesigned equal size boxes */}
+      {/* How Charms Are Made - Stepper Design */}
       <section className="py-20" style={{ backgroundColor: '#0e0a0e' }}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -270,36 +241,42 @@ export default function About() {
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="space-y-8">
             {[
-              { step: '01', title: 'Upload Photo', desc: 'You upload your favorite photo in high resolution', icon: '📷' },
-              { step: '02', title: 'Customize', desc: 'Choose shape, material, and perfect the positioning', icon: '✨' },
-              { step: '03', title: 'Craft', desc: 'Our artisans craft your charm with precision and care', icon: '🔨' },
-              { step: '04', title: 'Deliver', desc: 'Your custom charm arrives beautifully packaged', icon: '🎁' },
+              { step: '01', title: 'Upload Photo', desc: 'You upload your favorite photo in high resolution', icon: Upload },
+              { step: '02', title: 'Customize', desc: 'Choose shape, material, and perfect the positioning', icon: Wand2 },
+              { step: '03', title: 'Craft', desc: 'Our artisans craft your charm with precision and care', icon: Hammer },
+              { step: '04', title: 'Deliver', desc: 'Your custom charm arrives beautifully packaged', icon: Package },
             ].map((item, index) => (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                initial={{ opacity: 0, x: -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className="relative rounded-2xl p-6 flex flex-col"
-                style={{ backgroundColor: 'rgba(244, 241, 226, 0.03)', border: '1px solid rgba(232, 208, 180, 0.1)', minHeight: '320px' }}
+                transition={{ delay: index * 0.15 }}
+                className="flex items-start gap-6"
               >
-                <div className="absolute top-4 right-4 text-6xl font-serif font-bold opacity-10" style={{ color: '#a48355' }}>
-                  {item.step}
-                </div>
-                <div className="relative z-10 flex-1 flex flex-col">
-                  <div className="w-14 h-14 rounded-full flex items-center justify-center mb-6 text-2xl" style={{ backgroundColor: 'rgba(164, 131, 85, 0.2)' }}>
-                    {item.icon}
+                <div className="flex-shrink-0">
+                  <div className="w-16 h-16 rounded-2xl flex items-center justify-center" style={{ backgroundColor: 'rgba(164, 131, 85, 0.2)' }}>
+                    <item.icon className="w-8 h-8" style={{ color: '#a48355' }} strokeWidth={1.5} />
                   </div>
-                  <h3 className="font-serif text-xl font-semibold mb-3" style={{ color: '#e8d0b4' }}>
-                    {item.title}
-                  </h3>
-                  <p style={{ color: '#5f5f5f', lineHeight: '1.6' }} className="flex-1">
+                </div>
+                <div className="flex-1 pt-2">
+                  <div className="flex items-center gap-3 mb-2">
+                    <span className="text-sm font-semibold" style={{ color: '#a48355' }}>{item.step}</span>
+                    <h3 className="font-serif text-2xl font-semibold" style={{ color: '#e8d0b4' }}>
+                      {item.title}
+                    </h3>
+                  </div>
+                  <p style={{ color: '#5f5f5f', lineHeight: '1.7' }}>
                     {item.desc}
                   </p>
                 </div>
+                {index < 3 && (
+                  <div className="flex-shrink-0 pt-8" style={{ color: 'rgba(164, 131, 85, 0.3)' }}>
+                    <ChevronRight className="w-6 h-6" strokeWidth={1.5} />
+                  </div>
+                )}
               </motion.div>
             ))}
           </div>

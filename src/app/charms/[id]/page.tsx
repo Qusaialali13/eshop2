@@ -28,7 +28,7 @@ export default function CharmDesigner() {
   const { addToCart } = useCart();
   const { addToFavorites, isFavorite, removeFromFavorites } = useFavorites();
 
-  const [shape, setShape] = useState<'circle' | 'heart' | 'oval' | 'square' | 'star' | 'flower' | 'butterfly'>(
+  const [shape, setShape] = useState<'circle' | 'square' | 'couple'>(
     (params.id as any) || 'circle'
   );
   const [material, setMaterial] = useState<CharmMaterial>('silver');
@@ -58,7 +58,7 @@ export default function CharmDesigner() {
   const isFav = isFavorite(favId);
 
   useEffect(() => {
-    if (params.id && ['circle', 'heart', 'oval', 'square', 'star', 'flower', 'butterfly'].includes(params.id as string)) {
+    if (params.id && ['circle', 'square', 'couple'].includes(params.id as string)) {
       setShape(params.id as any);
     }
   }, [params.id]);
@@ -117,9 +117,9 @@ export default function CharmDesigner() {
               className="order-2 lg:order-1"
             >
               <div className="sticky top-24">
-                <div className="rounded-3xl p-8 md:p-12 shadow-inner" style={{ background: 'linear-gradient(135deg, #f4f1e2 0%, #e8d0b4 100%)' }}>
+                <div className="rounded-3xl p-4 md:p-6 shadow-inner" style={{ background: 'linear-gradient(135deg, #f4f1e2 0%, #e8d0b4 100%)' }}>
                   <div className="flex items-center justify-center">
-                    <CharmPreview design={design} size={350} />
+                    <CharmPreview design={design} size={280} />
                   </div>
                 </div>
 
@@ -192,11 +192,8 @@ export default function CharmDesigner() {
 
               {/* Quantity & Price */}
               <div className="space-y-6 pt-6 border-t" style={{ borderColor: '#e8d0b4' }}>
-                <div className="flex items-center justify-between">
-                  <div>
-                    <p className="font-medium" style={{ color: '#0e0a0e' }}>Quantity</p>
-                    <p className="text-sm" style={{ color: '#5f5f5f' }}>Select pack size</p>
-                  </div>
+                <div>
+                  <p className="font-medium mb-4" style={{ color: '#0e0a0e' }}>Quantity</p>
                   <QuantitySelector value={quantity} onChange={setQuantity} />
                 </div>
 

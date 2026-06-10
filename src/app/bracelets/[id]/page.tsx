@@ -102,7 +102,7 @@ export default function BraceletProduct() {
     );
   }
 
-  const sizes = ['16', '17', '18'];
+  const sizes = ['16', '17', '18', '19', '20'];
   const favId = `bracelet-${bracelet.id}`;
   const isFav = isFavorite(favId);
 
@@ -276,7 +276,7 @@ export default function BraceletProduct() {
                 </div>
                 <div className="flex justify-between">
                   <span style={{ color: '#5f5f5f' }}>Sizes Available</span>
-                  <span className="font-medium" style={{ color: '#0e0a0e' }}>16, 17, 18 cm</span>
+                  <span className="font-medium" style={{ color: '#0e0a0e' }}>16, 17, 18, 19, 20 cm</span>
                 </div>
               </div>
             </motion.div>

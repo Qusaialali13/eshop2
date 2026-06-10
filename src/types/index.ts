@@ -1,5 +1,5 @@
 // Charm shape types
-export type CharmShape = 'circle' | 'heart' | 'oval' | 'square' | 'star' | 'flower' | 'butterfly';
+export type CharmShape = 'circle' | 'square' | 'couple';
 
 // Material types
 export type CharmMaterial = 'silver' | 'gold' | 'rose-gold';
