@@ -92,10 +92,10 @@ export default function Bracelets() {
             transition={{ duration: 0.8 }}
             className="text-center max-w-3xl mx-auto"
           >
-            <h1 className="font-serif text-5xl md:text-6xl font-bold mb-6" style={{ color: '#f4f1e2' }}>
+            <h1 className="font-serif text-5xl md:text-6xl font-bold mb-6" style={{ color: '#0e0a0e' }}>
               Bracelet Collection
             </h1>
-            <p className="text-xl leading-relaxed" style={{ color: '#5f5f5f' }}>
+            <p className="text-xl leading-relaxed" style={{ color: '#e8d0b4' }}>
               Discover our exquisite collection of bracelets. Each piece is crafted with premium materials for timeless elegance and everyday luxury.
             </p>
           </motion.div>

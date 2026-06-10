@@ -33,7 +33,7 @@ const Navbar = () => {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        scrolled ? 'bg-white/95 backdrop-blur-xl shadow-lg' : 'bg-white/90 backdrop-blur-md'
+        scrolled ? 'bg-[#f4f1e2]/95 backdrop-blur-xl shadow-lg' : 'bg-[#f4f1e2]/90 backdrop-blur-md'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -137,7 +137,7 @@ const Navbar = () => {
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
-            className="md:hidden bg-white/95 backdrop-blur-xl border-t shadow-lg"
+            className="md:hidden bg-[#f4f1e2]/95 backdrop-blur-xl border-t shadow-lg"
             style={{ borderColor: '#e8d0b4' }}
           >
             <div className="px-4 py-6 space-y-2">

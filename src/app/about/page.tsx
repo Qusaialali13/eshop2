@@ -6,6 +6,7 @@ import { ChevronDown, ChevronUp } from 'lucide-react';
 import Navbar from '@/components/Navbar';
 import MobileNavbar from '@/components/MobileNavbar';
 import Footer from '@/components/Footer';
+import VideoComponent from '@/components/VideoComponent';
 import ShapeSVG from '@/components/ShapeSVG';
 import { Gem, Award, Heart, Users, Sparkles, Upload, Wand2, Hammer, Package, ChevronRight } from 'lucide-react';
 
@@ -43,25 +44,6 @@ export default function About() {
     <div className="min-h-screen flex flex-col bg-white">
       <Navbar />
 
-      {/* Hero */}
-      <section className="relative pt-28 pb-16" style={{ background: 'linear-gradient(135deg, #f4f1e2 0%, #e8d0b4 50%, #FFFFFF 100%)' }}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-center max-w-3xl mx-auto"
-          >
-            <h1 className="font-serif text-5xl md:text-6xl font-bold mb-6" style={{ color: '#0e0a0e' }}>
-              Our Story
-            </h1>
-            <p className="text-xl leading-relaxed" style={{ color: '#5f5f5f' }}>
-              Crafting timeless memories through custom photo charms since 2015. Each piece tells your unique story with elegance and precision.
-            </p>
-          </motion.div>
-        </div>
-      </section>
-
       {/* Brand Story */}
       <section className="py-20" style={{ backgroundColor: '#FFFFFF' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -72,19 +54,7 @@ export default function About() {
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
             >
-              <div className="relative">
-                <div className="absolute inset-0 rounded-3xl blur-3xl opacity-20" style={{ backgroundColor: '#e8d0b4' }} />
-                <div className="relative rounded-3xl p-12 shadow-xl" style={{ backgroundColor: '#FFFFFF' }}>
-                  <div className="flex items-center justify-center">
-                    <motion.div
-                      animate={{ rotate: 360 }}
-                      transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
-                    >
-                      <ShapeSVG shape="heart" material="gold" size={200} />
-                    </motion.div>
-                  </div>
-                </div>
-              </div>
+              <VideoComponent title="Our Story" />
             </motion.div>
 
             <motion.div
@@ -109,7 +79,7 @@ export default function About() {
       </section>
 
       {/* Craftsmanship */}
-      <section className="py-20" style={{ backgroundColor: '#f4f1e2' }}>
+      <section className="py-20" style={{ backgroundColor: '#e8d0b4' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -150,9 +120,9 @@ export default function About() {
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
                 className="rounded-2xl p-8 text-center shadow-sm hover:shadow-lg transition-shadow duration-300"
-                style={{ backgroundColor: '#FFFFFF' }}
+                style={{ backgroundColor: '#f4f1e2' }}
               >
-                <div className="w-16 h-16 mx-auto mb-6 rounded-2xl flex items-center justify-center" style={{ backgroundColor: '#e8d0b4' }}>
+                <div className="w-16 h-16 mx-auto mb-6 rounded-full flex items-center justify-center" style={{ backgroundColor: '#e8d0b4' }}>
                   <item.icon className="w-8 h-8" style={{ color: '#a48355' }} />
                 </div>
                 <h3 className="font-serif text-2xl font-semibold mb-4" style={{ color: '#0e0a0e' }}>
@@ -262,9 +232,9 @@ export default function About() {
                   className="relative text-center"
                 >
                   {/* Circle with icon */}
-                  <div className="relative mx-auto w-16 h-16 mb-4">
+                  <div className="relative mx-auto w-20 h-20 mb-4">
                     <div className="absolute inset-0 rounded-full flex items-center justify-center" style={{ backgroundColor: '#a48355' }}>
-                      <item.icon className="w-8 h-8" style={{ color: '#FFFFFF' }} strokeWidth={1.5} />
+                      <item.icon className="w-10 h-10" style={{ color: '#f4f1e2' }} strokeWidth={1.5} />
                     </div>
                     {/* Step number badge */}
                     <div className="absolute -top-1 -right-1 w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold" style={{ backgroundColor: '#e8d0b4', color: '#0e0a0e' }}>
@@ -273,12 +243,12 @@ export default function About() {
                   </div>
 
                   {/* Title */}
-                  <h3 className="font-serif text-xl font-semibold mb-2" style={{ color: '#e8d0b4' }}>
+                  <h3 className="font-serif text-xl font-semibold mb-2" style={{ color: '#f4f1e2' }}>
                     {item.title}
                   </h3>
 
                   {/* Description */}
-                  <p style={{ color: '#5f5f5f', fontSize: '0.875rem', lineHeight: '1.5' }}>
+                  <p style={{ color: '#e8d0b4', fontSize: '0.875rem', lineHeight: '1.5' }}>
                     {item.desc}
                   </p>
                 </motion.div>
@@ -311,7 +281,7 @@ export default function About() {
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
                 className="rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300"
-                style={{ backgroundColor: '#f4f1e2' }}
+                style={{ backgroundColor: '#e8d0b4' }}
               >
                 <button
                   onClick={() => toggleFaq(index)}

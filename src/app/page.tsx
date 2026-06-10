@@ -159,10 +159,10 @@ export default function Home() {
                 className="text-center space-y-4"
               >
                 <div className="relative">
-                  <div className="w-20 h-20 mx-auto rounded-2xl flex items-center justify-center" style={{ backgroundColor: '#e8d0b4' }}>
-                    <step.icon className="w-10 h-10" style={{ color: '#a48355' }} />
+                  <div className="w-20 h-20 mx-auto rounded-full flex items-center justify-center" style={{ backgroundColor: '#a48355' }}>
+                    <step.icon className="w-10 h-10" style={{ color: '#f4f1e2' }} />
                   </div>
-                  <div className="absolute -top-2 -right-2 w-8 h-8 rounded-full flex items-center justify-center font-semibold text-sm" style={{ backgroundColor: '#a48355', color: '#FFFFFF' }}>
+                  <div className="absolute -top-2 -right-2 w-8 h-8 rounded-full flex items-center justify-center font-semibold text-sm" style={{ backgroundColor: '#e8d0b4', color: '#0e0a0e' }}>
                     {index + 1}
                   </div>
                 </div>
@@ -227,7 +227,7 @@ export default function Home() {
       </section>
 
       {/* Testimonials */}
-      <section className="py-20" style={{ backgroundColor: '#FFFFFF' }}>
+      <section className="py-20" style={{ backgroundColor: '#e8d0b4' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -271,21 +271,21 @@ export default function Home() {
       </section>
 
       {/* Newsletter - Redesigned CTA Section */}
-      <section className="py-20" style={{ backgroundColor: '#0e0a0e' }}>
+      <section className="py-20" style={{ backgroundColor: '#a48355' }}>
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="rounded-3xl overflow-hidden"
-            style={{ background: 'linear-gradient(135deg, #1a1518 0%, #251f24 100%)', border: '1px solid rgba(232, 208, 180, 0.1)' }}
+            className="rounded-3xl p-8 md:p-12"
+            style={{ backgroundColor: '#f4f1e2' }}
           >
-            <div className="grid md:grid-cols-2 gap-8 p-8 md:p-12">
+            <div className="grid md:grid-cols-2 gap-8">
               <div className="flex flex-col justify-center">
-                <div className="w-16 h-16 rounded-full flex items-center justify-center mb-6" style={{ backgroundColor: 'rgba(164, 131, 85, 0.2)' }}>
+                <div className="w-16 h-16 rounded-full flex items-center justify-center mb-6" style={{ backgroundColor: '#e8d0b4', border: '2px solid #a48355' }}>
                   <Heart className="w-8 h-8" style={{ color: '#a48355' }} />
                 </div>
-                <h2 className="font-serif text-3xl md:text-4xl font-bold mb-4" style={{ color: '#f4f1e2' }}>
+                <h2 className="font-serif text-3xl md:text-4xl font-bold mb-4" style={{ color: '#a48355' }}>
                   Join Our Community
                 </h2>
                 <p className="text-lg mb-6" style={{ color: '#5f5f5f' }}>
@@ -306,9 +306,9 @@ export default function Home() {
                   </div>
                 </div>
               </div>
-              <div className="flex flex-col justify-center pt-6 pb-6">
-                <div className="rounded-2xl p-6 backdrop-blur-sm" style={{ backgroundColor: 'rgba(244, 241, 226, 0.05)', border: '1px solid rgba(232, 208, 180, 0.15)' }}>
-                  <h3 className="font-serif text-xl font-semibold mb-4" style={{ color: '#e8d0b4' }}>
+              <div className="flex flex-col justify-center">
+                <div className="rounded-2xl p-6" style={{ backgroundColor: '#e8d0b4' }}>
+                  <h3 className="font-serif text-xl font-semibold mb-4" style={{ color: '#0e0a0e' }}>
                     Subscribe Now
                   </h3>
                   <div className="space-y-4">
@@ -316,17 +316,17 @@ export default function Home() {
                       type="email"
                       placeholder="Enter your email"
                       className="flex-1 h-12 text-base"
-                      style={{ backgroundColor: 'rgba(14, 10, 14, 0.5)', borderColor: 'rgba(232, 208, 180, 0.2)', color: '#f4f1e2' }}
+                      style={{ backgroundColor: '#f4f1e2', borderColor: '#a48355', color: '#0e0a0e' }}
                     />
                     <Input
                       type="text"
                       placeholder="Your name"
                       className="flex-1 h-12 text-base"
-                      style={{ backgroundColor: 'rgba(14, 10, 14, 0.5)', borderColor: 'rgba(232, 208, 180, 0.2)', color: '#f4f1e2' }}
+                      style={{ backgroundColor: '#f4f1e2', borderColor: '#a48355', color: '#0e0a0e' }}
                     />
                     <Button 
                       className="w-full h-12 transition-all duration-300 hover:scale-105"
-                      style={{ backgroundColor: '#a48355', color: '#FFFFFF' }}
+                      style={{ backgroundColor: '#a48355', color: '#f4f1e2' }}
                     >
                       Subscribe Now
                     </Button>

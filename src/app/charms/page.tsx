@@ -57,14 +57,14 @@ export default function Charms() {
       </section>
 
       {/* CTA Section - Redesigned */}
-      <section className="py-20" style={{ backgroundColor: '#f4f1e2' }}>
+      <section className="py-20" style={{ backgroundColor: '#e8d0b4' }}>
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             className="rounded-3xl p-12 shadow-lg"
-            style={{ backgroundColor: '#e8d0b4' }}
+            style={{ backgroundColor: '#f4f1e2' }}
           >
             <h2 className="font-serif text-3xl md:text-4xl font-bold mb-4 text-center" style={{ color: '#0e0a0e' }}>
               Need Help Choosing?
