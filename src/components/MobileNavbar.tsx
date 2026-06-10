@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { motion } from 'framer-motion';
-import { Home, ShoppingBag, Heart, LayoutGrid, User } from 'lucide-react';
+import { Home, ShoppingBag, Heart, LayoutGrid } from 'lucide-react';
 
 const MobileNavbar = () => {
   const pathname = usePathname();
@@ -13,7 +13,6 @@ const MobileNavbar = () => {
     { href: '/charms', icon: LayoutGrid, label: 'Charms' },
     { href: '/favorites', icon: Heart, label: 'Favorites' },
     { href: '/cart', icon: ShoppingBag, label: 'Cart' },
-    { href: '/profile', icon: User, label: 'Profile' },
   ];
 
   return (

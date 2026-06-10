@@ -8,10 +8,17 @@ interface CharmPreviewProps {
   design: CharmDesign;
   size?: number;
   showControls?: boolean;
+  showImage?: boolean;
   className?: string;
 }
 
-const CharmPreview: React.FC<CharmPreviewProps> = ({ design, size = 300, showControls = false, className = '' }) => {
+const CharmPreview: React.FC<CharmPreviewProps> = ({
+  design,
+  size = 300,
+  showControls = false,
+  showImage = true,
+  className = ''
+}) => {
   const { shape, material, imageData, imageSettings } = design;
 
   const shapeMaskPath = (() => {
@@ -102,7 +109,7 @@ const CharmPreview: React.FC<CharmPreviewProps> = ({ design, size = 300, showCon
         <ShapeSVG shape={shape} material={material} size={size} />
 
         {/* Image content */}
-        {imageData && (
+        {showImage && imageData && (
           <g
             mask={`url(#charm-mask-${design.id})`}
             transform={`translate(${size / 2}, ${size / 2}) rotate(${imageSettings.rotation}) scale(${imageSettings.scale}) translate(${-size / 2 + imageSettings.x}, ${-size / 2 + imageSettings.y})`}
@@ -119,7 +126,7 @@ const CharmPreview: React.FC<CharmPreviewProps> = ({ design, size = 300, showCon
         )}
 
         {/* Inner highlight overlay */}
-        {imageData && (
+        {showImage && imageData && (
           <g mask={`url(#charm-mask-${design.id})`}>
             <ellipse
               cx={size * 0.25}

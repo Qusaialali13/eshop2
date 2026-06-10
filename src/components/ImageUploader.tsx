@@ -71,7 +71,7 @@ const ImageUploader: React.FC<ImageUploaderProps> = ({ onImageSelect, currentIma
             <img
               src={currentImage}
               alt="Uploaded"
-              className="w-full h-full object-cover rounded-lg"
+              className="w-full h-full object-contain rounded-lg"
             />
             <Button
               onClick={handleRemove}

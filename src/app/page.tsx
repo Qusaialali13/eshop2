@@ -89,14 +89,10 @@ export default function Home() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="font-serif text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold leading-tight mb-6"
+              className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6"
               style={{ color: '#f4f1e2' }}
             >
-              Wear Your
-              <br />
-              <span style={{ color: '#a48355' }}>Memories</span>
-              <br />
-              <span className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl" style={{ color: '#e8d0b4' }}>In Style</span>
+              Wear Your <span style={{ color: '#a48355' }}>Memories</span> In Style
             </motion.h1>
 
             <motion.div

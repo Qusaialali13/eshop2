@@ -97,7 +97,7 @@ export default function Cart() {
                     <div className="flex gap-6">
                       {/* Preview */}
                       <div className="flex-shrink-0 bg-gradient-to-br from-stone-50 to-stone-100 rounded-xl p-4 w-32 h-32 flex items-center justify-center">
-                        <CharmPreview design={item} size={100} />
+                        <CharmPreview design={item} size={100} showImage={false} />
                       </div>
 
                       {/* Details */}

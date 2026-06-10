@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ShoppingBag, Heart, User, Menu, X } from 'lucide-react';
+import { ShoppingBag, Heart, Menu, X } from 'lucide-react';
 import { useCart } from '@/contexts/CartContext';
 import { Button } from '@/components/ui/button';
 
@@ -68,9 +68,9 @@ const Navbar = () => {
           {/* Desktop Icons */}
           <div className="hidden md:flex items-center space-x-2">
             <Link href="/favorites">
-              <Button 
-                variant="ghost" 
-                size="icon" 
+              <Button
+                variant="ghost"
+                size="icon"
                 className="w-10 h-10 transition-all duration-300 hover:bg-[#f4f1e2]"
                 style={{ color: '#0e0a0e' }}
               >
@@ -78,9 +78,9 @@ const Navbar = () => {
               </Button>
             </Link>
             <Link href="/cart">
-              <Button 
-                variant="ghost" 
-                size="icon" 
+              <Button
+                variant="ghost"
+                size="icon"
                 className="w-10 h-10 transition-all duration-300 hover:bg-[#f4f1e2] relative"
                 style={{ color: '#0e0a0e' }}
               >
@@ -90,16 +90,6 @@ const Navbar = () => {
                     {cartCount}
                   </span>
                 )}
-              </Button>
-            </Link>
-            <Link href="/profile">
-              <Button 
-                variant="ghost" 
-                size="icon" 
-                className="w-10 h-10 transition-all duration-300 hover:bg-[#f4f1e2]"
-                style={{ color: '#0e0a0e' }}
-              >
-                <User className="w-5 h-5" strokeWidth={1.5} />
               </Button>
             </Link>
           </div>
@@ -188,11 +178,6 @@ const Navbar = () => {
                         {cartCount}
                       </span>
                     )}
-                  </Button>
-                </Link>
-                <Link href="/profile" onClick={() => setMobileMenuOpen(false)}>
-                  <Button variant="ghost" size="icon" className="w-12 h-12">
-                    <User className="w-6 h-6" strokeWidth={1.5} />
                   </Button>
                 </Link>
               </motion.div>

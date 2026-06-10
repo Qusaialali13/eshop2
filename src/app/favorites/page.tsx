@@ -95,7 +95,7 @@ export default function Favorites() {
                 >
                   {/* Preview */}
                   <div className="bg-gradient-to-br from-stone-50 to-stone-100 p-8 flex items-center justify-center">
-                    <CharmPreview design={design} size={200} />
+                    <CharmPreview design={design} size={200} showImage={false} />
                   </div>
 
                   {/* Info */}
