@@ -85,172 +85,175 @@ export default function CharmDesigner() {
   const totalPrice = calculateCharmPrice(shape, material, size, quantity);
 
   return (
-    <div className="min-h-screen flex flex-col bg-white pb-safe md:pb-0">
+    <div className="min-h-screen flex flex-col" style={{ background: 'linear-gradient(180deg, #f4f1e2 0%, #FFFFFF 100%)' }}>
       <Navbar />
 
-      {/* Breadcrumb */}
-      <div className="pt-24 bg-white border-b" style={{ borderColor: '#e8d0b4' }}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+      {/* Full-width Header with Preview */}
+      <div className="pt-20 pb-8 md:pb-12" style={{ background: 'linear-gradient(135deg, #0e0a0e 0%, #1a1518 100%)' }}>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Breadcrumb */}
           <button
             onClick={() => router.back()}
-            className="flex items-center space-x-2 transition-colors"
-            style={{ color: '#5f5f5f' }}
+            className="flex items-center space-x-2 transition-colors mb-6"
+            style={{ color: '#e8d0b4' }}
             onMouseEnter={(e) => e.currentTarget.style.color = '#a48355'}
-            onMouseLeave={(e) => e.currentTarget.style.color = '#5f5f5f'}
+            onMouseLeave={(e) => e.currentTarget.style.color = '#e8d0b4'}
           >
             <ArrowLeft className="w-4 h-4" />
-            <span>Back to Charms</span>
+            <span className="text-sm">Back to Charms</span>
           </button>
+
+          {/* Header Content */}
+          <div className="text-center mb-8">
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold mb-3"
+              style={{ color: '#f4f1e2' }}
+            >
+              {getShapeDisplayName(shape)}
+            </motion.h1>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="text-base md:text-lg"
+              style={{ color: '#5f5f5f' }}
+            >
+              Design your perfect charm in 4 simple steps
+            </motion.p>
+          </div>
+
+          {/* Large Preview */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="flex justify-center"
+          >
+            <div className="rounded-3xl p-8 md:p-12" style={{ background: 'linear-gradient(135deg, rgba(244, 241, 226, 0.15) 0%, rgba(232, 208, 180, 0.1) 100%)', border: '1px solid rgba(232, 208, 180, 0.2)' }}>
+              <div className="flex items-center justify-center">
+                <CharmPreview design={design} size={320} />
+              </div>
+            </div>
+          </motion.div>
         </div>
       </div>
 
-      {/* Designer */}
-      <section className="py-8 md:py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-8 lg:gap-16">
-            {/* Preview - Desktop: Left, Mobile: Top */}
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6 }}
-              className="order-2 lg:order-1"
-            >
-              <div className="sticky top-24">
-                <div className="rounded-3xl p-4 md:p-6 shadow-inner" style={{ background: 'linear-gradient(135deg, #f4f1e2 0%, #e8d0b4 100%)' }}>
-                  <div className="flex items-center justify-center">
-                    <CharmPreview design={design} size={280} />
-                  </div>
+      {/* Designer Controls */}
+      <section className="py-8 md:py-16 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-4xl mx-auto">
+          {/* Controls */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="space-y-5"
+          >
+            {/* Step 1: Upload Photo */}
+            <div className="rounded-2xl p-6 shadow-sm" style={{ backgroundColor: '#FFFFFF', border: '1px solid #e8d0b4' }}>
+              <div className="flex items-start space-x-4">
+                <div className="flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center font-bold" style={{ backgroundColor: '#a48355', color: '#FFFFFF' }}>
+                  1
                 </div>
-
-                {/* Quick actions on mobile */}
-                <div className="mt-6 flex justify-center space-x-4 lg:hidden">
-                  <FavoriteButton
-                    isFavorite={isFav}
-                    onToggle={handleToggleFavorite}
-                    size="lg"
-                  />
-                </div>
-              </div>
-            </motion.div>
-
-            {/* Controls - Desktop: Right, Mobile: Bottom */}
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6 }}
-              className="order-1 lg:order-2 space-y-6"
-            >
-              {/* Title */}
-              <div className="space-y-2">
-                <h1 className="font-serif text-3xl md:text-4xl font-bold" style={{ color: '#0e0a0e' }}>
-                  {getShapeDisplayName(shape)}
-                </h1>
-                <p className="text-base" style={{ color: '#5f5f5f' }}>
-                  Create your unique charm with these simple steps
-                </p>
-              </div>
-
-              {/* Step 1: Upload Photo */}
-              <div className="rounded-2xl p-5" style={{ backgroundColor: '#f4f1e2' }}>
-                <div className="flex items-start space-x-3">
-                  <div className="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm" style={{ backgroundColor: '#a48355', color: '#FFFFFF' }}>
-                    1
-                  </div>
-                  <div className="flex-1 space-y-2">
-                    <h3 className="font-serif text-lg font-semibold" style={{ color: '#0e0a0e' }}>Upload Your Photo</h3>
-                    <p className="text-sm" style={{ color: '#5f5f5f' }}>
+                <div className="flex-1 space-y-3">
+                  <div>
+                    <h3 className="font-serif text-xl font-semibold" style={{ color: '#0e0a0e' }}>Upload Your Photo</h3>
+                    <p className="text-sm mt-1" style={{ color: '#5f5f5f' }}>
                       PNG format with transparent background • 1cm × 1cm size
                     </p>
-                    <ImageUploader
-                      onImageSelect={handleImageSelect}
-                      currentImage={imageData}
-                      className="h-32"
-                    />
                   </div>
-                </div>
-              </div>
-
-              {/* Step 2: Adjust Photo */}
-              {imageData && (
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.4 }}
-                  className="rounded-2xl p-5" style={{ backgroundColor: '#f4f1e2' }}
-                >
-                  <div className="flex items-start space-x-3">
-                    <div className="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm" style={{ backgroundColor: '#a48355', color: '#FFFFFF' }}>
-                      2
-                    </div>
-                    <div className="flex-1 space-y-3">
-                      <h3 className="font-serif text-lg font-semibold" style={{ color: '#0e0a0e' }}>Adjust Your Photo</h3>
-                      <ImageEditor
-                        imageData={imageData}
-                        settings={imageSettings}
-                        onChange={setImageSettings}
-                      />
-                    </div>
-                  </div>
-                </motion.div>
-              )}
-
-              {/* Step 3: Choose Material */}
-              <div className="rounded-2xl p-5" style={{ backgroundColor: '#f4f1e2' }}>
-                <div className="flex items-start space-x-3">
-                  <div className="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm" style={{ backgroundColor: '#a48355', color: '#FFFFFF' }}>
-                    3
-                  </div>
-                  <div className="flex-1">
-                    <h3 className="font-serif text-lg font-semibold mb-3" style={{ color: '#0e0a0e' }}>Select Material</h3>
-                    <MaterialSelector selected={material} onChange={setMaterial} />
-                  </div>
-                </div>
-              </div>
-
-              {/* Step 4: Quantity & Price */}
-              <div className="rounded-2xl p-5" style={{ backgroundColor: '#f4f1e2' }}>
-                <div className="flex items-start space-x-3">
-                  <div className="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm" style={{ backgroundColor: '#a48355', color: '#FFFFFF' }}>
-                    4
-                  </div>
-                  <div className="flex-1 space-y-4">
-                    <h3 className="font-serif text-lg font-semibold" style={{ color: '#0e0a0e' }}>Quantity & Price</h3>
-                    <div>
-                      <p className="text-sm mb-2" style={{ color: '#5f5f5f' }}>Select quantity:</p>
-                      <QuantitySelector value={quantity} onChange={setQuantity} />
-                    </div>
-                    <PriceCalculator
-                      shape={shape}
-                      material={material}
-                      size={size}
-                      quantity={quantity}
-                    />
-                  </div>
-                </div>
-              </div>
-
-              {/* Actions */}
-              <div className="space-y-3 pt-2">
-                <Button
-                  onClick={handleAddToCart}
-                  disabled={!imageData}
-                  className="w-full h-12 text-base transition-all duration-300 hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
-                  style={{ backgroundColor: '#a48355', color: '#FFFFFF' }}
-                >
-                  <ShoppingBag className="w-4 h-4 mr-2" />
-                  Add to Cart
-                </Button>
-
-                <div className="hidden lg:flex items-center justify-center space-x-4">
-                  <FavoriteButton
-                    isFavorite={isFav}
-                    onToggle={handleToggleFavorite}
+                  <ImageUploader
+                    onImageSelect={handleImageSelect}
+                    currentImage={imageData}
+                    className="h-36"
                   />
-                  <p className="text-sm" style={{ color: '#5f5f5f' }}>Save design for later</p>
                 </div>
               </div>
-            </motion.div>
-          </div>
+            </div>
+
+            {/* Step 2: Adjust Photo */}
+            {imageData && (
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4 }}
+                className="rounded-2xl p-6 shadow-sm" style={{ backgroundColor: '#FFFFFF', border: '1px solid #e8d0b4' }}
+              >
+                <div className="flex items-start space-x-4">
+                  <div className="flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center font-bold" style={{ backgroundColor: '#a48355', color: '#FFFFFF' }}>
+                    2
+                  </div>
+                  <div className="flex-1 space-y-3">
+                    <h3 className="font-serif text-xl font-semibold" style={{ color: '#0e0a0e' }}>Adjust Your Photo</h3>
+                    <ImageEditor
+                      imageData={imageData}
+                      settings={imageSettings}
+                      onChange={setImageSettings}
+                    />
+                  </div>
+                </div>
+              </motion.div>
+            )}
+
+            {/* Step 3: Choose Material */}
+            <div className="rounded-2xl p-6 shadow-sm" style={{ backgroundColor: '#FFFFFF', border: '1px solid #e8d0b4' }}>
+              <div className="flex items-start space-x-4">
+                <div className="flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center font-bold" style={{ backgroundColor: '#a48355', color: '#FFFFFF' }}>
+                  3
+                </div>
+                <div className="flex-1">
+                  <h3 className="font-serif text-xl font-semibold mb-4" style={{ color: '#0e0a0e' }}>Select Material</h3>
+                  <MaterialSelector selected={material} onChange={setMaterial} />
+                </div>
+              </div>
+            </div>
+
+            {/* Step 4: Quantity & Price */}
+            <div className="rounded-2xl p-6 shadow-sm" style={{ backgroundColor: '#FFFFFF', border: '1px solid #e8d0b4' }}>
+              <div className="flex items-start space-x-4">
+                <div className="flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center font-bold" style={{ backgroundColor: '#a48355', color: '#FFFFFF' }}>
+                  4
+                </div>
+                <div className="flex-1 space-y-4">
+                  <h3 className="font-serif text-xl font-semibold" style={{ color: '#0e0a0e' }}>Quantity & Price</h3>
+                  <div>
+                    <p className="text-sm mb-3" style={{ color: '#5f5f5f' }}>Select quantity:</p>
+                    <QuantitySelector value={quantity} onChange={setQuantity} />
+                  </div>
+                  <PriceCalculator
+                    shape={shape}
+                    material={material}
+                    size={size}
+                    quantity={quantity}
+                  />
+                </div>
+              </div>
+            </div>
+
+            {/* Actions */}
+            <div className="flex flex-col sm:flex-row gap-4 pt-2">
+              <Button
+                onClick={handleAddToCart}
+                disabled={!imageData}
+                className="flex-1 h-12 text-base transition-all duration-300 hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
+                style={{ backgroundColor: '#a48355', color: '#FFFFFF' }}
+              >
+                <ShoppingBag className="w-4 h-4 mr-2" />
+                Add to Cart
+              </Button>
+
+              <Button
+                onClick={handleToggleFavorite}
+                className="flex-1 h-12 text-base transition-all duration-300 hover:scale-105"
+                variant="outline"
+                style={{ borderColor: '#a48355', color: '#a48355' }}
+              >
+                {isFav ? '♥ Saved' : '♡ Save for Later'}
+              </Button>
+            </div>
+          </motion.div>
         </div>
       </section>
 
