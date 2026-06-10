@@ -14,14 +14,13 @@ import SizeSelector from '@/components/SizeSelector';
 import QuantitySelector from '@/components/QuantitySelector';
 import PriceCalculator from '@/components/PriceCalculator';
 import FavoriteButton from '@/components/FavoriteButton';
-import { CharmShape, CharmMaterial, CharmSize, CharmDesign } from '@/types';
+import { CharmMaterial, CharmSize, CharmDesign } from '@/types';
 import { getShapeDisplayName, generateId, calculateCharmPrice } from '@/lib/charms';
 import { useCart } from '@/contexts/CartContext';
 import { useFavorites } from '@/contexts/FavoritesContext';
 import { Button } from '@/components/ui/button';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { ArrowLeft, Check, ShoppingBag } from 'lucide-react';
-import { toast } from '@/hooks/use-toast';
 
 export default function CharmDesigner() {
   const params = useParams();
@@ -29,7 +28,9 @@ export default function CharmDesigner() {
   const { addToCart } = useCart();
   const { addToFavorites, isFavorite, removeFromFavorites } = useFavorites();
 
-  const [shape, setShape] = useState<CharmShape>((params.id as CharmShape) || 'circle');
+  const [shape, setShape] = useState<'circle' | 'heart' | 'oval' | 'square' | 'star' | 'flower' | 'butterfly'>(
+    (params.id as any) || 'circle'
+  );
   const [material, setMaterial] = useState<CharmMaterial>('silver');
   const [size, setSize] = useState<CharmSize>('medium');
   const [quantity, setQuantity] = useState(1);
@@ -58,7 +59,7 @@ export default function CharmDesigner() {
 
   useEffect(() => {
     if (params.id && ['circle', 'heart', 'oval', 'square', 'star', 'flower', 'butterfly'].includes(params.id as string)) {
-      setShape(params.id as CharmShape);
+      setShape(params.id as any);
     }
   }, [params.id]);
 
@@ -76,11 +77,9 @@ export default function CharmDesigner() {
   const handleToggleFavorite = () => {
     if (isFav) {
       removeFromFavorites(favId);
-      toast({ title: 'Removed from favorites' });
     } else {
       const favDesign = { ...design, id: favId };
       addToFavorites(favDesign);
-      toast({ title: 'Added to favorites' });
     }
   };
 
@@ -91,11 +90,14 @@ export default function CharmDesigner() {
       <Navbar />
 
       {/* Breadcrumb */}
-      <div className="pt-24 bg-white border-b">
+      <div className="pt-24 bg-white border-b" style={{ borderColor: '#e8d0b4' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <button
             onClick={() => router.back()}
-            className="flex items-center space-x-2 text-gray-600 hover:text-amber-700 transition-colors"
+            className="flex items-center space-x-2 transition-colors"
+            style={{ color: '#5f5f5f' }}
+            onMouseEnter={(e) => e.currentTarget.style.color = '#a48355'}
+            onMouseLeave={(e) => e.currentTarget.style.color = '#5f5f5f'}
           >
             <ArrowLeft className="w-4 h-4" />
             <span>Back to Charms</span>
@@ -115,7 +117,7 @@ export default function CharmDesigner() {
               className="order-2 lg:order-1"
             >
               <div className="sticky top-24">
-                <div className="bg-gradient-to-br from-stone-100 to-stone-50 rounded-3xl p-8 md:p-12 shadow-inner">
+                <div className="rounded-3xl p-8 md:p-12 shadow-inner" style={{ background: 'linear-gradient(135deg, #f4f1e2 0%, #e8d0b4 100%)' }}>
                   <div className="flex items-center justify-center">
                     <CharmPreview design={design} size={350} />
                   </div>
@@ -141,53 +143,27 @@ export default function CharmDesigner() {
             >
               {/* Title */}
               <div>
-                <h1 className="font-serif text-3xl md:text-4xl font-bold text-gray-900 mb-2">
+                <h1 className="font-serif text-3xl md:text-4xl font-bold mb-2" style={{ color: '#0e0a0e' }}>
                   {getShapeDisplayName(shape)}
                 </h1>
-                <p className="text-gray-600">
+                <p style={{ color: '#5f5f5f' }}>
                   Customize your perfect charm with your favorite photo
                 </p>
               </div>
 
-              {/* Tabs */}
+              {/* Tabs - Only two tabs: Customize & Material */}
               <Tabs defaultValue="customize" className="w-full">
-                <TabsList className="grid w-full grid-cols-3">
+                <TabsList className="grid w-full grid-cols-2">
                   <TabsTrigger value="customize">Customize</TabsTrigger>
                   <TabsTrigger value="material">Material</TabsTrigger>
-                  <TabsTrigger value="size">Size</TabsTrigger>
                 </TabsList>
 
-                {/* Customize Tab */}
+                {/* Customize Tab - No shape selector, PNG only */}
                 <TabsContent value="customize" className="space-y-6 mt-6">
-                  {/* Shape Selector */}
+                  {/* Image Upload - PNG only */}
                   <div className="space-y-3">
-                    <h3 className="font-serif text-lg font-semibold text-gray-900">Shape</h3>
-                    <div className="grid grid-cols-4 gap-2">
-                      {(['circle', 'heart', 'oval', 'square', 'star', 'flower', 'butterfly'] as CharmShape[]).map((s) => (
-                        <button
-                          key={s}
-                          onClick={() => setShape(s)}
-                          className={`p-3 rounded-xl border-2 transition-all duration-200 ${
-                            shape === s
-                              ? 'border-amber-600 bg-amber-50'
-                              : 'border-gray-200 hover:border-gray-300 bg-white'
-                          }`}
-                        >
-                          <div className="w-12 h-12 mx-auto">
-                            <svg viewBox="0 0 100 100">
-                              <rect width="100" height="100" fill="none" />
-                              <circle cx="50" cy="50" r={s === 'square' ? 40 : 35} fill={s === shape ? '#b45309' : '#e5e7eb'} />
-                            </svg>
-                          </div>
-                          <p className="text-xs text-center mt-1 capitalize">{s}</p>
-                        </button>
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* Image Upload */}
-                  <div className="space-y-3">
-                    <h3 className="font-serif text-lg font-semibold text-gray-900">Your Photo</h3>
+                    <h3 className="font-serif text-lg font-semibold" style={{ color: '#0e0a0e' }}>Your Photo</h3>
+                    <p className="text-sm" style={{ color: '#5f5f5f' }}>Please upload a PNG image with transparent background</p>
                     <ImageUploader
                       onImageSelect={handleImageSelect}
                       currentImage={imageData}
@@ -198,7 +174,7 @@ export default function CharmDesigner() {
                   {/* Image Editor */}
                   {imageData && (
                     <div className="space-y-3">
-                      <h3 className="font-serif text-lg font-semibold text-gray-900">Adjust Your Photo</h3>
+                      <h3 className="font-serif text-lg font-semibold" style={{ color: '#0e0a0e' }}>Adjust Your Photo</h3>
                       <ImageEditor
                         imageData={imageData}
                         settings={imageSettings}
@@ -206,25 +182,23 @@ export default function CharmDesigner() {
                       />
                     </div>
                   )}
+
+                  {/* Size Selector */}
+                  <SizeSelector selected={size} onChange={setSize} />
                 </TabsContent>
 
                 {/* Material Tab */}
                 <TabsContent value="material" className="mt-6">
                   <MaterialSelector selected={material} onChange={setMaterial} />
                 </TabsContent>
-
-                {/* Size Tab */}
-                <TabsContent value="size" className="mt-6">
-                  <SizeSelector selected={size} onChange={setSize} />
-                </TabsContent>
               </Tabs>
 
               {/* Quantity & Price */}
-              <div className="space-y-6 pt-6 border-t">
+              <div className="space-y-6 pt-6 border-t" style={{ borderColor: '#e8d0b4' }}>
                 <div className="flex items-center justify-between">
                   <div>
-                    <p className="font-medium text-gray-900">Quantity</p>
-                    <p className="text-sm text-gray-500">Max 10 per order</p>
+                    <p className="font-medium" style={{ color: '#0e0a0e' }}>Quantity</p>
+                    <p className="text-sm" style={{ color: '#5f5f5f' }}>Max 10 per order</p>
                   </div>
                   <QuantitySelector value={quantity} onChange={setQuantity} />
                 </div>
@@ -238,11 +212,12 @@ export default function CharmDesigner() {
               </div>
 
               {/* Actions */}
-              <div className="space-y-4 pt-6 border-t">
+              <div className="space-y-4 pt-6 border-t" style={{ borderColor: '#e8d0b4' }}>
                 <Button
                   onClick={handleAddToCart}
                   disabled={!imageData}
-                  className="w-full h-14 text-lg bg-gray-900 hover:bg-gray-800 text-white disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="w-full h-14 text-lg transition-all duration-300 hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
+                  style={{ backgroundColor: '#0e0a0e', color: '#f4f1e2' }}
                 >
                   <ShoppingBag className="w-5 h-5 mr-2" />
                   Add to Cart
@@ -253,7 +228,7 @@ export default function CharmDesigner() {
                     isFavorite={isFav}
                     onToggle={handleToggleFavorite}
                   />
-                  <p className="text-sm text-gray-600">Save design for later</p>
+                  <p className="text-sm" style={{ color: '#5f5f5f' }}>Save design for later</p>
                 </div>
               </div>
             </motion.div>
@@ -274,15 +249,16 @@ export default function CharmDesigner() {
               initial={{ scale: 0.9, y: 20 }}
               animate={{ scale: 1, y: 0 }}
               exit={{ scale: 0.9, y: 20 }}
-              className="bg-white rounded-2xl p-8 max-w-md w-full text-center"
+              className="rounded-2xl p-8 max-w-md w-full text-center"
+              style={{ backgroundColor: '#FFFFFF' }}
             >
-              <div className="w-16 h-16 mx-auto mb-4 bg-green-100 rounded-full flex items-center justify-center">
-                <Check className="w-8 h-8 text-green-600" />
+              <div className="w-16 h-16 mx-auto mb-4 rounded-full flex items-center justify-center" style={{ backgroundColor: '#e8d0b4' }}>
+                <Check className="w-8 h-8" style={{ color: '#a48355' }} />
               </div>
-              <h3 className="font-serif text-2xl font-bold text-gray-900 mb-2">
+              <h3 className="font-serif text-2xl font-bold mb-2" style={{ color: '#0e0a0e' }}>
                 Added to Cart!
               </h3>
-              <p className="text-gray-600 mb-6">
+              <p className="mb-6" style={{ color: '#5f5f5f' }}>
                 Your custom charm has been added to your cart.
               </p>
               <div className="flex space-x-3">
@@ -290,6 +266,7 @@ export default function CharmDesigner() {
                   variant="outline"
                   onClick={() => setShowSuccessModal(false)}
                   className="flex-1"
+                  style={{ borderColor: '#a48355', color: '#a48355' }}
                 >
                   Continue Shopping
                 </Button>
@@ -298,7 +275,8 @@ export default function CharmDesigner() {
                     setShowSuccessModal(false);
                     router.push('/cart');
                   }}
-                  className="flex-1 bg-gray-900 hover:bg-gray-800 text-white"
+                  className="flex-1 transition-all duration-300 hover:scale-105"
+                  style={{ backgroundColor: '#0e0a0e', color: '#f4f1e2' }}
                 >
                   View Cart
                 </Button>

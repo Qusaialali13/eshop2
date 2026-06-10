@@ -29,7 +29,7 @@ const ImageUploader: React.FC<ImageUploaderProps> = ({ onImageSelect, currentIma
     setIsDragging(false);
 
     const file = e.dataTransfer.files[0];
-    if (file && (file.type === 'image/jpeg' || file.type === 'image/png' || file.type === 'image/jpg')) {
+    if (file && file.type === 'image/png') {
       const reader = new FileReader();
       reader.onload = (event) => {
         if (event.target?.result) {
@@ -42,7 +42,7 @@ const ImageUploader: React.FC<ImageUploaderProps> = ({ onImageSelect, currentIma
 
   const handleFileInput = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
-    if (file && (file.type === 'image/jpeg' || file.type === 'image/png' || file.type === 'image/jpg')) {
+    if (file && file.type === 'image/png') {
       const reader = new FileReader();
       reader.onload = (event) => {
         if (event.target?.result) {
@@ -106,21 +106,21 @@ const ImageUploader: React.FC<ImageUploaderProps> = ({ onImageSelect, currentIma
               </motion.div>
               <div>
                 <p className="font-medium text-gray-900 mb-1">
-                  Drop your image here
+                  Drop your PNG image here
                 </p>
                 <p className="text-sm text-gray-500 mb-3">
                   or click to browse
                 </p>
                 <p className="text-xs text-gray-400">
-                  PNG, JPG up to 10MB
+                  PNG format with transparent background only
                 </p>
               </div>
               <input
                 type="file"
-                accept="image/jpeg,image/jpg,image/png"
+                accept="image/png"
                 onChange={handleFileInput}
                 className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
-                aria-label="Upload image"
+                aria-label="Upload PNG image"
               />
             </div>
           </motion.div>

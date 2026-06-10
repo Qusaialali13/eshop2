@@ -25,6 +25,7 @@ const Navbar = () => {
     { href: '/', label: 'Home' },
     { href: '/about', label: 'About' },
     { href: '/charms', label: 'Charms' },
+    { href: '/brands', label: 'Brands' },
   ];
 
   return (
@@ -39,10 +40,10 @@ const Navbar = () => {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-2">
-            <div className="w-10 h-10 bg-gradient-to-br from-amber-200 to-amber-400 rounded-full flex items-center justify-center">
+            <div className="w-10 h-10 rounded-full flex items-center justify-center" style={{ background: 'linear-gradient(135deg, #e8d0b4 0%, #a48355 100%)' }}>
               <span className="text-white font-serif text-xl font-bold">L</span>
             </div>
-            <span className="font-serif text-2xl font-medium text-gray-900">LuxCharms</span>
+            <span className="font-serif text-2xl font-medium" style={{ color: '#0e0a0e' }}>LuxCharms</span>
           </Link>
 
           {/* Desktop Navigation */}
@@ -51,7 +52,8 @@ const Navbar = () => {
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-gray-700 hover:text-amber-700 transition-colors duration-200 font-medium"
+                className="transition-colors duration-200 font-medium hover:text-[#a48355]"
+                style={{ color: '#0e0a0e' }}
               >
                 {link.label}
               </Link>
@@ -61,22 +63,22 @@ const Navbar = () => {
           {/* Desktop Icons */}
           <div className="hidden md:flex items-center space-x-4">
             <Link href="/favorites">
-              <Button variant="ghost" size="icon" className="text-gray-700 hover:text-amber-700">
+              <Button variant="ghost" size="icon" style={{ color: '#0e0a0e' }} className="hover:text-[#a48355]">
                 <Heart className="w-5 h-5" />
               </Button>
             </Link>
             <Link href="/cart">
-              <Button variant="ghost" size="icon" className="text-gray-700 hover:text-amber-700 relative">
+              <Button variant="ghost" size="icon" style={{ color: '#0e0a0e' }} className="hover:text-[#a48355] relative">
                 <ShoppingBag className="w-5 h-5" />
                 {cartCount > 0 && (
-                  <span className="absolute -top-1 -right-1 w-5 h-5 bg-amber-600 text-white text-xs rounded-full flex items-center justify-center">
+                  <span className="absolute -top-1 -right-1 w-5 h-5 rounded-full flex items-center justify-center text-xs" style={{ backgroundColor: '#a48355', color: '#FFFFFF' }}>
                     {cartCount}
                   </span>
                 )}
               </Button>
             </Link>
             <Link href="/profile">
-              <Button variant="ghost" size="icon" className="text-gray-700 hover:text-amber-700">
+              <Button variant="ghost" size="icon" style={{ color: '#0e0a0e' }} className="hover:text-[#a48355]">
                 <User className="w-5 h-5" />
               </Button>
             </Link>
@@ -85,7 +87,8 @@ const Navbar = () => {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden text-gray-700 hover:text-amber-700"
+            style={{ color: '#0e0a0e' }}
+            className="md:hidden hover:text-[#a48355]"
             aria-label="Toggle menu"
           >
             {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -100,7 +103,7 @@ const Navbar = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-white border-t"
+            className="md:bg-white border-t"
           >
             <div className="px-4 py-6 space-y-4">
               {navLinks.map((link) => (
@@ -108,12 +111,13 @@ const Navbar = () => {
                   key={link.href}
                   href={link.href}
                   onClick={() => setMobileMenuOpen(false)}
-                  className="block text-gray-700 hover:text-amber-700 transition-colors duration-200 font-medium py-2"
+                  className="block py-2 transition-colors duration-200 font-medium hover:text-[#a48355]"
+                  style={{ color: '#0e0a0e' }}
                 >
                   {link.label}
                 </Link>
               ))}
-              <div className="pt-4 border-t flex space-x-4">
+              <div className="pt-4 border-t flex space-x-4" style={{ borderColor: '#e8d0b4' }}>
                 <Link href="/favorites" onClick={() => setMobileMenuOpen(false)}>
                   <Button variant="ghost" size="icon">
                     <Heart className="w-5 h-5" />
@@ -123,7 +127,7 @@ const Navbar = () => {
                   <Button variant="ghost" size="icon" relative>
                     <ShoppingBag className="w-5 h-5" />
                     {cartCount > 0 && (
-                      <span className="absolute -top-1 -right-1 w-5 h-5 bg-amber-600 text-white text-xs rounded-full flex items-center justify-center">
+                      <span className="absolute -top-1 -right-1 w-5 h-5 rounded-full flex items-center justify-center text-xs" style={{ backgroundColor: '#a48355', color: '#FFFFFF' }}>
                         {cartCount}
                       </span>
                     )}
