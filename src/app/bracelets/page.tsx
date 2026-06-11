@@ -28,15 +28,7 @@ const bracelets: Bracelet[] = [
     image: 'SILVER',
     fullDescription: 'Experience timeless elegance with our Classic Silver Chain bracelet. Crafted from premium 925 sterling silver, this piece features a sophisticated link design that transitions seamlessly from day to night. The polished finish catches the light beautifully, making it a perfect standalone piece or an ideal canvas for your favorite charms.',
   },
-  {
-    id: 'gold-plated',
-    name: 'Gold Plated Link',
-    description: 'Luxurious 18K gold plated over sterling silver',
-    price: 129,
-    material: '18K Gold Plated',
-    image: 'GOLD',
-    fullDescription: 'Indulge in luxury with our Gold Plated Link bracelet. Featuring 18K gold plating over premium sterling silver, this bracelet radiates warmth and sophistication. Each link is meticulously crafted and polished to perfection, creating a piece that exudes elegance and complements any style.',
-  },
+ 
   // {
   //   id: 'rose-gold',
   //   name: 'Rose Gold Charm',

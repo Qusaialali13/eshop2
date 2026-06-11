@@ -25,16 +25,6 @@ const CharmPreview: React.FC<CharmPreviewProps> = ({
     switch (shape) {
       case 'circle':
         return `M ${size / 2} ${0} A ${size / 2 - 20} ${size / 2 - 20} 0 1 1 ${size / 2} ${size - 0} A ${size / 2 - 20} ${size / 2 - 20} 0 1 1 ${size / 2} ${0} Z`;
-      case 'heart':
-        return `M ${size / 2} ${size * 0.8}
-          C ${size / 2} ${size * 0.65}, ${size * 0.15} ${size * 0.4}, ${size * 0.15} ${size * 0.25}
-          C ${size * 0.15} ${size * 0.05}, ${size * 0.4} ${size * 0.05}, ${size / 2} ${size * 0.25}
-          C ${size * 0.6} ${size * 0.05}, ${size * 0.85} ${size * 0.05}, ${size * 0.85} ${size * 0.25}
-          C ${size * 0.85} ${size * 0.4}, ${size / 2} ${size * 0.65}, ${size / 2} ${size * 0.8} Z`;
-      case 'oval':
-        return `M ${size / 2} ${size * 0.2}
-          A ${size / 2 - 20} ${size / 2.5 - 20} 0 1 1 ${size / 2} ${size * 0.8}
-          A ${size / 2 - 20} ${size / 2.5 - 20} 0 1 1 ${size / 2} ${size * 0.2} Z`;
       case 'square':
         const cornerRadius = size * 0.08;
         return `M ${20 + cornerRadius} ${20}
@@ -46,47 +36,7 @@ const CharmPreview: React.FC<CharmPreviewProps> = ({
           Q ${20} ${size - 20} ${20} ${size - 20 - cornerRadius}
           L ${20} ${20 + cornerRadius}
           Q ${20} ${20} ${20 + cornerRadius} ${20} Z`;
-      case 'star':
-        const outerRadius = size / 2 - 20;
-        const innerRadius = size / 4;
-        const points = [];
-        for (let i = 0; i < 10; i++) {
-          const radius = i % 2 === 0 ? outerRadius : innerRadius;
-          const angle = (i * 36 - 90) * (Math.PI / 180);
-          const x = size / 2 + radius * Math.cos(angle);
-          const y = size / 2 + radius * Math.sin(angle);
-          points.push(`${i === 0 ? 'M' : 'L'} ${x} ${y}`);
-        }
-        return points.join(' ') + ' Z';
-      case 'flower':
-        const petalPaths = [];
-        const cx = size / 2;
-        const cy = size / 2;
-        const petalCount = 6;
-        const petalWidth = size * 0.25;
-        const petalHeight = size * 0.35;
-        
-        for (let i = 0; i < petalCount; i++) {
-          const angle = (i * 60) * (Math.PI / 180);
-          const pcx = cx + Math.cos(angle) * petalWidth * 0.5;
-          const pcy = cy + Math.sin(angle) * petalWidth * 0.5;
-          petalPaths.push(`M ${pcx} ${pcy}
-            m ${-petalWidth/2} ${-petalHeight/2}
-            a ${petalWidth/2} ${petalHeight/2} 0 1 1 ${petalWidth} 0
-            a ${petalWidth/2} ${petalHeight/2} 0 1 1 ${-petalWidth} 0`);
-        }
-        // Combine all petals into a single path
-        return `M ${cx} ${cy} ${petalPaths.join(' ')} Z`;
-      case 'butterfly':
-        return `M ${size / 2} ${size / 2}
-          L ${size * 0.1} ${size * 0.3}
-          L ${size * 0.05} ${size * 0.5}
-          L ${size * 0.25} ${size * 0.7}
-          L ${size / 2} ${size * 0.75}
-          L ${size * 0.75} ${size * 0.7}
-          L ${size * 0.95} ${size * 0.5}
-          L ${size * 0.9} ${size * 0.3}
-          Z`;
+    
       default:
         return '';
     }
