@@ -4,7 +4,6 @@ import { CharmShape, CharmMaterial, CharmSize, CharmPrice } from '@/types';
 const SHAPE_BASE_PRICES: Record<CharmShape, number> = {
   circle: 29,
   square: 30,
-  couple: 45,
 };
 
 // Material multipliers
@@ -60,7 +59,6 @@ export const getShapeDisplayName = (shape: CharmShape): string => {
   const names: Record<CharmShape, string> = {
     circle: 'Circle Charm',
     square: 'Square Charm',
-    couple: 'Couple Charm',
   };
   return names[shape];
 };
@@ -99,7 +97,7 @@ export const calculateOrderTotal = (subtotal: number): number => {
 
 // Get charm shapes list
 export const getAllShapes = (): CharmShape[] => {
-  return ['circle', 'square', 'couple'];
+  return ['circle', 'square'];
 };
 
 // Get materials list

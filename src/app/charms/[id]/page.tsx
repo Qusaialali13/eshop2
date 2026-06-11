@@ -26,10 +26,10 @@ import { ArrowLeft, Check, ShoppingBag } from "lucide-react";
 import Image from "next/image";
 
 const getCharmBackgroundImage = (
-  shape: "circle" | "square" | "couple",
+  shape: "circle" | "square",
   material: CharmMaterial,
 ): string => {
-  const targetShape = shape === "couple" ? "circle" : shape;
+  const targetShape = shape;
 
   const mapping: Record<string, string> = {
     "gold-circle": "/assets/Charms/GOLD_CIRCLE_CHARMS.png",
@@ -50,7 +50,7 @@ export default function CharmDesigner() {
   const { addToCart } = useCart();
   const { addToFavorites, isFavorite, removeFromFavorites } = useFavorites();
 
-  const [shape, setShape] = useState<"circle" | "square" | "couple">(
+  const [shape, setShape] = useState<"circle" | "square">(
     (params.id as any) || "circle",
   );
   const [material, setMaterial] = useState<CharmMaterial>("silver");
@@ -82,10 +82,7 @@ export default function CharmDesigner() {
   const isFav = isFavorite(favId);
 
   useEffect(() => {
-    if (
-      params.id &&
-      ["circle", "square", "couple"].includes(params.id as string)
-    ) {
+    if (params.id && ["circle", "square"].includes(params.id as string)) {
       setShape(params.id as any);
     }
   }, [params.id]);
