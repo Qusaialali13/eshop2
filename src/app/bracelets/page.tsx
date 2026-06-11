@@ -23,10 +23,19 @@ const bracelets: Bracelet[] = [
     id: 'classic-silver',
     name: 'Classic Silver Chain',
     description: 'Elegant sterling silver chain bracelet',
-    price: 89,
+    price: 89,  
     material: 'Sterling Silver',
     image: 'SILVER',
     fullDescription: 'Experience timeless elegance with our Classic Silver Chain bracelet. Crafted from premium 925 sterling silver, this piece features a sophisticated link design that transitions seamlessly from day to night. The polished finish catches the light beautifully, making it a perfect standalone piece or an ideal canvas for your favorite charms.',
+  },
+    {
+    id: 'classic-brown',
+    name: 'Classic Brown Chain',
+    description: 'Elegant brown chain bracelet',
+    price: 89,
+    material: 'Brown Chain',
+    image: 'BROWN',
+    fullDescription: 'Experience timeless elegance with our Classic Brown Chain bracelet. Crafted from premium 925 sterling silver, this piece features a sophisticated link design that transitions seamlessly from day to night. The polished finish catches the light beautifully, making it a perfect standalone piece or an ideal canvas for your favorite charms.',
   },
  
   // {

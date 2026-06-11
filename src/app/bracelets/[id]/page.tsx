@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useParams, useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import Navbar from "@/components/Navbar";
@@ -28,6 +28,8 @@ interface Bracelet {
   name: string;
   basePrice: number;
   description: string;
+  allowedColors: BraceletColor[];
+  defaultColor?: BraceletColor;
 }
 
 const bracelets: Bracelet[] = [
@@ -36,36 +38,16 @@ const bracelets: Bracelet[] = [
     name: "Classic Chain",
     basePrice: 89,
     description: "Elegant bracelet perfect for your custom charms",
+    allowedColors: ["silver", "gold", "rose-gold"],
+    defaultColor: "silver",
   },
   {
-    id: "gold-plated",
-    name: "Gold Link",
-    basePrice: 129,
-    description: "Luxurious 18K gold plated over sterling silver",
-  },
-  {
-    id: "rose-gold",
-    name: "Rose Gold Charm",
-    basePrice: 119,
-    description: "Romantic rose gold bracelet with charm holder",
-  },
-  {
-    id: "silver-bangle",
-    name: "Silver Bangle",
-    basePrice: 99,
-    description: "Minimalist sterling silver bangle",
-  },
-  {
-    id: "gold-tennis",
-    name: "Gold Tennis",
-    basePrice: 159,
-    description: "Classic tennis bracelet in gold plating",
-  },
-  {
-    id: "rose-pendant",
-    name: "Rose Pendant",
-    basePrice: 139,
-    description: "Delicate rose gold bracelet with pendant",
+    id: "classic-brown",
+    name: "Classic Brown Chain",
+    basePrice: 89,
+    description: "Elegant brown chain bracelet",
+    allowedColors: ["black", "brown"],
+    defaultColor: "black",
   },
 ];
 
@@ -127,7 +109,14 @@ export default function BraceletCustomizer() {
   const { addToCart } = useCart();
   const { addToFavorites, isFavorite, removeFromFavorites } = useFavorites();
 
-  const [selectedColor, setSelectedColor] = useState<BraceletColor>("silver");
+  const initialSelectedColor = (() => {
+    const b = bracelets.find((b) => b.id === params.id);
+    if (b?.defaultColor) return b.defaultColor;
+    if (b && b.allowedColors && b.allowedColors.length > 0) return b.allowedColors[0];
+    return "silver" as BraceletColor;
+  })();
+
+  const [selectedColor, setSelectedColor] = useState<BraceletColor>(initialSelectedColor);
   const [selectedSize, setSelectedSize] = useState<string>("18");
   const [quantity, setQuantity] = useState(1);
   const [showSuccessModal, setShowSuccessModal] = useState(false);
@@ -152,6 +141,25 @@ export default function BraceletCustomizer() {
     );
   }
 
+  const availableColors = colors.filter((c) =>
+    (bracelet.allowedColors || []).includes(c.value),
+  );
+
+  useEffect(() => {
+    if (bracelet.defaultColor) {
+      setSelectedColor(bracelet.defaultColor);
+      return;
+    }
+
+    if (
+      availableColors.length > 0 &&
+      !availableColors.some((c) => c.value === selectedColor)
+    ) {
+      setSelectedColor(availableColors[0].value);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [bracelet.id]);
+
   const selectedColorData = colors.find((c) => c.value === selectedColor);
   const totalPrice = Math.round(
     bracelet.basePrice * selectedColorData!.priceMultiplier * quantity,
@@ -169,7 +177,7 @@ export default function BraceletCustomizer() {
       {
         id: `${bracelet.id}-${selectedColor}-size${selectedSize}`,
         shape: "circle" as any,
-        material: selectedColor,
+        material: selectedColor as unknown as any,
         size: "medium",
         imageData: "",
         imageSettings: { scale: 1, rotation: 0, x: 0, y: 0 },
@@ -190,7 +198,7 @@ export default function BraceletCustomizer() {
       addToFavorites({
         id: favId,
         shape: "circle" as any,
-        material: selectedColor,
+        material: selectedColor as unknown as any,
         size: "medium",
         imageData: "",
         imageSettings: { scale: 1, rotation: 0, x: 0, y: 0 },
@@ -259,6 +267,7 @@ export default function BraceletCustomizer() {
             className="flex justify-center"
           >
             <div className="rounded-3xl ">
+              
               <div className="flex items-center justify-center">
                 <motion.div
                   key={selectedColor}
@@ -279,7 +288,7 @@ export default function BraceletCustomizer() {
                         width={180}
                         height={180}
                         alt={"Bracelet Preview"}
-                        src={selectedColorData?.src}
+                        src={selectedColorData!.src!}
                         className="object-contain  inset-0 z-0 absolute w-full h-full"
                         priority
                       />
@@ -330,10 +339,10 @@ export default function BraceletCustomizer() {
                     className="font-serif text-xl font-semibold mb-4"
                     style={{ color: "#000000" }}
                   >
-                    Select Color
+                    Select Color  
                   </h3>
                   <div className="flex flex-wrap gap-8">
-                    {colors.map((color) => (
+                    {availableColors.map((color) => (
                       <motion.button
                         key={color.value}
                         onClick={() => setSelectedColor(color.value)}
