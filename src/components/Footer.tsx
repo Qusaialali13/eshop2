@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { Instagram, Facebook, Twitter, Mail, Phone, MapPin, ChevronRight } from 'lucide-react';
+import Image from 'next/image';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -23,10 +24,10 @@ const Footer = () => {
               whileHover={{ scale: 1.02 }}
               transition={{ duration: 0.3 }}
             >
-              <div className="w-12 h-12 rounded-2xl flex items-center justify-center" style={{ background: 'linear-gradient(135deg, #D4A574 0%, #FFFFFF 100%)' }}>
-                <span className="text-black font-bold text-xl">L</span>
+              <div className=" flex items-center justify-center" >
+               <Image src='/assets/Logos/Colored_logo.png' width={150} height={48} alt='Logo' />
               </div>
-              <span className="font-bold text-xl tracking-tight" style={{ color: '#FFFFFF' }}>LuxCharms</span>
+              
             </motion.div>
             <p className="leading-relaxed text-sm" style={{ color: 'rgba(255,255,255,0.8)' }}>
               Creating timeless memories through custom photo charms. Each piece tells your unique story with elegance and precision.
@@ -264,7 +265,7 @@ const Footer = () => {
         >
           <div className="flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0">
             <p className="text-sm" style={{ color: 'rgba(255,255,255,0.6)' }}>
-              © {currentYear} LuxCharms. All rights reserved.
+              © {currentYear} NomadLinks. All rights reserved. Developed by ARTL STUDIO LLC
             </p>
             <div className="flex space-x-6 text-sm">
               <Link href="#" className="transition-colors hover:text-[#D4A574]" style={{ color: 'rgba(255,255,255,0.8)' }}>

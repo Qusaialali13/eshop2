@@ -6,6 +6,7 @@ import Navbar from '@/components/Navbar';
 import MobileNavbar from '@/components/MobileNavbar';
 import Footer from '@/components/Footer';
 import { ShoppingBag } from 'lucide-react';
+import Image from 'next/image';
 
 interface Bracelet {
   id: string;
@@ -24,7 +25,7 @@ const bracelets: Bracelet[] = [
     description: 'Elegant sterling silver chain bracelet',
     price: 89,
     material: 'Sterling Silver',
-    image: '🔗',
+    image: 'SILVER',
     fullDescription: 'Experience timeless elegance with our Classic Silver Chain bracelet. Crafted from premium 925 sterling silver, this piece features a sophisticated link design that transitions seamlessly from day to night. The polished finish catches the light beautifully, making it a perfect standalone piece or an ideal canvas for your favorite charms.',
   },
   {
@@ -33,45 +34,45 @@ const bracelets: Bracelet[] = [
     description: 'Luxurious 18K gold plated over sterling silver',
     price: 129,
     material: '18K Gold Plated',
-    image: '✨',
+    image: 'GOLD',
     fullDescription: 'Indulge in luxury with our Gold Plated Link bracelet. Featuring 18K gold plating over premium sterling silver, this bracelet radiates warmth and sophistication. Each link is meticulously crafted and polished to perfection, creating a piece that exudes elegance and complements any style.',
   },
-  {
-    id: 'rose-gold',
-    name: 'Rose Gold Charm',
-    description: 'Romantic rose gold bracelet with charm holder',
-    price: 119,
-    material: '18K Rose Gold',
-    image: '💫',
-    fullDescription: 'Embrace romance with our Rose Gold Charm bracelet. The warm blush tones of 18K rose gold plating create a feminine and modern aesthetic. Featuring a dedicated charm holder, this bracelet allows you to personalize your jewelry collection with your most meaningful charms.',
-  },
-  {
-    id: 'silver-bangle',
-    name: 'Silver Bangle',
-    description: 'Minimalist sterling silver bangle',
-    price: 99,
-    material: 'Sterling Silver',
-    image: '⭕',
-    fullDescription: 'Discover understated elegance with our Silver Bangle. This minimalist design showcases the beauty of pure 925 sterling silver in its simplest form. The smooth, polished surface offers a contemporary look that stands alone beautifully or stacks effortlessly with other bracelets.',
-  },
-  {
-    id: 'gold-tennis',
-    name: 'Gold Tennis Bracelet',
-    description: 'Classic tennis bracelet in gold plating',
-    price: 159,
-    material: '18K Gold Plated',
-    image: '💎',
-    fullDescription: 'Make a statement with our Gold Tennis Bracelet. This classic design features alternating cubic zirconia stones set in 18K gold-plated links. The brilliant stones catch light from every angle, creating a dazzling effect that transforms any outfit into something extraordinary.',
-  },
-  {
-    id: 'rose-pendant',
-    name: 'Rose Gold Pendant',
-    description: 'Delicate rose gold bracelet with pendant',
-    price: 139,
-    material: '18K Rose Gold',
-    image: '🌸',
-    fullDescription: 'Add a touch of elegance to your collection with our Rose Gold Pendant bracelet. The delicate chain holds an exquisite pendant that adds movement and grace to the design. Crafted in warm 18K rose gold, this piece captures the essence of modern romance and timeless beauty.',
-  },
+  // {
+  //   id: 'rose-gold',
+  //   name: 'Rose Gold Charm',
+  //   description: 'Romantic rose gold bracelet with charm holder',
+  //   price: 119,
+  //   material: '18K Rose Gold',
+  //   image: 'ROSE_GOLD',
+  //   fullDescription: 'Embrace romance with our Rose Gold Charm bracelet. The warm blush tones of 18K rose gold plating create a feminine and modern aesthetic. Featuring a dedicated charm holder, this bracelet allows you to personalize your jewelry collection with your most meaningful charms.',
+  // },
+  // {
+  //   id: 'silver-bangle',
+  //   name: 'Silver Bangle',
+  //   description: 'Minimalist sterling silver bangle',
+  //   price: 99,
+  //   material: 'Sterling Silver',
+  //   image: '⭕',
+  //   fullDescription: 'Discover understated elegance with our Silver Bangle. This minimalist design showcases the beauty of pure 925 sterling silver in its simplest form. The smooth, polished surface offers a contemporary look that stands alone beautifully or stacks effortlessly with other bracelets.',
+  // },
+  // {
+  //   id: 'gold-tennis',
+  //   name: 'Gold Tennis Bracelet',
+  //   description: 'Classic tennis bracelet in gold plating',
+  //   price: 159,
+  //   material: '18K Gold Plated',
+  //   image: '💎',
+  //   fullDescription: 'Make a statement with our Gold Tennis Bracelet. This classic design features alternating cubic zirconia stones set in 18K gold-plated links. The brilliant stones catch light from every angle, creating a dazzling effect that transforms any outfit into something extraordinary.',
+  // },
+  // {
+  //   id: 'rose-pendant',
+  //   name: 'Rose Gold Pendant',
+  //   description: 'Delicate rose gold bracelet with pendant',
+  //   price: 139,
+  //   material: '18K Rose Gold',
+  //   image: '🌸',
+  //   fullDescription: 'Add a touch of elegance to your collection with our Rose Gold Pendant bracelet. The delicate chain holds an exquisite pendant that adds movement and grace to the design. Crafted in warm 18K rose gold, this piece captures the essence of modern romance and timeless beauty.',
+  // },
 ];
 
 export default function Bracelets() {
@@ -126,7 +127,8 @@ export default function Bracelets() {
                         whileHover={{ scale: 1.1, rotate: 5 }}
                         transition={{ duration: 0.3 }}
                       >
-                        {bracelet.image}
+                        <Image src={bracelet.image?`/assets/Bracelets/${bracelet.image}.png`:'/assets/Logos/Colored_logo.png'} width={400} height={100} alt={bracelet.id} />
+                        
                       </motion.span>
                       <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-all duration-300" />
                     </div>

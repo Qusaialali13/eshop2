@@ -20,15 +20,15 @@ export default function Home() {
 
   const slides = [
     {
-      image: 'linear-gradient(135deg, #FFFFFF 0%, #FAFAFA 50%, #F5F5F5 100%)',
+      image: '/assets/carousel/HERO_1.jpg',
       overlay: 'rgba(0, 0, 0, 0.02)'
     },
     {
-      image: 'linear-gradient(135deg, #FAFAFA 0%, #FFFFFF 50%, #F5F5F5 100%)',
+      image: '/assets/carousel/HERO_2.jpg',
       overlay: 'rgba(0, 0, 0, 0.02)'
     },
     {
-      image: 'linear-gradient(135deg, #F5F5F5 0%, #FAFAFA 50%, #FFFFFF 100%)',
+      image: '/assets/carousel/HERO_3.jpg',
       overlay: 'rgba(0, 0, 0, 0.02)'
     }
   ];
@@ -46,6 +46,8 @@ export default function Home() {
 
       {/* Hero Section with Image Carousel */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+
+      
         {/* Carousel Background */}
         <div className="absolute inset-0">
           {slides.map((slide, index) => (
@@ -55,7 +57,7 @@ export default function Home() {
               animate={{ opacity: currentSlide === index ? 1 : 0 }}
               transition={{ duration: 1 }}
               className="absolute inset-0"
-              style={{ background: slide.image }}
+              style={{ backgroundImage:`url(${slide.image})`  }}
             >
               <div className="absolute inset-0" style={{ backgroundColor: slide.overlay }} />
             </motion.div>
@@ -87,10 +89,10 @@ export default function Home() {
           >
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
+              animate={{ opacity: 1, y: 0,color: currentSlide==0?'#000000':'#fff' }}
+              transition={{ duration: 1, delay: 0.2 }}
               className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6"
-              style={{ color: '#000000' }}
+              
             >
               Wear Your <span style={{ color: '#D4A574' }}>Memories</span> In Style
             </motion.h1>

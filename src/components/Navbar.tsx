@@ -6,6 +6,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { ShoppingBag, Heart, Menu, X } from 'lucide-react';
 import { useCart } from '@/contexts/CartContext';
 import { Button } from '@/components/ui/button';
+import Image from 'next/image';
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -39,17 +40,20 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <Link href="/" className="flex items-center space-x-3 group">
+          <div className='h-full  flex items-center '>
+            <Link href="/" className="flex items-center space-x-3 group">
             <motion.div 
-              className="w-12 h-12 rounded-2xl flex items-center justify-center"
-              style={{ background: 'linear-gradient(135deg, #000000 0%, #D4A574 100%)' }}
-              whileHover={{ scale: 1.05, rotate: 5 }}
+              className=" flex items-center justify-center mt-2"
+              
+              whileHover={{ scale: 1.02, rotate: 2 }}
               transition={{ duration: 0.3 }}
             >
-              <span className="text-white font-bold text-xl">L</span>
+              <Image src='/assets/Logos/Black_logo.png' height={48} width={150} alt='Logo'/>
             </motion.div>
-            <span className="font-bold text-xl tracking-tight" style={{ color: '#000000' }}>LuxCharms</span>
+            
           </Link>
+             </div>
+          
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-1">
