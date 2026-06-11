@@ -71,7 +71,7 @@ const Navbar = () => {
               <Button
                 variant="ghost"
                 size="icon"
-                className="w-10 h-10 transition-all duration-300 hover:bg-[#f4f1e2]"
+                className="w-10 h-10 transition-all duration-300 hover:bg-[#e8d0b4]"
                 style={{ color: '#0e0a0e' }}
               >
                 <Heart className="w-5 h-5" strokeWidth={1.5} />
@@ -81,7 +81,7 @@ const Navbar = () => {
               <Button
                 variant="ghost"
                 size="icon"
-                className="w-10 h-10 transition-all duration-300 hover:bg-[#f4f1e2] relative"
+                className="w-10 h-10 transition-all duration-300 hover:bg-[#e8d0b4] relative"
                 style={{ color: '#0e0a0e' }}
               >
                 <ShoppingBag className="w-5 h-5" strokeWidth={1.5} />
@@ -98,7 +98,7 @@ const Navbar = () => {
           <motion.button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             style={{ color: '#0e0a0e' }}
-            className="md:hidden w-10 h-10 rounded-xl flex items-center justify-center transition-all duration-300 hover:bg-[#f4f1e2]"
+            className="md:hidden w-10 h-10 rounded-xl flex items-center justify-center transition-all duration-300 hover:bg-[#e8d0b4]"
             aria-label="Toggle menu"
             whileTap={{ scale: 0.95 }}
           >
@@ -151,7 +151,7 @@ const Navbar = () => {
                   <Link
                     href={link.href}
                     onClick={() => setMobileMenuOpen(false)}
-                    className="block px-4 py-3 text-lg font-medium rounded-xl transition-all duration-300 hover:bg-[#f4f1e2] hover:text-[#a48355]"
+                    className="block px-4 py-3 text-lg font-medium rounded-xl transition-all duration-300 hover:bg-[#e8d0b4] hover:text-[#a48355]"
                     style={{ color: '#0e0a0e' }}
                   >
                     {link.label}
@@ -167,12 +167,12 @@ const Navbar = () => {
               >
                 <Link href="/favorites" onClick={() => setMobileMenuOpen(false)}>
                   <Button variant="ghost" size="icon" className="w-12 h-12">
-                    <Heart className="w-6 h-6" strokeWidth={1.5} />
+                    <Heart className="w-6 h-6" strokeWidth={1.5} style={{ color: '#a48355' }} />
                   </Button>
                 </Link>
                 <Link href="/cart" onClick={() => setMobileMenuOpen(false)}>
                   <Button variant="ghost" size="icon" className="w-12 h-12 relative">
-                    <ShoppingBag className="w-6 h-6" strokeWidth={1.5} />
+                    <ShoppingBag className="w-6 h-6" strokeWidth={1.5} style={{ color: '#a48355' }} />
                     {cartCount > 0 && (
                       <span className="absolute -top-1 -right-1 w-6 h-6 rounded-full flex items-center justify-center text-sm font-bold" style={{ backgroundColor: '#a48355', color: '#FFFFFF' }}>
                         {cartCount}

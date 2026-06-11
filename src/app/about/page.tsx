@@ -41,11 +41,11 @@ export default function About() {
   ];
 
   return (
-    <div className="min-h-screen flex flex-col bg-white">
+    <div className="min-h-screen flex flex-col" style={{ backgroundColor: '#f4f1e2' }}>
       <Navbar />
 
       {/* Brand Story */}
-      <section className="py-20" style={{ backgroundColor: '#FFFFFF' }}>
+      <section className="py-20" style={{ backgroundColor: '#ffffff' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <motion.div

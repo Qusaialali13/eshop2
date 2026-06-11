@@ -131,7 +131,7 @@ export default function CharmDesigner() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="flex justify-center"
           >
-            <div className="rounded-3xl p-8 md:p-12" style={{ background: 'linear-gradient(135deg, rgba(244, 241, 226, 0.15) 0%, rgba(232, 208, 180, 0.1) 100%)', border: '1px solid rgba(232, 208, 180, 0.2)' }}>
+            <div className="rounded-3xl p-8 md:p-12" style={{ background: '#FFFFFF', border: '1px solid rgba(164,131,85,0.25)' }}>
               <div className="flex items-center justify-center">
                 <CharmPreview design={design} size={320} />
               </div>

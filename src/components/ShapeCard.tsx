@@ -23,7 +23,7 @@ const ShapeCard: React.FC<ShapeCardProps> = ({ shape, basePrice }) => {
       transition={{ duration: 0.3 }}
       className="group"
     >
-      <div className="rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-shadow duration-300" style={{ backgroundColor: '#FFFFFF' }}>
+      <div className="rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-shadow duration-300" style={{ backgroundColor: '#FFFFFF', border: '1px solid rgba(164,131,85,0.12)' }}>
         {/* Preview */}
         <div className="relative p-8 flex items-center justify-center min-h-64" style={{ background: 'linear-gradient(135deg, #f4f1e2 0%, #e8d0b4 100%)' }}>
           <motion.div
@@ -57,7 +57,7 @@ const ShapeCard: React.FC<ShapeCardProps> = ({ shape, basePrice }) => {
               <p className="text-xs mt-1" style={{ color: '#5f5f5f' }}>Starting from</p>
             </div>
             <Link href={`/charms/${shape}`}>
-              <Button className="px-6 transition-all duration-300 hover:scale-105" style={{ backgroundColor: '#0e0a0e', color: '#f4f1e2' }}>
+              <Button className="px-6 transition-all duration-300 hover:scale-105" style={{ backgroundColor: '#a48355', color: '#ffffff' }}>
                 Customize
               </Button>
             </Link>

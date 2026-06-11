@@ -20,16 +20,16 @@ export default function Home() {
 
   const slides = [
     {
-      image: 'linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%)',
-      overlay: 'rgba(14, 10, 14, 0.6)'
+      image: 'linear-gradient(135deg, #f4f1e2 0%, #ffffff 50%, #e8d0b4 100%)',
+      overlay: 'rgba(14, 10, 14, 0.03)'
     },
     {
-      image: 'linear-gradient(135deg, #2d1b3d 0%, #1a1a2e 50%, #16213e 100%)',
-      overlay: 'rgba(14, 10, 14, 0.6)'
+      image: 'linear-gradient(135deg, #ffffff 0%, #f4f1e2 50%, #e8d0b4 100%)',
+      overlay: 'rgba(14, 10, 14, 0.03)'
     },
     {
-      image: 'linear-gradient(135deg, #0f3460 0%, #1a1a2e 50%, #2d1b3d 100%)',
-      overlay: 'rgba(14, 10, 14, 0.6)'
+      image: 'linear-gradient(135deg, #e8d0b4 0%, #f4f1e2 50%, #ffffff 100%)',
+      overlay: 'rgba(14, 10, 14, 0.03)'
     }
   ];
 
@@ -70,7 +70,7 @@ export default function Home() {
               onClick={() => setCurrentSlide(index)}
               className="w-3 h-3 rounded-full transition-all duration-300"
               style={{
-                backgroundColor: currentSlide === index ? '#a48355' : 'rgba(255, 255, 255, 0.3)',
+                backgroundColor: currentSlide === index ? '#a48355' : 'rgba(164, 131, 85, 0.3)',
                 width: currentSlide === index ? '24px' : '12px'
               }}
             />
@@ -90,7 +90,7 @@ export default function Home() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
               className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6"
-              style={{ color: '#f4f1e2' }}
+              style={{ color: '#0e0a0e' }}
             >
               Wear Your <span style={{ color: '#a48355' }}>Memories</span> In Style
             </motion.h1>
@@ -116,7 +116,7 @@ export default function Home() {
                   size="lg"
                   variant="outline"
                   className="px-10 py-6 text-lg border-2 transition-all duration-300 hover:scale-105"
-                  style={{ borderColor: '#e8d0b4', color: '#e8d0b4', backgroundColor: 'transparent' }}
+                  style={{ borderColor: '#a48355', color: '#a48355', backgroundColor: 'transparent' }}
                 >
                   View Collection
                 </Button>
@@ -227,7 +227,7 @@ export default function Home() {
       </section>
 
       {/* Testimonials */}
-      <section className="py-20" style={{ backgroundColor: '#e8d0b4' }}>
+      <section className="py-20" style={{ backgroundColor: '#FFFFFF' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}

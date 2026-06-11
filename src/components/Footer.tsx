@@ -8,7 +8,7 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="mt-auto" style={{ backgroundColor: '#f4f1e2' }}>
+    <footer className="mt-auto" style={{ backgroundColor: '#0e0a0e' }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Brand */}
@@ -28,7 +28,7 @@ const Footer = () => {
               </div>
               <span className="font-bold text-xl tracking-tight" style={{ color: '#f4f1e2' }}>LuxCharms</span>
             </motion.div>
-            <p className="leading-relaxed text-sm" style={{ color: '#5f5f5f' }}>
+            <p className="leading-relaxed text-sm" style={{ color: 'rgba(255,255,255,0.8)' }}>
               Creating timeless memories through custom photo charms. Each piece tells your unique story with elegance and precision.
             </p>
             <div className="flex space-x-3 mt-6">
@@ -37,7 +37,7 @@ const Footer = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-xl flex items-center justify-center transition-all duration-300 hover:scale-110"
-                style={{ backgroundColor: 'rgba(164, 131, 85, 0.2)', color: '#e8d0b4' }}
+                style={{ backgroundColor: 'rgba(164, 131, 85, 0.2)', color: '#f4f1e2' }}
                 whileHover={{ backgroundColor: '#a48355', color: '#FFFFFF' }}
                 aria-label="Instagram"
               >
@@ -48,7 +48,7 @@ const Footer = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-xl flex items-center justify-center transition-all duration-300 hover:scale-110"
-                style={{ backgroundColor: 'rgba(164, 131, 85, 0.2)', color: '#e8d0b4' }}
+                style={{ backgroundColor: 'rgba(164, 131, 85, 0.2)', color: '#f4f1e2' }}
                 whileHover={{ backgroundColor: '#a48355', color: '#FFFFFF' }}
                 aria-label="Facebook"
               >
@@ -59,7 +59,7 @@ const Footer = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-xl flex items-center justify-center transition-all duration-300 hover:scale-110"
-                style={{ backgroundColor: 'rgba(164, 131, 85, 0.2)', color: '#e8d0b4' }}
+                style={{ backgroundColor: 'rgba(164, 131, 85, 0.2)', color: '#f4f1e2' }}
                 whileHover={{ backgroundColor: '#a48355', color: '#FFFFFF' }}
                 aria-label="Twitter"
               >
@@ -75,13 +75,15 @@ const Footer = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
           >
-            <h3 className="text-base font-semibold mb-6" style={{ color: '#f4f1e2' }}>Quick Links</h3>
+            <h3 className="text-base font-semibold mb-6" style={{ color: '#FFFFFF' }}>Quick Links</h3>
             <ul className="space-y-3">
               <li>
                 <Link 
                   href="/" 
                   className="flex items-center space-x-2 text-sm transition-all duration-300 hover:translate-x-1"
-                  style={{ color: '#5f5f5f' }}
+                  style={{ color: 'rgba(255,255,255,0.8)' }}
+                  onMouseEnter={(e) => e.currentTarget.style.color = '#a48355'}
+                  onMouseLeave={(e) => e.currentTarget.style.color = 'rgba(255,255,255,0.8)'}
                 >
                   <ChevronRight className="w-4 h-4" style={{ color: '#a48355' }} />
                   <span>Home</span>
@@ -91,7 +93,9 @@ const Footer = () => {
                 <Link 
                   href="/about" 
                   className="flex items-center space-x-2 text-sm transition-all duration-300 hover:translate-x-1"
-                  style={{ color: '#5f5f5f' }}
+                  style={{ color: 'rgba(255,255,255,0.8)' }}
+                  onMouseEnter={(e) => e.currentTarget.style.color = '#a48355'}
+                  onMouseLeave={(e) => e.currentTarget.style.color = 'rgba(255,255,255,0.8)'}
                 >
                   <ChevronRight className="w-4 h-4" style={{ color: '#a48355' }} />
                   <span>About Us</span>
@@ -101,7 +105,9 @@ const Footer = () => {
                 <Link 
                   href="/charms" 
                   className="flex items-center space-x-2 text-sm transition-all duration-300 hover:translate-x-1"
-                  style={{ color: '#5f5f5f' }}
+                  style={{ color: 'rgba(255,255,255,0.8)' }}
+                  onMouseEnter={(e) => e.currentTarget.style.color = '#a48355'}
+                  onMouseLeave={(e) => e.currentTarget.style.color = 'rgba(255,255,255,0.8)'}
                 >
                   <ChevronRight className="w-4 h-4" style={{ color: '#a48355' }} />
                   <span>Charms Collection</span>
@@ -111,7 +117,9 @@ const Footer = () => {
                 <Link 
                   href="/bracelets" 
                   className="flex items-center space-x-2 text-sm transition-all duration-300 hover:translate-x-1"
-                  style={{ color: '#5f5f5f' }}
+                  style={{ color: 'rgba(255,255,255,0.8)' }}
+                  onMouseEnter={(e) => e.currentTarget.style.color = '#a48355'}
+                  onMouseLeave={(e) => e.currentTarget.style.color = 'rgba(255,255,255,0.8)'}
                 >
                   <ChevronRight className="w-4 h-4" style={{ color: '#a48355' }} />
                   <span>Bracelets</span>
@@ -121,7 +129,9 @@ const Footer = () => {
                 <Link 
                   href="/favorites" 
                   className="flex items-center space-x-2 text-sm transition-all duration-300 hover:translate-x-1"
-                  style={{ color: '#5f5f5f' }}
+                  style={{ color: 'rgba(255,255,255,0.8)' }}
+                  onMouseEnter={(e) => e.currentTarget.style.color = '#a48355'}
+                  onMouseLeave={(e) => e.currentTarget.style.color = 'rgba(255,255,255,0.8)'}
                 >
                   <ChevronRight className="w-4 h-4" style={{ color: '#a48355' }} />
                   <span>Favorites</span>
@@ -137,13 +147,15 @@ const Footer = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <h3 className="text-base font-semibold mb-6" style={{ color: '#f4f1e2' }}>Customer Service</h3>
+            <h3 className="text-base font-semibold mb-6" style={{ color: '#FFFFFF' }}>Customer Service</h3>
             <ul className="space-y-3">
               <li>
                 <Link 
                   href="#" 
                   className="flex items-center space-x-2 text-sm transition-all duration-300 hover:translate-x-1"
-                  style={{ color: '#5f5f5f' }}
+                  style={{ color: 'rgba(255,255,255,0.8)' }}
+                  onMouseEnter={(e) => e.currentTarget.style.color = '#a48355'}
+                  onMouseLeave={(e) => e.currentTarget.style.color = 'rgba(255,255,255,0.8)'}
                 >
                   <ChevronRight className="w-4 h-4" style={{ color: '#a48355' }} />
                   <span>Shipping Info</span>
@@ -153,7 +165,9 @@ const Footer = () => {
                 <Link 
                   href="#" 
                   className="flex items-center space-x-2 text-sm transition-all duration-300 hover:translate-x-1"
-                  style={{ color: '#5f5f5f' }}
+                  style={{ color: 'rgba(255,255,255,0.8)' }}
+                  onMouseEnter={(e) => e.currentTarget.style.color = '#a48355'}
+                  onMouseLeave={(e) => e.currentTarget.style.color = 'rgba(255,255,255,0.8)'}
                 >
                   <ChevronRight className="w-4 h-4" style={{ color: '#a48355' }} />
                   <span>Returns & Exchanges</span>
@@ -163,7 +177,9 @@ const Footer = () => {
                 <Link 
                   href="#" 
                   className="flex items-center space-x-2 text-sm transition-all duration-300 hover:translate-x-1"
-                  style={{ color: '#5f5f5f' }}
+                  style={{ color: 'rgba(255,255,255,0.8)' }}
+                  onMouseEnter={(e) => e.currentTarget.style.color = '#a48355'}
+                  onMouseLeave={(e) => e.currentTarget.style.color = 'rgba(255,255,255,0.8)'}
                 >
                   <ChevronRight className="w-4 h-4" style={{ color: '#a48355' }} />
                   <span>Size Guide</span>
@@ -173,7 +189,9 @@ const Footer = () => {
                 <Link 
                   href="/about" 
                   className="flex items-center space-x-2 text-sm transition-all duration-300 hover:translate-x-1"
-                  style={{ color: '#5f5f5f' }}
+                  style={{ color: 'rgba(255,255,255,0.8)' }}
+                  onMouseEnter={(e) => e.currentTarget.style.color = '#a48355'}
+                  onMouseLeave={(e) => e.currentTarget.style.color = 'rgba(255,255,255,0.8)'}
                 >
                   <ChevronRight className="w-4 h-4" style={{ color: '#a48355' }} />
                   <span>FAQ</span>
@@ -183,7 +201,9 @@ const Footer = () => {
                 <Link 
                   href="#" 
                   className="flex items-center space-x-2 text-sm transition-all duration-300 hover:translate-x-1"
-                  style={{ color: '#5f5f5f' }}
+                  style={{ color: 'rgba(255,255,255,0.8)' }}
+                  onMouseEnter={(e) => e.currentTarget.style.color = '#a48355'}
+                  onMouseLeave={(e) => e.currentTarget.style.color = 'rgba(255,255,255,0.8)'}
                 >
                   <ChevronRight className="w-4 h-4" style={{ color: '#a48355' }} />
                   <span>Contact Us</span>
@@ -199,34 +219,34 @@ const Footer = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.3 }}
           >
-            <h3 className="text-base font-semibold mb-6" style={{ color: '#f4f1e2' }}>Contact Us</h3>
+            <h3 className="text-base font-semibold mb-6" style={{ color: '#FFFFFF' }}>Contact Us</h3>
             <ul className="space-y-4">
               <li className="flex items-start space-x-3">
                 <div className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 mt-0.5" style={{ backgroundColor: 'rgba(164, 131, 85, 0.2)' }}>
-                  <Mail className="w-5 h-5" strokeWidth={1.5} style={{ color: '#e8d0b4' }} />
+                  <Mail className="w-5 h-5" strokeWidth={1.5} style={{ color: '#f4f1e2' }} />
                 </div>
                 <div>
-                  <a href="mailto:hello@luxcharms.com" className="text-sm transition-colors hover:text-[#a48355]" style={{ color: '#5f5f5f' }}>
+                  <a href="mailto:hello@luxcharms.com" className="text-sm transition-colors hover:text-[#a48355]" style={{ color: 'rgba(255,255,255,0.8)' }}>
                     hello@luxcharms.com
                   </a>
                 </div>
               </li>
               <li className="flex items-start space-x-3">
                 <div className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 mt-0.5" style={{ backgroundColor: 'rgba(164, 131, 85, 0.2)' }}>
-                  <Phone className="w-5 h-5" strokeWidth={1.5} style={{ color: '#e8d0b4' }} />
+                  <Phone className="w-5 h-5" strokeWidth={1.5} style={{ color: '#f4f1e2' }} />
                 </div>
                 <div>
-                  <a href="tel:+1234567890" className="text-sm transition-colors hover:text-[#a48355]" style={{ color: '#5f5f5f' }}>
+                  <a href="tel:+1234567890" className="text-sm transition-colors hover:text-[#a48355]" style={{ color: 'rgba(255,255,255,0.8)' }}>
                     +1 (234) 567-890
                   </a>
                 </div>
               </li>
               <li className="flex items-start space-x-3">
                 <div className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 mt-0.5" style={{ backgroundColor: 'rgba(164, 131, 85, 0.2)' }}>
-                  <MapPin className="w-5 h-5" strokeWidth={1.5} style={{ color: '#e8d0b4' }} />
+                  <MapPin className="w-5 h-5" strokeWidth={1.5} style={{ color: '#f4f1e2' }} />
                 </div>
                 <div>
-                  <span className="text-sm" style={{ color: '#5f5f5f' }}>123 Jewelry Lane, NY 10001</span>
+                  <span className="text-sm" style={{ color: 'rgba(255,255,255,0.8)' }}>123 Jewelry Lane, NY 10001</span>
                 </div>
               </li>
             </ul>
@@ -243,17 +263,17 @@ const Footer = () => {
           style={{ borderColor: 'rgba(232, 208, 180, 0.2)' }}
         >
           <div className="flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0">
-            <p className="text-sm" style={{ color: '#5f5f5f' }}>
+            <p className="text-sm" style={{ color: 'rgba(255,255,255,0.6)' }}>
               © {currentYear} LuxCharms. All rights reserved.
             </p>
             <div className="flex space-x-6 text-sm">
-              <Link href="#" className="transition-colors hover:text-[#a48355]" style={{ color: '#5f5f5f' }}>
+              <Link href="#" className="transition-colors hover:text-[#a48355]" style={{ color: 'rgba(255,255,255,0.8)' }}>
                 Privacy Policy
               </Link>
-              <Link href="#" className="transition-colors hover:text-[#a48355]" style={{ color: '#5f5f5f' }}>
+              <Link href="#" className="transition-colors hover:text-[#a48355]" style={{ color: 'rgba(255,255,255,0.8)' }}>
                 Terms of Service
               </Link>
-              <Link href="#" className="transition-colors hover:text-[#a48355]" style={{ color: '#5f5f5f' }}>
+              <Link href="#" className="transition-colors hover:text-[#a48355]" style={{ color: 'rgba(255,255,255,0.8)' }}>
                 Cookie Policy
               </Link>
             </div>

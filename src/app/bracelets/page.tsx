@@ -76,11 +76,11 @@ const bracelets: Bracelet[] = [
 
 export default function Bracelets() {
   return (
-    <div className="min-h-screen flex flex-col bg-white">
+    <div className="min-h-screen flex flex-col" style={{ backgroundColor: '#f4f1e2' }}>
       <Navbar />
 
       {/* Header */}
-      <section className="relative pt-28 pb-16 overflow-hidden" style={{ background: 'linear-gradient(180deg, #0e0a0e 0%, #1a1518 50%, #251f24 100%)' }}>
+      <section className="relative pt-28 pb-16 overflow-hidden" style={{ background: 'linear-gradient(135deg, #f4f1e2 0%, #ffffff 50%, #e8d0b4 100%)' }}>
         <div className="absolute inset-0">
           <div className="absolute top-20 right-20 w-64 h-64 rounded-full blur-3xl opacity-15" style={{ backgroundColor: '#a48355' }} />
           <div className="absolute bottom-10 left-20 w-80 h-80 rounded-full blur-3xl opacity-10" style={{ backgroundColor: '#e8d0b4' }} />

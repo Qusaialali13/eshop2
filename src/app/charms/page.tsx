@@ -11,7 +11,7 @@ export default function Charms() {
   const shapes = getAllShapes();
 
   return (
-    <div className="min-h-screen flex flex-col bg-white">
+    <div className="min-h-screen flex flex-col" style={{ backgroundColor: '#f4f1e2' }}>
       <Navbar />
 
       {/* Header */}
@@ -75,13 +75,21 @@ export default function Charms() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <button 
                 className="px-8 py-4 rounded-xl font-medium transition-all duration-300 hover:scale-105"
-                style={{ backgroundColor: '#0e0a0e', color: '#f4f1e2' }}
+                style={{ backgroundColor: '#a48355', color: '#ffffff' }}
               >
                 Contact Us
               </button>
               <button 
                 className="px-8 py-4 rounded-xl font-medium border-2 transition-all duration-300 hover:scale-105"
                 style={{ borderColor: '#a48355', color: '#a48355', backgroundColor: 'transparent' }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.backgroundColor = '#a48355';
+                  e.currentTarget.style.color = '#ffffff';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.backgroundColor = 'transparent';
+                  e.currentTarget.style.color = '#a48355';
+                }}
               >
                 View Guide
               </button>
