@@ -16,7 +16,7 @@ const MaterialSelector: React.FC<MaterialSelectorProps> = ({ selected, onChange,
 
   return (
     <div className={`space-y-3 ${className}`}>
-      <h3 className="font-serif text-lg font-semibold" style={{ color: '#0e0a0e' }}>Material</h3>
+      <h3 className="font-serif text-lg font-semibold" style={{ color: '#000000' }}>Material</h3>
       <div className="grid grid-cols-3 gap-3">
         {materials.map((material) => {
           const isSelected = selected === material;
@@ -28,10 +28,10 @@ const MaterialSelector: React.FC<MaterialSelectorProps> = ({ selected, onChange,
               whileTap={{ scale: 0.98 }}
               className={`relative p-4 rounded-xl border-2 transition-all duration-200 ${
                 isSelected
-                  ? 'border-[#a48355]'
-                  : 'border-[#e8d0b4] hover:border-[#a48355]'
+                  ? 'border-[#D4A574]'
+                  : 'border-[#E0E0E0] hover:border-[#D4A574]'
               }`}
-              style={{ backgroundColor: isSelected ? '#f4f1e2' : '#FFFFFF' }}
+              style={{ backgroundColor: isSelected ? '#FAFAFA' : '#FFFFFF' }}
             >
               {/* Color swatch */}
               <div
@@ -41,10 +41,10 @@ const MaterialSelector: React.FC<MaterialSelectorProps> = ({ selected, onChange,
                 }}
               />
               {/* Name */}
-              <p className="text-sm font-medium text-center mb-1" style={{ color: '#0e0a0e' }}>
+              <p className="text-sm font-medium text-center mb-1" style={{ color: '#000000' }}>
                 {getMaterialDisplayName(material).split(' ')[0]}
               </p>
-              <p className="text-xs text-center" style={{ color: '#5f5f5f' }}>
+              <p className="text-xs text-center" style={{ color: '#666666' }}>
                 {getMaterialDisplayName(material).split(' ').slice(1).join(' ')}
               </p>
               {/* Selected indicator */}
@@ -53,7 +53,7 @@ const MaterialSelector: React.FC<MaterialSelectorProps> = ({ selected, onChange,
                   initial={{ scale: 0 }}
                   animate={{ scale: 1 }}
                   className="absolute top-2 right-2 w-5 h-5 rounded-full flex items-center justify-center"
-                  style={{ backgroundColor: '#a48355', color: '#FFFFFF' }}
+                  style={{ backgroundColor: '#D4A574', color: '#FFFFFF' }}
                 >
                   <Check className="w-3 h-3" />
                 </motion.div>

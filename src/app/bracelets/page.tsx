@@ -76,14 +76,14 @@ const bracelets: Bracelet[] = [
 
 export default function Bracelets() {
   return (
-    <div className="min-h-screen flex flex-col" style={{ backgroundColor: '#f4f1e2' }}>
+    <div className="min-h-screen flex flex-col" style={{ backgroundColor: '#FAFAFA' }}>
       <Navbar />
 
       {/* Header */}
-      <section className="relative pt-28 pb-16 overflow-hidden" style={{ background: 'linear-gradient(135deg, #f4f1e2 0%, #ffffff 50%, #e8d0b4 100%)' }}>
+      <section className="relative pt-28 pb-16 overflow-hidden" style={{ background: 'linear-gradient(135deg, #FFFFFF 0%, #FAFAFA 50%, #F5F5F5 100%)' }}>
         <div className="absolute inset-0">
-          <div className="absolute top-20 right-20 w-64 h-64 rounded-full blur-3xl opacity-15" style={{ backgroundColor: '#a48355' }} />
-          <div className="absolute bottom-10 left-20 w-80 h-80 rounded-full blur-3xl opacity-10" style={{ backgroundColor: '#e8d0b4' }} />
+          <div className="absolute top-20 right-20 w-64 h-64 rounded-full blur-3xl opacity-15" style={{ backgroundColor: '#D4A574' }} />
+          <div className="absolute bottom-10 left-20 w-80 h-80 rounded-full blur-3xl opacity-10" style={{ backgroundColor: '#D4A574' }} />
         </div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <motion.div
@@ -92,10 +92,10 @@ export default function Bracelets() {
             transition={{ duration: 0.8 }}
             className="text-center max-w-3xl mx-auto"
           >
-            <h1 className="font-serif text-5xl md:text-6xl font-bold mb-6" style={{ color: '#0e0a0e' }}>
+            <h1 className="font-serif text-5xl md:text-6xl font-bold mb-6" style={{ color: '#000000' }}>
               Bracelet Collection
             </h1>
-            <p className="text-xl leading-relaxed" style={{ color: '#e8d0b4' }}>
+            <p className="text-xl leading-relaxed" style={{ color: '#666666' }}>
               Discover our exquisite collection of bracelets. Each piece is crafted with premium materials for timeless elegance and everyday luxury.
             </p>
           </motion.div>
@@ -119,9 +119,9 @@ export default function Bracelets() {
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                   className="group cursor-pointer"
                 >
-                  <div className="rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300" style={{ backgroundColor: '#f4f1e2' }}>
-                    <div className="aspect-square flex items-center justify-center relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #e8d0b4 0%, #f4f1e2 100%)' }}>
-                      <motion.span 
+                  <div className="rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300" style={{ backgroundColor: '#FAFAFA' }}>
+                    <div className="aspect-square flex items-center justify-center relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #F5F5F5 0%, #FAFAFA 100%)' }}>
+                      <motion.span
                         className="text-8xl"
                         whileHover={{ scale: 1.1, rotate: 5 }}
                         transition={{ duration: 0.3 }}
@@ -131,23 +131,23 @@ export default function Bracelets() {
                       <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-all duration-300" />
                     </div>
                     <div className="p-6">
-                      <h3 className="font-serif text-xl font-semibold mb-2" style={{ color: '#0e0a0e' }}>
+                      <h3 className="font-serif text-xl font-semibold mb-2" style={{ color: '#000000' }}>
                         {bracelet.name}
                       </h3>
-                      <p className="text-sm mb-3" style={{ color: '#5f5f5f' }}>
+                      <p className="text-sm mb-3" style={{ color: '#666666' }}>
                         {bracelet.description}
                       </p>
-                      <p className="text-sm font-medium mb-4" style={{ color: '#a48355' }}>
+                      <p className="text-sm font-medium mb-4" style={{ color: '#D4A574' }}>
                         {bracelet.material}
                       </p>
                       <div className="flex items-center justify-between">
-                        <p className="font-serif text-2xl font-bold" style={{ color: '#0e0a0e' }}>
+                        <p className="font-serif text-2xl font-bold" style={{ color: '#000000' }}>
                           ${bracelet.price}
                         </p>
                         <motion.div
                           whileHover={{ scale: 1.05 }}
                           className="w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300"
-                          style={{ backgroundColor: '#a48355', color: '#FFFFFF' }}
+                          style={{ backgroundColor: '#D4A574', color: '#FFFFFF' }}
                         >
                           <ShoppingBag className="w-5 h-5" />
                         </motion.div>

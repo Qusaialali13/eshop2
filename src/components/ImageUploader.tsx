@@ -96,21 +96,21 @@ const ImageUploader: React.FC<ImageUploaderProps> = ({ onImageSelect, currentIma
                 ? 'border-amber-600 bg-amber-50'
                 : 'border-amber-400 hover:border-amber-500 hover:bg-amber-50/50'
             }`}
-            style={{ borderColor: isDragging ? '#a48355' : 'rgba(164, 131, 85, 0.5)', borderWidth: '1px' }}
+            style={{ borderColor: isDragging ? '#D4A574' : 'rgba(212, 165, 116, 0.5)', borderWidth: '1px' }}
           >
             <div className="flex flex-col items-center space-y-3 text-center p-4">
               <motion.div
                 whileHover={{ scale: 1.05 }}
                 className="w-12 h-12 rounded-full flex items-center justify-center"
-                style={{ backgroundColor: 'rgba(164, 131, 85, 0.15)' }}
+                style={{ backgroundColor: 'rgba(212, 165, 116, 0.15)' }}
               >
-                <Upload className="w-6 h-6" style={{ color: '#a48355' }} />
+                <Upload className="w-6 h-6" style={{ color: '#D4A574' }} />
               </motion.div>
               <div>
-                <p className="font-semibold text-sm mb-1" style={{ color: '#0e0a0e' }}>
+                <p className="font-semibold text-sm mb-1" style={{ color: '#000000' }}>
                   Drop PNG image here
                 </p>
-                <p className="text-xs" style={{ color: '#5f5f5f' }}>
+                <p className="text-xs" style={{ color: '#666666' }}>
                   or click to browse
                 </p>
               </div>

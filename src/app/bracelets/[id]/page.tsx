@@ -85,8 +85,8 @@ export default function BraceletCustomizer() {
     return (
       <div className="min-h-screen flex items-center justify-center bg-white">
         <div className="text-center">
-          <h1 className="font-serif text-2xl mb-4" style={{ color: '#0e0a0e' }}>Bracelet not found</h1>
-          <Button onClick={() => router.push('/bracelets')} style={{ backgroundColor: '#a48355', color: '#FFFFFF' }}>
+          <h1 className="font-serif text-2xl mb-4" style={{ color: '#000000' }}>Bracelet not found</h1>
+          <Button onClick={() => router.push('/bracelets')} style={{ backgroundColor: '#D4A574', color: '#FFFFFF' }}>
             Back to Bracelets
           </Button>
         </div>
@@ -141,19 +141,19 @@ export default function BraceletCustomizer() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col" style={{ background: 'linear-gradient(180deg, #f4f1e2 0%, #FFFFFF 100%)' }}>
+    <div className="min-h-screen flex flex-col" style={{ background: 'linear-gradient(180deg, #FAFAFA 0%, #FFFFFF 100%)' }}>
       <Navbar />
 
       {/* Full-width Header with Preview */}
-      <div className="pt-20 pb-8 md:pb-12" style={{ background: 'linear-gradient(135deg, #0e0a0e 0%, #1a1518 100%)' }}>
+      <div className="pt-20 pb-8 md:pb-12" style={{ background: 'linear-gradient(135deg, #000000 0%, #1a1a1a 100%)' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Breadcrumb */}
           <button
             onClick={() => router.back()}
             className="flex items-center space-x-2 transition-colors mb-6"
-            style={{ color: '#e8d0b4' }}
-            onMouseEnter={(e) => e.currentTarget.style.color = '#a48355'}
-            onMouseLeave={(e) => e.currentTarget.style.color = '#e8d0b4'}
+            style={{ color: '#FAFAFA' }}
+            onMouseEnter={(e) => e.currentTarget.style.color = '#D4A574'}
+            onMouseLeave={(e) => e.currentTarget.style.color = '#FAFAFA'}
           >
             <ArrowLeft className="w-4 h-4" />
             <span className="text-sm">Back to Bracelets</span>
@@ -166,7 +166,7 @@ export default function BraceletCustomizer() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
               className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold mb-3"
-              style={{ color: '#f4f1e2' }}
+              style={{ color: '#FFFFFF' }}
             >
               {bracelet.name}
             </motion.h1>
@@ -175,7 +175,7 @@ export default function BraceletCustomizer() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
               className="text-base md:text-lg"
-              style={{ color: '#5f5f5f' }}
+              style={{ color: '#AAAAAA' }}
             >
               Customize your bracelet in 3 simple steps
             </motion.p>
@@ -188,7 +188,7 @@ export default function BraceletCustomizer() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="flex justify-center"
           >
-            <div className="rounded-3xl p-8 md:p-12" style={{ background: 'linear-gradient(135deg, rgba(244, 241, 226, 0.15) 0%, rgba(232, 208, 180, 0.1) 100%)', border: '1px solid rgba(232, 208, 180, 0.2)' }}>
+            <div className="rounded-3xl p-8 md:p-12" style={{ background: 'linear-gradient(135deg, rgba(250, 250, 250, 0.15) 0%, rgba(245, 245, 245, 0.1) 100%)', border: '1px solid rgba(212, 165, 116, 0.2)' }}>
               <div className="flex items-center justify-center">
                 <motion.div
                   key={selectedColor}
@@ -216,13 +216,13 @@ export default function BraceletCustomizer() {
             className="space-y-5"
           >
             {/* Step 1: Choose Color */}
-            <div className="rounded-2xl p-6 shadow-sm" style={{ backgroundColor: '#FFFFFF', border: '1px solid #e8d0b4' }}>
+            <div className="rounded-2xl p-6 shadow-sm" style={{ backgroundColor: '#FFFFFF', border: '1px solid rgba(212,165,116,0.3)' }}>
               <div className="flex items-start space-x-4">
-                <div className="flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center font-bold" style={{ backgroundColor: '#a48355', color: '#FFFFFF' }}>
+                <div className="flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center font-bold" style={{ backgroundColor: '#D4A574', color: '#FFFFFF' }}>
                   1
                 </div>
                 <div className="flex-1">
-                  <h3 className="font-serif text-xl font-semibold mb-4" style={{ color: '#0e0a0e' }}>Select Color</h3>
+                  <h3 className="font-serif text-xl font-semibold mb-4" style={{ color: '#000000' }}>Select Color</h3>
                   <div className="flex flex-wrap gap-8">
                     {colors.map((color) => (
                       <motion.button
@@ -237,7 +237,7 @@ export default function BraceletCustomizer() {
                           className="w-12 h-12 rounded-full shadow-md ring-2 ring-offset-2 transition-transform group-hover:scale-110"
                           style={{
                             backgroundColor: color.colorCode,
-                            ringColor: selectedColor === color.value ? '#a48355' : 'transparent',
+                            ringColor: selectedColor === color.value ? '#D4A574' : 'transparent',
                           }}
                           animate={{
                             ringWidth: selectedColor === color.value ? '2px' : '0px',
@@ -247,12 +247,12 @@ export default function BraceletCustomizer() {
                             {color.icon}
                           </span>
                         </motion.div>
-                        <span className="text-sm font-medium" style={{ color: '#0e0a0e' }}>{color.name}</span>
+                        <span className="text-sm font-medium" style={{ color: '#000000' }}>{color.name}</span>
                         {selectedColor === color.value && (
                           <motion.div
                             layoutId="color-underline"
                             className="absolute bottom-0 left-0 right-0 h-0.5"
-                            style={{ backgroundColor: '#a48355' }}
+                            style={{ backgroundColor: '#D4A574' }}
                             initial={false}
                             transition={{ type: 'spring', stiffness: 500, damping: 30 }}
                           />
@@ -265,13 +265,13 @@ export default function BraceletCustomizer() {
             </div>
 
             {/* Step 2: Choose Size */}
-            <div className="rounded-2xl p-6 shadow-sm" style={{ backgroundColor: '#FFFFFF', border: '1px solid #e8d0b4' }}>
+            <div className="rounded-2xl p-6 shadow-sm" style={{ backgroundColor: '#FFFFFF', border: '1px solid rgba(212,165,116,0.3)' }}>
               <div className="flex items-start space-x-4">
-                <div className="flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center font-bold" style={{ backgroundColor: '#a48355', color: '#FFFFFF' }}>
+                <div className="flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center font-bold" style={{ backgroundColor: '#D4A574', color: '#FFFFFF' }}>
                   2
                 </div>
                 <div className="flex-1">
-                  <h3 className="font-serif text-xl font-semibold mb-4" style={{ color: '#0e0a0e' }}>Select Size (cm)</h3>
+                  <h3 className="font-serif text-xl font-semibold mb-4" style={{ color: '#000000' }}>Select Size (cm)</h3>
                   <div className="flex gap-3">
                     {sizes.map((size) => (
                       <button
@@ -281,9 +281,9 @@ export default function BraceletCustomizer() {
                           selectedSize === size ? 'scale-105' : ''
                         }`}
                         style={{
-                          backgroundColor: selectedSize === size ? '#a48355' : '#f4f1e2',
-                          color: selectedSize === size ? '#FFFFFF' : '#0e0a0e',
-                          border: selectedSize === size ? 'none' : '2px solid #e8d0b4',
+                          backgroundColor: selectedSize === size ? '#D4A574' : '#FAFAFA',
+                          color: selectedSize === size ? '#FFFFFF' : '#000000',
+                          border: selectedSize === size ? 'none' : '2px solid rgba(212,165,116,0.3)',
                         }}
                       >
                         {size}
@@ -295,24 +295,24 @@ export default function BraceletCustomizer() {
             </div>
 
             {/* Step 3: Quantity & Price */}
-            <div className="rounded-2xl p-6 shadow-sm" style={{ backgroundColor: '#FFFFFF', border: '1px solid #e8d0b4' }}>
+            <div className="rounded-2xl p-6 shadow-sm" style={{ backgroundColor: '#FFFFFF', border: '1px solid rgba(212,165,116,0.3)' }}>
               <div className="flex items-start space-x-4">
-                <div className="flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center font-bold" style={{ backgroundColor: '#a48355', color: '#FFFFFF' }}>
+                <div className="flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center font-bold" style={{ backgroundColor: '#D4A574', color: '#FFFFFF' }}>
                   3
                 </div>
                 <div className="flex-1 space-y-4">
-                  <h3 className="font-serif text-xl font-semibold" style={{ color: '#0e0a0e' }}>Quantity & Price</h3>
+                  <h3 className="font-serif text-xl font-semibold" style={{ color: '#000000' }}>Quantity & Price</h3>
                   <div className="flex items-center gap-4">
-                    <label className="text-sm" style={{ color: '#5f5f5f' }}>Quantity:</label>
+                    <label className="text-sm" style={{ color: '#666666' }}>Quantity:</label>
                     <div className="flex items-center gap-2">
                       <button
                         type="button"
                         onClick={() => setQuantity(Math.max(1, quantity - 1))}
                         disabled={quantity <= 1}
                         className="w-10 h-10 rounded-lg flex items-center justify-center transition-all disabled:opacity-30 disabled:cursor-not-allowed hover:scale-105"
-                        style={{ backgroundColor: '#f4f1e2', border: '2px solid #e8d0b4' }}
+                        style={{ backgroundColor: '#FAFAFA', border: '2px solid rgba(212,165,116,0.3)' }}
                       >
-                        <Minus className="w-4 h-4" style={{ color: '#0e0a0e' }} />
+                        <Minus className="w-4 h-4" style={{ color: '#000000' }} />
                       </button>
                       <input
                         type="number"
@@ -327,10 +327,10 @@ export default function BraceletCustomizer() {
                         }}
                         className="w-20 h-10 text-center font-semibold rounded-lg border-2 focus:outline-none focus:ring-2 transition-all"
                         style={{
-                          color: '#0e0a0e',
+                          color: '#000000',
                           backgroundColor: '#FFFFFF',
-                          borderColor: '#e8d0b4',
-                          ringColor: '#a48355',
+                          borderColor: 'rgba(212,165,116,0.3)',
+                          ringColor: '#D4A574',
                         }}
                       />
                       <button
@@ -338,24 +338,24 @@ export default function BraceletCustomizer() {
                         onClick={() => setQuantity(Math.min(99, quantity + 1))}
                         disabled={quantity >= 99}
                         className="w-10 h-10 rounded-lg flex items-center justify-center transition-all disabled:opacity-30 disabled:cursor-not-allowed hover:scale-105"
-                        style={{ backgroundColor: '#f4f1e2', border: '2px solid #e8d0b4' }}
+                        style={{ backgroundColor: '#FAFAFA', border: '2px solid rgba(212,165,116,0.3)' }}
                       >
-                        <Plus className="w-4 h-4" style={{ color: '#0e0a0e' }} />
+                        <Plus className="w-4 h-4" style={{ color: '#000000' }} />
                       </button>
                     </div>
                   </div>
-                  <div className="pt-4 border-t" style={{ borderColor: '#e8d0b4' }}>
+                  <div className="pt-4 border-t" style={{ borderColor: 'rgba(212,165,116,0.3)' }}>
                     <div className="flex justify-between items-center mb-2">
-                      <span style={{ color: '#5f5f5f' }}>{selectedColorData?.name}</span>
-                      <span className="font-medium" style={{ color: '#0e0a0e' }}>${Math.round(bracelet.basePrice * selectedColorData!.priceMultiplier)}</span>
+                      <span style={{ color: '#666666' }}>{selectedColorData?.name}</span>
+                      <span className="font-medium" style={{ color: '#000000' }}>${Math.round(bracelet.basePrice * selectedColorData!.priceMultiplier)}</span>
                     </div>
                     <div className="flex justify-between items-center mb-2">
-                      <span style={{ color: '#5f5f5f' }}>Quantity</span>
-                      <span className="font-medium" style={{ color: '#0e0a0e' }}>{quantity}</span>
+                      <span style={{ color: '#666666' }}>Quantity</span>
+                      <span className="font-medium" style={{ color: '#000000' }}>{quantity}</span>
                     </div>
-                    <div className="flex justify-between items-center pt-4 border-t-2" style={{ borderColor: '#a48355' }}>
-                      <span className="font-serif text-2xl font-bold" style={{ color: '#0e0a0e' }}>Total</span>
-                      <span className="font-serif text-2xl font-bold" style={{ color: '#a48355' }}>${totalPrice}</span>
+                    <div className="flex justify-between items-center pt-4 border-t-2" style={{ borderColor: '#D4A574' }}>
+                      <span className="font-serif text-2xl font-bold" style={{ color: '#000000' }}>Total</span>
+                      <span className="font-serif text-2xl font-bold" style={{ color: '#D4A574' }}>${totalPrice}</span>
                     </div>
                   </div>
                 </div>
@@ -368,7 +368,7 @@ export default function BraceletCustomizer() {
                 onClick={handleAddToCart}
                 disabled={!selectedSize}
                 className="flex-1 h-12 text-base transition-all duration-300 hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
-                style={{ backgroundColor: '#a48355', color: '#FFFFFF' }}
+                style={{ backgroundColor: '#D4A574', color: '#FFFFFF' }}
               >
                 <ShoppingBag className="w-4 h-4 mr-2" />
                 Add to Cart
@@ -378,7 +378,7 @@ export default function BraceletCustomizer() {
                 onClick={handleToggleFavorite}
                 className="flex-1 h-12 text-base transition-all duration-300 hover:scale-105"
                 variant="outline"
-                style={{ borderColor: '#a48355', color: '#a48355' }}
+                style={{ borderColor: '#D4A574', color: '#D4A574' }}
               >
                 {isFav ? '♥ Saved' : '♡ Save for Later'}
               </Button>
@@ -403,13 +403,13 @@ export default function BraceletCustomizer() {
               className="rounded-2xl p-8 max-w-md w-full text-center"
               style={{ backgroundColor: '#FFFFFF' }}
             >
-              <div className="w-16 h-16 mx-auto mb-4 rounded-full flex items-center justify-center" style={{ backgroundColor: '#e8d0b4' }}>
-                <Check className="w-8 h-8" style={{ color: '#a48355' }} />
+              <div className="w-16 h-16 mx-auto mb-4 rounded-full flex items-center justify-center" style={{ backgroundColor: '#FAFAFA' }}>
+                <Check className="w-8 h-8" style={{ color: '#D4A574' }} />
               </div>
-              <h3 className="font-serif text-2xl font-bold mb-2" style={{ color: '#0e0a0e' }}>
+              <h3 className="font-serif text-2xl font-bold mb-2" style={{ color: '#000000' }}>
                 Added to Cart!
               </h3>
-              <p className="mb-6" style={{ color: '#5f5f5f' }}>
+              <p className="mb-6" style={{ color: '#666666' }}>
                 Your {selectedColorData?.name} bracelet has been added to your cart.
               </p>
               <div className="flex space-x-3">
@@ -417,7 +417,7 @@ export default function BraceletCustomizer() {
                   variant="outline"
                   onClick={() => setShowSuccessModal(false)}
                   className="flex-1"
-                  style={{ borderColor: '#a48355', color: '#a48355' }}
+                  style={{ borderColor: '#D4A574', color: '#D4A574' }}
                 >
                   Continue Shopping
                 </Button>
@@ -427,7 +427,7 @@ export default function BraceletCustomizer() {
                     router.push('/cart');
                   }}
                   className="flex-1 transition-all duration-300 hover:scale-105"
-                  style={{ backgroundColor: '#0e0a0e', color: '#f4f1e2' }}
+                  style={{ backgroundColor: '#000000', color: '#FFFFFF' }}
                 >
                   View Cart
                 </Button>

@@ -33,7 +33,7 @@ const Navbar = () => {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        scrolled ? 'bg-[#f4f1e2]/95 backdrop-blur-xl shadow-lg' : 'bg-[#f4f1e2]/90 backdrop-blur-md'
+        scrolled ? 'bg-white/95 backdrop-blur-xl shadow-lg' : 'bg-white/90 backdrop-blur-md'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -42,13 +42,13 @@ const Navbar = () => {
           <Link href="/" className="flex items-center space-x-3 group">
             <motion.div 
               className="w-12 h-12 rounded-2xl flex items-center justify-center"
-              style={{ background: 'linear-gradient(135deg, #a48355 0%, #0e0a0e 100%)' }}
+              style={{ background: 'linear-gradient(135deg, #000000 0%, #D4A574 100%)' }}
               whileHover={{ scale: 1.05, rotate: 5 }}
               transition={{ duration: 0.3 }}
             >
               <span className="text-white font-bold text-xl">L</span>
             </motion.div>
-            <span className="font-bold text-xl tracking-tight" style={{ color: '#0e0a0e' }}>LuxCharms</span>
+            <span className="font-bold text-xl tracking-tight" style={{ color: '#000000' }}>LuxCharms</span>
           </Link>
 
           {/* Desktop Navigation */}
@@ -57,8 +57,8 @@ const Navbar = () => {
               <Link
                 key={link.href}
                 href={link.href}
-                className="relative px-4 py-2 text-sm font-medium transition-colors duration-300 hover:text-[#a48355]"
-                style={{ color: '#0e0a0e' }}
+                className="relative px-4 py-2 text-sm font-medium transition-colors duration-300 hover:text-[#D4A574]"
+                style={{ color: '#000000' }}
               >
                 {link.label}
               </Link>
@@ -71,8 +71,8 @@ const Navbar = () => {
               <Button
                 variant="ghost"
                 size="icon"
-                className="w-10 h-10 transition-all duration-300 hover:bg-[#e8d0b4]"
-                style={{ color: '#0e0a0e' }}
+                className="w-10 h-10 transition-all duration-300 hover:bg-[#D4A574]"
+                style={{ color: '#000000' }}
               >
                 <Heart className="w-5 h-5" strokeWidth={1.5} />
               </Button>
@@ -81,12 +81,12 @@ const Navbar = () => {
               <Button
                 variant="ghost"
                 size="icon"
-                className="w-10 h-10 transition-all duration-300 hover:bg-[#e8d0b4] relative"
-                style={{ color: '#0e0a0e' }}
+                className="w-10 h-10 transition-all duration-300 hover:bg-[#D4A574] relative"
+                style={{ color: '#000000' }}
               >
                 <ShoppingBag className="w-5 h-5" strokeWidth={1.5} />
                 {cartCount > 0 && (
-                  <span className="absolute -top-1 -right-1 w-5 h-5 rounded-full flex items-center justify-center text-xs font-bold" style={{ backgroundColor: '#a48355', color: '#FFFFFF' }}>
+                  <span className="absolute -top-1 -right-1 w-5 h-5 rounded-full flex items-center justify-center text-xs font-bold" style={{ backgroundColor: '#D4A574', color: '#FFFFFF' }}>
                     {cartCount}
                   </span>
                 )}
@@ -97,8 +97,8 @@ const Navbar = () => {
           {/* Mobile Menu Button */}
           <motion.button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            style={{ color: '#0e0a0e' }}
-            className="md:hidden w-10 h-10 rounded-xl flex items-center justify-center transition-all duration-300 hover:bg-[#e8d0b4]"
+            style={{ color: '#000000' }}
+            className="md:hidden w-10 h-10 rounded-xl flex items-center justify-center transition-all duration-300 hover:bg-[#D4A574]"
             aria-label="Toggle menu"
             whileTap={{ scale: 0.95 }}
           >
@@ -137,8 +137,8 @@ const Navbar = () => {
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
-            className="md:hidden bg-[#f4f1e2]/95 backdrop-blur-xl border-t shadow-lg"
-            style={{ borderColor: '#e8d0b4' }}
+            className="md:hidden bg-white/95 backdrop-blur-xl border-t shadow-lg"
+            style={{ borderColor: '#D4A574' }}
           >
             <div className="px-4 py-6 space-y-2">
               {navLinks.map((link, index) => (
@@ -151,8 +151,8 @@ const Navbar = () => {
                   <Link
                     href={link.href}
                     onClick={() => setMobileMenuOpen(false)}
-                    className="block px-4 py-3 text-lg font-medium rounded-xl transition-all duration-300 hover:bg-[#e8d0b4] hover:text-[#a48355]"
-                    style={{ color: '#0e0a0e' }}
+                    className="block px-4 py-3 text-lg font-medium rounded-xl transition-all duration-300 hover:bg-[#D4A574] hover:text-[#D4A574]"
+                    style={{ color: '#000000' }}
                   >
                     {link.label}
                   </Link>
@@ -163,18 +163,18 @@ const Navbar = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2 }}
                 className="pt-6 border-t flex justify-center space-x-4"
-                style={{ borderColor: '#e8d0b4' }}
+                style={{ borderColor: '#D4A574' }}
               >
                 <Link href="/favorites" onClick={() => setMobileMenuOpen(false)}>
                   <Button variant="ghost" size="icon" className="w-12 h-12">
-                    <Heart className="w-6 h-6" strokeWidth={1.5} style={{ color: '#a48355' }} />
+                    <Heart className="w-6 h-6" strokeWidth={1.5} style={{ color: '#D4A574' }} />
                   </Button>
                 </Link>
                 <Link href="/cart" onClick={() => setMobileMenuOpen(false)}>
                   <Button variant="ghost" size="icon" className="w-12 h-12 relative">
-                    <ShoppingBag className="w-6 h-6" strokeWidth={1.5} style={{ color: '#a48355' }} />
+                    <ShoppingBag className="w-6 h-6" strokeWidth={1.5} style={{ color: '#D4A574' }} />
                     {cartCount > 0 && (
-                      <span className="absolute -top-1 -right-1 w-6 h-6 rounded-full flex items-center justify-center text-sm font-bold" style={{ backgroundColor: '#a48355', color: '#FFFFFF' }}>
+                      <span className="absolute -top-1 -right-1 w-6 h-6 rounded-full flex items-center justify-center text-sm font-bold" style={{ backgroundColor: '#D4A574', color: '#FFFFFF' }}>
                         {cartCount}
                       </span>
                     )}

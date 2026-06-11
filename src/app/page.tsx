@@ -20,16 +20,16 @@ export default function Home() {
 
   const slides = [
     {
-      image: 'linear-gradient(135deg, #f4f1e2 0%, #ffffff 50%, #e8d0b4 100%)',
-      overlay: 'rgba(14, 10, 14, 0.03)'
+      image: 'linear-gradient(135deg, #FFFFFF 0%, #FAFAFA 50%, #F5F5F5 100%)',
+      overlay: 'rgba(0, 0, 0, 0.02)'
     },
     {
-      image: 'linear-gradient(135deg, #ffffff 0%, #f4f1e2 50%, #e8d0b4 100%)',
-      overlay: 'rgba(14, 10, 14, 0.03)'
+      image: 'linear-gradient(135deg, #FAFAFA 0%, #FFFFFF 50%, #F5F5F5 100%)',
+      overlay: 'rgba(0, 0, 0, 0.02)'
     },
     {
-      image: 'linear-gradient(135deg, #e8d0b4 0%, #f4f1e2 50%, #ffffff 100%)',
-      overlay: 'rgba(14, 10, 14, 0.03)'
+      image: 'linear-gradient(135deg, #F5F5F5 0%, #FAFAFA 50%, #FFFFFF 100%)',
+      overlay: 'rgba(0, 0, 0, 0.02)'
     }
   ];
 
@@ -70,7 +70,7 @@ export default function Home() {
               onClick={() => setCurrentSlide(index)}
               className="w-3 h-3 rounded-full transition-all duration-300"
               style={{
-                backgroundColor: currentSlide === index ? '#a48355' : 'rgba(164, 131, 85, 0.3)',
+                backgroundColor: currentSlide === index ? '#D4A574' : 'rgba(212, 165, 116, 0.3)',
                 width: currentSlide === index ? '24px' : '12px'
               }}
             />
@@ -90,9 +90,9 @@ export default function Home() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
               className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6"
-              style={{ color: '#0e0a0e' }}
+              style={{ color: '#000000' }}
             >
-              Wear Your <span style={{ color: '#a48355' }}>Memories</span> In Style
+              Wear Your <span style={{ color: '#D4A574' }}>Memories</span> In Style
             </motion.h1>
 
             <motion.div
@@ -105,7 +105,7 @@ export default function Home() {
                 <Button
                   size="lg"
                   className="px-10 py-6 text-lg transition-all duration-300 hover:scale-105"
-                  style={{ backgroundColor: '#a48355', color: '#FFFFFF' }}
+                  style={{ backgroundColor: '#D4A574', color: '#FFFFFF' }}
                 >
                   Design Your Charm
                   <ArrowRight className="ml-2 w-5 h-5" />
@@ -116,7 +116,7 @@ export default function Home() {
                   size="lg"
                   variant="outline"
                   className="px-10 py-6 text-lg border-2 transition-all duration-300 hover:scale-105"
-                  style={{ borderColor: '#a48355', color: '#a48355', backgroundColor: 'transparent' }}
+                  style={{ borderColor: '#D4A574', color: '#D4A574', backgroundColor: 'transparent' }}
                 >
                   View Collection
                 </Button>
@@ -135,10 +135,10 @@ export default function Home() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="font-serif text-4xl md:text-5xl font-bold mb-4" style={{ color: '#0e0a0e' }}>
+            <h2 className="font-serif text-4xl md:text-5xl font-bold mb-4" style={{ color: '#000000' }}>
               How It Works
             </h2>
-            <p className="text-xl max-w-2xl mx-auto" style={{ color: '#5f5f5f' }}>
+            <p className="text-xl max-w-2xl mx-auto" style={{ color: '#666666' }}>
               Create your custom charm in four simple steps
             </p>
           </motion.div>
@@ -159,15 +159,15 @@ export default function Home() {
                 className="text-center space-y-4"
               >
                 <div className="relative">
-                  <div className="w-20 h-20 mx-auto rounded-full flex items-center justify-center" style={{ backgroundColor: '#a48355' }}>
-                    <step.icon className="w-10 h-10" style={{ color: '#f4f1e2' }} />
+                  <div className="w-20 h-20 mx-auto rounded-full flex items-center justify-center" style={{ backgroundColor: '#D4A574' }}>
+                    <step.icon className="w-10 h-10" style={{ color: '#FFFFFF' }} />
                   </div>
-                  <div className="absolute -top-2 -right-2 w-8 h-8 rounded-full flex items-center justify-center font-semibold text-sm" style={{ backgroundColor: '#e8d0b4', color: '#0e0a0e' }}>
+                  <div className="absolute -top-2 -right-2 w-8 h-8 rounded-full flex items-center justify-center font-semibold text-sm" style={{ backgroundColor: '#D4A574', color: '#FFFFFF' }}>
                     {index + 1}
                   </div>
                 </div>
-                <h3 className="font-serif text-2xl font-semibold" style={{ color: '#0e0a0e' }}>{step.title}</h3>
-                <p style={{ color: '#5f5f5f' }}>{step.desc}</p>
+                <h3 className="font-serif text-2xl font-semibold" style={{ color: '#000000' }}>{step.title}</h3>
+                <p style={{ color: '#666666' }}>{step.desc}</p>
               </motion.div>
             ))}
           </div>
@@ -175,7 +175,7 @@ export default function Home() {
       </section>
 
       {/* Featured Shapes */}
-      <section className="py-20" style={{ backgroundColor: '#f4f1e2' }}>
+      <section className="py-20" style={{ backgroundColor: '#FAFAFA' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -183,10 +183,10 @@ export default function Home() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="font-serif text-4xl md:text-5xl font-bold mb-4" style={{ color: '#0e0a0e' }}>
+            <h2 className="font-serif text-4xl md:text-5xl font-bold mb-4" style={{ color: '#000000' }}>
               Featured Shapes
             </h2>
-            <p className="text-xl max-w-2xl mx-auto" style={{ color: '#5f5f5f' }}>
+            <p className="text-xl max-w-2xl mx-auto" style={{ color: '#666666' }}>
               Discover our most popular charm designs
             </p>
           </motion.div>
@@ -212,11 +212,11 @@ export default function Home() {
             className="text-center mt-12"
           >
             <Link href="/charms">
-              <Button 
-                size="lg" 
-                variant="outline" 
+              <Button
+                size="lg"
+                variant="outline"
                 className="px-8 transition-all duration-300 hover:scale-105"
-                style={{ borderColor: '#a48355', color: '#a48355' }}
+                style={{ borderColor: '#D4A574', color: '#D4A574' }}
               >
                 View All Shapes
                 <ArrowRight className="ml-2 w-5 h-5" />
@@ -235,10 +235,10 @@ export default function Home() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="font-serif text-4xl md:text-5xl font-bold mb-4" style={{ color: '#0e0a0e' }}>
+            <h2 className="font-serif text-4xl md:text-5xl font-bold mb-4" style={{ color: '#000000' }}>
               What Our Customers Say
             </h2>
-            <p className="text-xl max-w-2xl mx-auto" style={{ color: '#5f5f5f' }}>
+            <p className="text-xl max-w-2xl mx-auto" style={{ color: '#666666' }}>
               Real stories from our valued customers
             </p>
           </motion.div>
@@ -252,17 +252,17 @@ export default function Home() {
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
                 className="rounded-2xl p-8 shadow-sm hover:shadow-lg transition-shadow duration-300"
-                style={{ backgroundColor: '#f4f1e2' }}
+                style={{ backgroundColor: '#FAFAFA' }}
               >
                 <div className="flex items-center space-x-1 mb-4">
                   {[...Array(testimonial.rating)].map((_, i) => (
-                    <Star key={i} className="w-5 h-5" style={{ fill: '#a48355', color: '#a48355' }} />
+                    <Star key={i} className="w-5 h-5" style={{ fill: '#D4A574', color: '#D4A574' }} />
                   ))}
                 </div>
-                <p className="leading-relaxed mb-6 italic" style={{ color: '#0e0a0e' }}>"{testimonial.text}"</p>
+                <p className="leading-relaxed mb-6 italic" style={{ color: '#000000' }}>"{testimonial.text}"</p>
                 <div>
-                  <p className="font-semibold" style={{ color: '#0e0a0e' }}>{testimonial.name}</p>
-                  <p className="text-sm" style={{ color: '#5f5f5f' }}>{testimonial.location}</p>
+                  <p className="font-semibold" style={{ color: '#000000' }}>{testimonial.name}</p>
+                  <p className="text-sm" style={{ color: '#666666' }}>{testimonial.location}</p>
                 </div>
               </motion.div>
             ))}
@@ -271,44 +271,44 @@ export default function Home() {
       </section>
 
       {/* Newsletter - Redesigned CTA Section */}
-      <section className="py-20" style={{ backgroundColor: '#a48355' }}>
+      <section className="py-20" style={{ backgroundColor: '#D4A574' }}>
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             className="rounded-3xl p-8 md:p-12"
-            style={{ backgroundColor: '#f4f1e2' }}
+            style={{ backgroundColor: '#FFFFFF' }}
           >
             <div className="grid md:grid-cols-2 gap-8">
               <div className="flex flex-col justify-center">
-                <div className="w-16 h-16 rounded-full flex items-center justify-center mb-6" style={{ backgroundColor: '#e8d0b4', border: '2px solid #a48355' }}>
-                  <Heart className="w-8 h-8" style={{ color: '#a48355' }} />
+                <div className="w-16 h-16 rounded-full flex items-center justify-center mb-6" style={{ backgroundColor: '#FAFAFA', border: '2px solid #D4A574' }}>
+                  <Heart className="w-8 h-8" style={{ color: '#D4A574' }} />
                 </div>
-                <h2 className="font-serif text-3xl md:text-4xl font-bold mb-4" style={{ color: '#a48355' }}>
+                <h2 className="font-serif text-3xl md:text-4xl font-bold mb-4" style={{ color: '#D4A574' }}>
                   Join Our Community
                 </h2>
-                <p className="text-lg mb-6" style={{ color: '#5f5f5f' }}>
+                <p className="text-lg mb-6" style={{ color: '#666666' }}>
                   Get exclusive offers, early access to new collections, and jewelry inspiration delivered to your inbox.
                 </p>
                 <div className="space-y-4">
                   <div className="flex items-center space-x-3">
-                    <div className="w-2 h-2 rounded-full" style={{ backgroundColor: '#a48355' }} />
-                    <p style={{ color: '#5f5f5f' }}>15% off your first order</p>
+                    <div className="w-2 h-2 rounded-full" style={{ backgroundColor: '#D4A574' }} />
+                    <p style={{ color: '#666666' }}>15% off your first order</p>
                   </div>
                   <div className="flex items-center space-x-3">
-                    <div className="w-2 h-2 rounded-full" style={{ backgroundColor: '#a48355' }} />
-                    <p style={{ color: '#5f5f5f' }}>New collection previews</p>
+                    <div className="w-2 h-2 rounded-full" style={{ backgroundColor: '#D4A574' }} />
+                    <p style={{ color: '#666666' }}>New collection previews</p>
                   </div>
                   <div className="flex items-center space-x-3">
-                    <div className="w-2 h-2 rounded-full" style={{ backgroundColor: '#a48355' }} />
-                    <p style={{ color: '#5f5f5f' }}>Exclusive member discounts</p>
+                    <div className="w-2 h-2 rounded-full" style={{ backgroundColor: '#D4A574' }} />
+                    <p style={{ color: '#666666' }}>Exclusive member discounts</p>
                   </div>
                 </div>
               </div>
               <div className="flex flex-col justify-center">
-                <div className="rounded-2xl p-6" style={{ backgroundColor: '#e8d0b4' }}>
-                  <h3 className="font-serif text-xl font-semibold mb-4" style={{ color: '#0e0a0e' }}>
+                <div className="rounded-2xl p-6" style={{ backgroundColor: '#FAFAFA' }}>
+                  <h3 className="font-serif text-xl font-semibold mb-4" style={{ color: '#000000' }}>
                     Subscribe Now
                   </h3>
                   <div className="space-y-4">
@@ -316,22 +316,22 @@ export default function Home() {
                       type="email"
                       placeholder="Enter your email"
                       className="flex-1 h-12 text-base"
-                      style={{ backgroundColor: '#f4f1e2', borderColor: '#a48355', color: '#0e0a0e' }}
+                      style={{ backgroundColor: '#FFFFFF', borderColor: '#D4A574', color: '#000000' }}
                     />
                     <Input
                       type="text"
                       placeholder="Your name"
                       className="flex-1 h-12 text-base"
-                      style={{ backgroundColor: '#f4f1e2', borderColor: '#a48355', color: '#0e0a0e' }}
+                      style={{ backgroundColor: '#FFFFFF', borderColor: '#D4A574', color: '#000000' }}
                     />
-                    <Button 
+                    <Button
                       className="w-full h-12 transition-all duration-300 hover:scale-105"
-                      style={{ backgroundColor: '#a48355', color: '#f4f1e2' }}
+                      style={{ backgroundColor: '#D4A574', color: '#FFFFFF' }}
                     >
                       Subscribe Now
                     </Button>
                   </div>
-                  <p className="text-xs mt-4" style={{ color: '#5f5f5f' }}>
+                  <p className="text-xs mt-4" style={{ color: '#666666' }}>
                     By subscribing, you agree to our Privacy Policy. Unsubscribe anytime.
                   </p>
                 </div>

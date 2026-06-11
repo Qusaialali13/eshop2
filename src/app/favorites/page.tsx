@@ -34,7 +34,7 @@ export default function Favorites() {
       <Navbar />
 
       {/* Header */}
-      <section className="pt-28 pb-16 bg-gradient-to-br from-stone-50 to-white">
+      <section className="pt-28 pb-16" style={{ background: 'linear-gradient(135deg, #FAFAFA 0%, #FFFFFF 100%)' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -43,7 +43,7 @@ export default function Favorites() {
             className="text-center max-w-3xl mx-auto"
           >
             <div className="flex items-center justify-center space-x-3 mb-6">
-              <Heart className="w-8 h-8 text-amber-700 fill-amber-700" />
+              <Heart className="w-8 h-8" style={{ color: '#D4A574', fill: '#D4A574' }} />
               <h1 className="font-serif text-5xl md:text-6xl font-bold text-gray-900">
                 Favorites
               </h1>
@@ -66,7 +66,7 @@ export default function Favorites() {
               animate={{ opacity: 1, scale: 1 }}
               className="text-center py-20"
             >
-              <div className="w-24 h-24 mx-auto mb-6 bg-stone-100 rounded-full flex items-center justify-center">
+              <div className="w-24 h-24 mx-auto mb-6 rounded-full flex items-center justify-center" style={{ backgroundColor: '#FAFAFA' }}>
                 <Heart className="w-12 h-12 text-gray-400" />
               </div>
               <h2 className="font-serif text-2xl font-semibold text-gray-900 mb-4">
@@ -77,7 +77,7 @@ export default function Favorites() {
               </p>
               <Button
                 onClick={() => router.push('/charms')}
-                className="bg-gray-900 hover:bg-gray-800 text-white"
+                style={{ backgroundColor: '#000000', color: '#FFFFFF' }}
               >
                 Start Designing
                 <ArrowRight className="ml-2 w-5 h-5" />
@@ -92,9 +92,10 @@ export default function Favorites() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                   className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-shadow duration-300"
+                  style={{ border: '1px solid rgba(212,165,116,0.2)' }}
                 >
                   {/* Preview */}
-                  <div className="bg-gradient-to-br from-stone-50 to-stone-100 p-8 flex items-center justify-center">
+                  <div className="p-8 flex items-center justify-center" style={{ background: 'linear-gradient(135deg, #FAFAFA 0%, #F5F5F5 100%)' }}>
                     <CharmPreview design={design} size={200} showImage={false} />
                   </div>
 
@@ -105,10 +106,10 @@ export default function Favorites() {
                         {getShapeDisplayName(design.shape)}
                       </h3>
                       <div className="flex flex-wrap gap-2">
-                        <span className="text-sm text-gray-600 bg-stone-100 px-3 py-1 rounded-full">
+                        <span className="text-sm text-gray-600 px-3 py-1 rounded-full" style={{ backgroundColor: '#FAFAFA' }}>
                           {getMaterialDisplayName(design.material)}
                         </span>
-                        <span className="text-sm text-gray-600 bg-stone-100 px-3 py-1 rounded-full">
+                        <span className="text-sm text-gray-600 px-3 py-1 rounded-full" style={{ backgroundColor: '#FAFAFA' }}>
                           {getSizeDisplayName(design.size)}
                         </span>
                       </div>
@@ -118,7 +119,8 @@ export default function Favorites() {
                     <div className="flex space-x-2">
                       <Button
                         onClick={() => handleAddToCart(design)}
-                        className="flex-1 bg-gray-900 hover:bg-gray-800 text-white"
+                        className="flex-1"
+                        style={{ backgroundColor: '#000000', color: '#FFFFFF' }}
                       >
                         <ShoppingBag className="w-4 h-4 mr-2" />
                         Add to Cart

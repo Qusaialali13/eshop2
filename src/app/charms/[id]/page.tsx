@@ -84,19 +84,19 @@ export default function CharmDesigner() {
   const totalPrice = calculateCharmPrice(shape, material, size, quantity);
 
   return (
-    <div className="min-h-screen flex flex-col" style={{ background: 'linear-gradient(180deg, #f4f1e2 0%, #FFFFFF 100%)' }}>
+    <div className="min-h-screen flex flex-col" style={{ background: 'linear-gradient(180deg, #FAFAFA 0%, #FFFFFF 100%)' }}>
       <Navbar />
 
       {/* Full-width Header with Preview */}
-      <div className="pt-20 pb-8 md:pb-12" style={{ background: 'linear-gradient(135deg, #0e0a0e 0%, #1a1518 100%)' }}>
+      <div className="pt-20 pb-8 md:pb-12" style={{ background: 'linear-gradient(135deg, #000000 0%, #1a1a1a 100%)' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Breadcrumb */}
           <button
             onClick={() => router.back()}
             className="flex items-center space-x-2 transition-colors mb-6"
-            style={{ color: '#e8d0b4' }}
-            onMouseEnter={(e) => e.currentTarget.style.color = '#a48355'}
-            onMouseLeave={(e) => e.currentTarget.style.color = '#e8d0b4'}
+            style={{ color: '#FAFAFA' }}
+            onMouseEnter={(e) => e.currentTarget.style.color = '#D4A574'}
+            onMouseLeave={(e) => e.currentTarget.style.color = '#FAFAFA'}
           >
             <ArrowLeft className="w-4 h-4" />
             <span className="text-sm">Back to Charms</span>
@@ -109,7 +109,7 @@ export default function CharmDesigner() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
               className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold mb-3"
-              style={{ color: '#f4f1e2' }}
+              style={{ color: '#FFFFFF' }}
             >
               {getShapeDisplayName(shape)}
             </motion.h1>
@@ -118,7 +118,7 @@ export default function CharmDesigner() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
               className="text-base md:text-lg"
-              style={{ color: '#5f5f5f' }}
+              style={{ color: '#AAAAAA' }}
             >
               Design your perfect charm in 3 simple steps
             </motion.p>
@@ -131,7 +131,7 @@ export default function CharmDesigner() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="flex justify-center"
           >
-            <div className="rounded-3xl p-8 md:p-12" style={{ background: '#FFFFFF', border: '1px solid rgba(164,131,85,0.25)' }}>
+            <div className="rounded-3xl p-8 md:p-12" style={{ background: '#FFFFFF', border: '1px solid rgba(212,165,116,0.3)' }}>
               <div className="flex items-center justify-center">
                 <CharmPreview design={design} size={320} />
               </div>
@@ -151,15 +151,15 @@ export default function CharmDesigner() {
             className="space-y-5"
           >
             {/* Step 1: Upload Photo */}
-            <div className="rounded-2xl p-6 shadow-sm" style={{ backgroundColor: '#FFFFFF', border: '1px solid #e8d0b4' }}>
+            <div className="rounded-2xl p-6 shadow-sm" style={{ backgroundColor: '#FFFFFF', border: '1px solid rgba(212,165,116,0.3)' }}>
               <div className="flex items-start space-x-4">
-                <div className="flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center font-bold" style={{ backgroundColor: '#a48355', color: '#FFFFFF' }}>
+                <div className="flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center font-bold" style={{ backgroundColor: '#D4A574', color: '#FFFFFF' }}>
                   1
                 </div>
                 <div className="flex-1 space-y-3">
                   <div>
-                    <h3 className="font-serif text-xl font-semibold" style={{ color: '#0e0a0e' }}>Upload Your Photo</h3>
-                    <p className="text-sm mt-1" style={{ color: '#5f5f5f' }}>
+                    <h3 className="font-serif text-xl font-semibold" style={{ color: '#000000' }}>Upload Your Photo</h3>
+                    <p className="text-sm mt-1" style={{ color: '#666666' }}>
                       PNG format with transparent background • 1cm × 1cm size
                     </p>
                   </div>
@@ -173,28 +173,28 @@ export default function CharmDesigner() {
             </div>
 
             {/* Step 2: Choose Material */}
-            <div className="rounded-2xl p-6 shadow-sm" style={{ backgroundColor: '#FFFFFF', border: '1px solid #e8d0b4' }}>
+            <div className="rounded-2xl p-6 shadow-sm" style={{ backgroundColor: '#FFFFFF', border: '1px solid rgba(212,165,116,0.3)' }}>
               <div className="flex items-start space-x-4">
-                <div className="flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center font-bold" style={{ backgroundColor: '#a48355', color: '#FFFFFF' }}>
+                <div className="flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center font-bold" style={{ backgroundColor: '#D4A574', color: '#FFFFFF' }}>
                   2
                 </div>
                 <div className="flex-1">
-                  <h3 className="font-serif text-xl font-semibold mb-4" style={{ color: '#0e0a0e' }}>Select Material</h3>
+                  <h3 className="font-serif text-xl font-semibold mb-4" style={{ color: '#000000' }}>Select Material</h3>
                   <MaterialSelector selected={material} onChange={setMaterial} />
                 </div>
               </div>
             </div>
 
             {/* Step 3: Quantity & Price */}
-            <div className="rounded-2xl p-6 shadow-sm" style={{ backgroundColor: '#FFFFFF', border: '1px solid #e8d0b4' }}>
+            <div className="rounded-2xl p-6 shadow-sm" style={{ backgroundColor: '#FFFFFF', border: '1px solid rgba(212,165,116,0.3)' }}>
               <div className="flex items-start space-x-4">
-                <div className="flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center font-bold" style={{ backgroundColor: '#a48355', color: '#FFFFFF' }}>
+                <div className="flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center font-bold" style={{ backgroundColor: '#D4A574', color: '#FFFFFF' }}>
                   3
                 </div>
                 <div className="flex-1 space-y-4">
-                  <h3 className="font-serif text-xl font-semibold" style={{ color: '#0e0a0e' }}>Quantity & Price</h3>
+                  <h3 className="font-serif text-xl font-semibold" style={{ color: '#000000' }}>Quantity & Price</h3>
                   <div>
-                    <p className="text-sm mb-3" style={{ color: '#5f5f5f' }}>Select quantity:</p>
+                    <p className="text-sm mb-3" style={{ color: '#666666' }}>Select quantity:</p>
                     <QuantitySelector value={quantity} onChange={setQuantity} />
                   </div>
                   <PriceCalculator
@@ -213,7 +213,7 @@ export default function CharmDesigner() {
                 onClick={handleAddToCart}
                 disabled={!imageData}
                 className="flex-1 h-12 text-base transition-all duration-300 hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
-                style={{ backgroundColor: '#a48355', color: '#FFFFFF' }}
+                style={{ backgroundColor: '#D4A574', color: '#FFFFFF' }}
               >
                 <ShoppingBag className="w-4 h-4 mr-2" />
                 Add to Cart
@@ -223,7 +223,7 @@ export default function CharmDesigner() {
                 onClick={handleToggleFavorite}
                 className="flex-1 h-12 text-base transition-all duration-300 hover:scale-105"
                 variant="outline"
-                style={{ borderColor: '#a48355', color: '#a48355' }}
+                style={{ borderColor: '#D4A574', color: '#D4A574' }}
               >
                 {isFav ? '♥ Saved' : '♡ Save for Later'}
               </Button>
@@ -248,13 +248,13 @@ export default function CharmDesigner() {
               className="rounded-2xl p-8 max-w-md w-full text-center"
               style={{ backgroundColor: '#FFFFFF' }}
             >
-              <div className="w-16 h-16 mx-auto mb-4 rounded-full flex items-center justify-center" style={{ backgroundColor: '#e8d0b4' }}>
-                <Check className="w-8 h-8" style={{ color: '#a48355' }} />
+              <div className="w-16 h-16 mx-auto mb-4 rounded-full flex items-center justify-center" style={{ backgroundColor: '#FAFAFA' }}>
+                <Check className="w-8 h-8" style={{ color: '#D4A574' }} />
               </div>
-              <h3 className="font-serif text-2xl font-bold mb-2" style={{ color: '#0e0a0e' }}>
+              <h3 className="font-serif text-2xl font-bold mb-2" style={{ color: '#000000' }}>
                 Added to Cart!
               </h3>
-              <p className="mb-6" style={{ color: '#5f5f5f' }}>
+              <p className="mb-6" style={{ color: '#666666' }}>
                 Your custom charm has been added to your cart.
               </p>
               <div className="flex space-x-3">
@@ -262,7 +262,7 @@ export default function CharmDesigner() {
                   variant="outline"
                   onClick={() => setShowSuccessModal(false)}
                   className="flex-1"
-                  style={{ borderColor: '#a48355', color: '#a48355' }}
+                  style={{ borderColor: '#D4A574', color: '#D4A574' }}
                 >
                   Continue Shopping
                 </Button>
@@ -272,7 +272,7 @@ export default function CharmDesigner() {
                     router.push('/cart');
                   }}
                   className="flex-1 transition-all duration-300 hover:scale-105"
-                  style={{ backgroundColor: '#0e0a0e', color: '#f4f1e2' }}
+                  style={{ backgroundColor: '#000000', color: '#FFFFFF' }}
                 >
                   View Cart
                 </Button>

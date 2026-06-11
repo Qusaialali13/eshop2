@@ -41,7 +41,7 @@ export default function About() {
   ];
 
   return (
-    <div className="min-h-screen flex flex-col" style={{ backgroundColor: '#f4f1e2' }}>
+    <div className="min-h-screen flex flex-col" style={{ backgroundColor: '#FAFAFA' }}>
       <Navbar />
 
       {/* Brand Story */}
@@ -64,13 +64,13 @@ export default function About() {
               transition={{ duration: 0.8 }}
               className="space-y-6"
             >
-              <h2 className="font-serif text-4xl font-bold" style={{ color: '#0e0a0e' }}>
+              <h2 className="font-serif text-4xl font-bold" style={{ color: '#000000' }}>
                 Born from Love
               </h2>
-              <p className="text-lg leading-relaxed" style={{ color: '#5f5f5f' }}>
+              <p className="text-lg leading-relaxed" style={{ color: '#666666' }}>
                 LuxCharms was founded with a simple yet powerful idea: everyone deserves to wear their most precious memories close to their heart. What started as a small workshop in New York has grown into a beloved brand serving customers worldwide.
               </p>
-              <p className="text-lg leading-relaxed" style={{ color: '#5f5f5f' }}>
+              <p className="text-lg leading-relaxed" style={{ color: '#666666' }}>
                 Each charm we create is more than just jewelry—it's a story, a moment frozen in time, a connection to what matters most. From family portraits to pet photos, wedding memories to milestone celebrations, we help you preserve life's beautiful moments in exquisite detail.
               </p>
             </motion.div>
@@ -79,7 +79,7 @@ export default function About() {
       </section>
 
       {/* Craftsmanship */}
-      <section className="py-20" style={{ backgroundColor: '#e8d0b4' }}>
+      <section className="py-20" style={{ backgroundColor: '#FAFAFA' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -87,10 +87,10 @@ export default function About() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="font-serif text-4xl md:text-5xl font-bold mb-4" style={{ color: '#0e0a0e' }}>
+            <h2 className="font-serif text-4xl md:text-5xl font-bold mb-4" style={{ color: '#000000' }}>
               Exceptional Craftsmanship
             </h2>
-            <p className="text-xl" style={{ color: '#5f5f5f' }} max-w-2xl mx-auto>
+            <p className="text-xl" style={{ color: '#666666' }} max-w-2xl mx-auto>
               Every charm is handcrafted with meticulous attention to detail
             </p>
           </motion.div>
@@ -120,15 +120,15 @@ export default function About() {
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
                 className="rounded-2xl p-8 text-center shadow-sm hover:shadow-lg transition-shadow duration-300"
-                style={{ backgroundColor: '#f4f1e2' }}
+                style={{ backgroundColor: '#FFFFFF' }}
               >
-                <div className="w-16 h-16 mx-auto mb-6 rounded-full flex items-center justify-center" style={{ backgroundColor: '#e8d0b4' }}>
-                  <item.icon className="w-8 h-8" style={{ color: '#a48355' }} />
+                <div className="w-16 h-16 mx-auto mb-6 rounded-full flex items-center justify-center" style={{ backgroundColor: '#FAFAFA' }}>
+                  <item.icon className="w-8 h-8" style={{ color: '#D4A574' }} />
                 </div>
-                <h3 className="font-serif text-2xl font-semibold mb-4" style={{ color: '#0e0a0e' }}>
+                <h3 className="font-serif text-2xl font-semibold mb-4" style={{ color: '#000000' }}>
                   {item.title}
                 </h3>
-                <p style={{ color: '#5f5f5f' }}>{item.desc}</p>
+                <p style={{ color: '#666666' }}>{item.desc}</p>
               </motion.div>
             ))}
           </div>
@@ -146,21 +146,21 @@ export default function About() {
               transition={{ duration: 0.8 }}
               className="space-y-6"
             >
-              <h2 className="font-serif text-4xl font-bold" style={{ color: '#0e0a0e' }}>
+              <h2 className="font-serif text-4xl font-bold" style={{ color: '#000000' }}>
                 Premium Materials
               </h2>
               <div className="space-y-8">
                 <div className="space-y-3">
                   <h3 className="font-serif text-2xl font-semibold" style={{ color: '#C0C0C0' }}>Sterling Silver</h3>
-                  <p style={{ color: '#5f5f5f' }}>925 sterling silver, renowned for its durability and brilliant shine. Hypoallergenic and perfect for everyday wear.</p>
+                  <p style={{ color: '#666666' }}>925 sterling silver, renowned for its durability and brilliant shine. Hypoallergenic and perfect for everyday wear.</p>
                 </div>
                 <div className="space-y-3">
                   <h3 className="font-serif text-2xl font-semibold" style={{ color: '#FFD700' }}>18K Gold</h3>
-                  <p style={{ color: '#5f5f5f' }}>Luxurious 18K gold plating over premium silver base. Rich, warm tone that develops a beautiful patina over time.</p>
+                  <p style={{ color: '#666666' }}>Luxurious 18K gold plating over premium silver base. Rich, warm tone that develops a beautiful patina over time.</p>
                 </div>
                 <div className="space-y-3">
                   <h3 className="font-serif text-2xl font-semibold" style={{ color: '#B76E79' }}>18K Rose Gold</h3>
-                  <p style={{ color: '#5f5f5f' }}>Romantic rose gold finish with copper alloy. Blends classic elegance with modern sophistication.</p>
+                  <p style={{ color: '#666666' }}>Romantic rose gold finish with copper alloy. Blends classic elegance with modern sophistication.</p>
                 </div>
               </div>
             </motion.div>
@@ -173,18 +173,18 @@ export default function About() {
             >
               <div className="grid grid-cols-2 gap-6">
                 <div className="space-y-6">
-                  <div className="rounded-2xl p-8 flex items-center justify-center" style={{ backgroundColor: '#f4f1e2' }}>
+                  <div className="rounded-2xl p-8 flex items-center justify-center" style={{ backgroundColor: '#FAFAFA' }}>
                     <ShapeSVG shape="circle" material="silver" size={120} />
                   </div>
-                  <div className="rounded-2xl p-8 flex items-center justify-center" style={{ backgroundColor: '#f4f1e2' }}>
+                  <div className="rounded-2xl p-8 flex items-center justify-center" style={{ backgroundColor: '#FAFAFA' }}>
                     <ShapeSVG shape="heart" material="rose-gold" size={120} />
                   </div>
                 </div>
                 <div className="space-y-6 pt-12">
-                  <div className="rounded-2xl p-8 flex items-center justify-center" style={{ backgroundColor: '#f4f1e2' }}>
+                  <div className="rounded-2xl p-8 flex items-center justify-center" style={{ backgroundColor: '#FAFAFA' }}>
                     <ShapeSVG shape="star" material="gold" size={120} />
                   </div>
-                  <div className="rounded-2xl p-8 flex items-center justify-center" style={{ backgroundColor: '#f4f1e2' }}>
+                  <div className="rounded-2xl p-8 flex items-center justify-center" style={{ backgroundColor: '#FAFAFA' }}>
                     <ShapeSVG shape="flower" material="silver" size={120} />
                   </div>
                 </div>
@@ -195,7 +195,7 @@ export default function About() {
       </section>
 
       {/* How Charms Are Made - Stepper Design */}
-      <section className="py-20" style={{ backgroundColor: '#0e0a0e' }}>
+      <section className="py-20" style={{ backgroundColor: '#000000' }}>
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -203,10 +203,10 @@ export default function About() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="font-serif text-4xl md:text-5xl font-bold mb-4" style={{ color: '#f4f1e2' }}>
+            <h2 className="font-serif text-4xl md:text-5xl font-bold mb-4" style={{ color: '#FFFFFF' }}>
               How Your Charm Is Made
             </h2>
-            <p className="text-xl" style={{ color: '#5f5f5f' }} max-w-2xl mx-auto>
+            <p className="text-xl" style={{ color: '#AAAAAA' }} max-w-2xl mx-auto>
               From your photo to a precious keepsake
             </p>
           </motion.div>
@@ -214,7 +214,7 @@ export default function About() {
           {/* Horizontal Stepper */}
           <div className="relative">
             {/* Progress Line */}
-            <div className="hidden md:block absolute top-8 left-0 right-0 h-0.5" style={{ backgroundColor: 'rgba(164, 131, 85, 0.3)' }} />
+            <div className="hidden md:block absolute top-8 left-0 right-0 h-0.5" style={{ backgroundColor: 'rgba(212, 165, 116, 0.3)' }} />
 
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
               {[
@@ -233,22 +233,22 @@ export default function About() {
                 >
                   {/* Circle with icon */}
                   <div className="relative mx-auto w-20 h-20 mb-4">
-                    <div className="absolute inset-0 rounded-full flex items-center justify-center" style={{ backgroundColor: '#a48355' }}>
-                      <item.icon className="w-10 h-10" style={{ color: '#f4f1e2' }} strokeWidth={1.5} />
+                    <div className="absolute inset-0 rounded-full flex items-center justify-center" style={{ backgroundColor: '#D4A574' }}>
+                      <item.icon className="w-10 h-10" style={{ color: '#FFFFFF' }} strokeWidth={1.5} />
                     </div>
                     {/* Step number badge */}
-                    <div className="absolute -top-1 -right-1 w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold" style={{ backgroundColor: '#e8d0b4', color: '#0e0a0e' }}>
+                    <div className="absolute -top-1 -right-1 w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold" style={{ backgroundColor: '#FAFAFA', color: '#000000' }}>
                       {item.step}
                     </div>
                   </div>
 
                   {/* Title */}
-                  <h3 className="font-serif text-xl font-semibold mb-2" style={{ color: '#f4f1e2' }}>
+                  <h3 className="font-serif text-xl font-semibold mb-2" style={{ color: '#FFFFFF' }}>
                     {item.title}
                   </h3>
 
                   {/* Description */}
-                  <p style={{ color: '#e8d0b4', fontSize: '0.875rem', lineHeight: '1.5' }}>
+                  <p style={{ color: '#AAAAAA', fontSize: '0.875rem', lineHeight: '1.5' }}>
                     {item.desc}
                   </p>
                 </motion.div>
@@ -267,7 +267,7 @@ export default function About() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="font-serif text-4xl md:text-5xl font-bold mb-4" style={{ color: '#0e0a0e' }}>
+            <h2 className="font-serif text-4xl md:text-5xl font-bold mb-4" style={{ color: '#000000' }}>
               Frequently Asked Questions
             </h2>
           </motion.div>
@@ -281,19 +281,19 @@ export default function About() {
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
                 className="rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300"
-                style={{ backgroundColor: '#e8d0b4' }}
+                style={{ backgroundColor: '#FAFAFA' }}
               >
                 <button
                   onClick={() => toggleFaq(index)}
                   className="w-full p-6 text-left flex items-center justify-between"
                 >
-                  <h3 className="font-serif text-xl font-semibold" style={{ color: '#0e0a0e' }}>
+                  <h3 className="font-serif text-xl font-semibold" style={{ color: '#000000' }}>
                     {faq.q}
                   </h3>
                   {openFaq === index ? (
-                    <ChevronUp className="w-5 h-5 flex-shrink-0" style={{ color: '#a48355' }} />
+                    <ChevronUp className="w-5 h-5 flex-shrink-0" style={{ color: '#D4A574' }} />
                   ) : (
-                    <ChevronDown className="w-5 h-5 flex-shrink-0" style={{ color: '#a48355' }} />
+                    <ChevronDown className="w-5 h-5 flex-shrink-0" style={{ color: '#D4A574' }} />
                   )}
                 </button>
                 <motion.div
@@ -305,7 +305,7 @@ export default function About() {
                   transition={{ duration: 0.3 }}
                   className="overflow-hidden"
                 >
-                  <div className="px-6 pb-6" style={{ color: '#5f5f5f' }}>
+                  <div className="px-6 pb-6" style={{ color: '#666666' }}>
                     {faq.a}
                   </div>
                 </motion.div>

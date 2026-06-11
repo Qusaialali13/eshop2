@@ -30,7 +30,7 @@ const QuantitySelector: React.FC<QuantitySelectorProps> = ({
               : 'hover:scale-105'
           }`}
           style={{
-            color: value === qty ? '#a48355' : '#0e0a0e',
+            color: value === qty ? '#D4A574' : '#000000',
           }}
         >
           {qty}
@@ -38,7 +38,7 @@ const QuantitySelector: React.FC<QuantitySelectorProps> = ({
             <motion.div
               layoutId="underline"
               className="absolute bottom-0 left-0 right-0 h-0.5"
-              style={{ backgroundColor: '#a48355' }}
+              style={{ backgroundColor: '#D4A574' }}
               initial={false}
               transition={{ type: 'spring', stiffness: 500, damping: 30 }}
             />

@@ -40,7 +40,7 @@ const PriceCalculator: React.FC<PriceCalculatorProps> = ({
           className="flex items-center justify-between"
         >
           <span className="text-gray-900 font-serif text-lg">Total</span>
-          <span className="text-gray-900 font-serif text-2xl font-bold text-amber-700">
+          <span className="text-gray-900 font-serif text-2xl font-bold" style={{ color: '#D4A574' }}>
             {formatPrice(totalPrice)}
           </span>
         </motion.div>
