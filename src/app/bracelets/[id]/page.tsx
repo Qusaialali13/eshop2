@@ -47,7 +47,7 @@ const bracelets: Bracelet[] = [
     basePrice: 89,
     description: "Elegant brown chain bracelet",
     allowedColors: ["black", "brown"],
-    defaultColor: "black",
+    defaultColor: "brown",
   },
 ];
 
