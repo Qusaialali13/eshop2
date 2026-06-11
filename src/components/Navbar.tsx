@@ -48,7 +48,7 @@ const Navbar = () => {
               whileHover={{ scale: 1.02, rotate: 2 }}
               transition={{ duration: 0.3 }}
             >
-              <Image src='/assets/Logos/Black_logo.png' height={48} width={150} alt='Logo'/>
+              <Image src='/assets/Logos/Colored_logo.png' height={48} width={150} alt='Logo'/>
             </motion.div>
             
           </Link>

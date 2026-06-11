@@ -57,7 +57,9 @@ export default function Home() {
               animate={{ opacity: currentSlide === index ? 1 : 0 }}
               transition={{ duration: 1 }}
               className="absolute inset-0"
-              style={{ backgroundImage:`url(${slide.image})`  }}
+              style={{ backgroundImage:`url(${slide.image})`, 
+            backgroundRepeat:'no-repeat',
+          backgroundSize:'cover' }}
             >
               <div className="absolute inset-0" style={{ backgroundColor: slide.overlay }} />
             </motion.div>
